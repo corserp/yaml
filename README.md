@@ -1,2 +1,0 @@
-# corserp
-ignore-git

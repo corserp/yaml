@@ -1,0 +1,45 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+lint:
+  name: yamllint
+  options:
+    config-file: ../../../resources/.yamllint
+platforms:
+  - name: instance-1
+    box: debian/jessie64
+    interfaces:
+      - auto_config: true
+        network_name: private_network
+        type: dhcp
+    groups:
+      - foo
+      - bar
+  - name: instance-2
+    box: debian/jessie64
+    interfaces:
+      - auto_config: true
+        network_name: private_network
+        type: dhcp
+    groups:
+      - foo
+      - baz
+provisioner:
+  name: ansible
+  playbooks:
+    create: ../../../../../resources/playbooks/vagrant/create.yml
+    destroy: ../../../../../resources/playbooks/vagrant/destroy.yml
+  env:
+    ANSIBLE_ROLES_PATH: ../../../../../resources/roles/
+  lint:
+    name: ansible-lint
+scenario:
+  name: multi-node
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

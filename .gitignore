@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /.bundle/
 /.yardoc
 /_yardoc/
@@ -6,3 +7,14 @@
 /pkg/
 /spec/reports/
 /tmp/
+=======
+MANIFEST
+.coverage
+build/
+dist/
+*.pyc
+*.o
+*.so
+.noseids
+*.sublime-workspace
+>>>>>>> abeb3f030da8c968ccc42c587512c2741151b8e4

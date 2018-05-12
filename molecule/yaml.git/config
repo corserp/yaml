@@ -6,8 +6,8 @@
 	symlinks = false
 	ignorecase = true
 [remote "origin"]
-	url = https://github.com/naturebigetloop/corser
+	url = https://github.com/naturebigetloop/corser.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "master"]
-	remote = origin
+	remote = origin 
 	merge = refs/heads/master

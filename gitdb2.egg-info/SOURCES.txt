@@ -1,0 +1,7 @@
+setup.py
+gitdb2.egg-info/PKG-INFO
+gitdb2.egg-info/SOURCES.txt
+gitdb2.egg-info/dependency_links.txt
+gitdb2.egg-info/not-zip-safe
+gitdb2.egg-info/requires.txt
+gitdb2.egg-info/top_level.txt

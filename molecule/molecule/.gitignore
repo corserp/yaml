@@ -1,0 +1,14 @@
+*.egg-info/
+*.py[cod]
+*.retry
+.bundle/
+.cache/
+.coverage
+.coverage.*
+.eggs/
+.molecule/
+.tox/
+.vagrant/
+doc/build/
+htmlcov/
+ubuntu-xenial-16.04-cloudimg-console.log

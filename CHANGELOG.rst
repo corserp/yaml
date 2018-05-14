@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *******
 History
 *******
@@ -1051,10 +1052,21 @@ Breaking Changes
 
 1.0.1
 =====
+=======
+CHANGELOG for molecule
+======================
+
+1.0.1
+----
+>>>>>>> Added a curated CHANGELOG
 
 * Fixed trailing validator, and broke out into a module.
 
 1.0
+<<<<<<< HEAD
 ===
+=======
+-----
+>>>>>>> Added a curated CHANGELOG
 
 * Initial release.

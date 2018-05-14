@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ************
 Contributing
 ************
@@ -5,6 +6,12 @@ Contributing
 * We are interested in various different kinds of improvement for Molecule;
   please feel free to raise an `Issue`_ if you would like to work on something
   major to ensure efficient collaboration and avoid duplicate effort.
+=======
+Contributing
+============
+
+* We are interested in various different kinds of improvement for Molecule; please feel free to raise an `Issue`_ if you would like to work on something major to ensure efficient collaboration and avoid duplicate effort.
+>>>>>>> initial commit
 * Create a topic branch from where you want to base your work.
 * Check for unnecessary whitespace with ``git diff --check`` before committing.
 * Make sure you have added tests for your changes.
@@ -12,6 +19,7 @@ Contributing
 * Reformat the code by following the formatting section below.
 * Submit a pull request.
 
+<<<<<<< HEAD
 .. _`Issue`: https://github.com/metacloud/molecule/issues
 
 Installing
@@ -40,3 +48,28 @@ To bring in updated upstream modules.  Update `gilt.yml` and execute the followi
 
 .. _`Ansible Goss`: https://github.com/indusbox/goss-ansible
 .. _`Gilt`: http://gilt.readthedocs.io
+=======
+Unit Testing
+------------
+
+Unit tests are performed by `Tox`_.
+
+.. code-block:: bash
+
+  $ tox
+
+Formatting
+----------
+
+The formatting is done using `YAPF`_.
+
+From the root for the project, run:
+
+.. code-block:: bash
+
+  $ yapf -i -r molecule/
+
+.. _`YAPF`: https://github.com/google/yapf
+.. _`Tox`: https://tox.readthedocs.org/en/latest
+.. _`Issue`: https://github.com/metacloud/molecule/issues
+>>>>>>> initial commit

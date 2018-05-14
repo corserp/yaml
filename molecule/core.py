@@ -40,7 +40,11 @@ from jinja2 import PackageLoader
 import molecule.validators as validators
 
 =======
+<<<<<<< HEAD
 >>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
+=======
+>>>>>>> initial commit
+>>>>>>> initialized
 
 class Molecule(object):
     # locations to look for a config file
@@ -234,7 +238,11 @@ class Molecule(object):
                     print l
                     sys.exit(1)
 
+<<<<<<< HEAD
 >>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
+=======
+>>>>>>> initial commit
+>>>>>>> initialized
     def _rubocop(self):
         try:
             pattern = self._config['serverspec_dir'] + '/**/*.rb'
@@ -384,7 +392,11 @@ class Molecule(object):
         validators.check_trailing_cruft(ignore_paths=self._config['ignore_paths'])
 =======
         self._trailing_validators()
+<<<<<<< HEAD
 >>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
+=======
+>>>>>>> initial commit
+>>>>>>> initialized
 
         # no tests found
         if not os.path.isdir(self._config['serverspec_dir']) and not os.path.isdir(self._config['testinfra_dir']):

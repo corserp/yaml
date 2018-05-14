@@ -48,3 +48,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 >>>>>>> gitdb
 >>>>>>> 545e91af3f9db9eb5caeecb6e644dab1a15d4349
 # gitdb
+# psych
+# new-role

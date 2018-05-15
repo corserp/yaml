@@ -1,0 +1,4 @@
+# ref: refs/remotes/metacloud/master
+
+# ref: refs/setup.py/docs
+source~tags/setup.cfg: setup.py/__GEMS_.py/doc~

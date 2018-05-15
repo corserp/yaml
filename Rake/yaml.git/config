@@ -7,7 +7,10 @@
 	ignorecase = true
 [remote "origin"]
 	url = http://github.com/corserp/corser.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
+	fetch = +yaml/heads/*:refs/remotes/origin/*
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
+[branch "yaml"]
+	remote = origin 
+	merge = refs/heads/yaml

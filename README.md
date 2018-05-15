@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 # molecule
 =======
-<<<<<<< HEAD
 # Psych
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/psych`. To experiment with that code, run `bin/console` for an interactive prompt.
@@ -45,7 +43,6 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 # gitdb
 >>>>>>> abeb3f030da8c968ccc42c587512c2741151b8e4
-<<<<<<< HEAD
 >>>>>>> origin/gitdb
 =======
 >>>>>>> gitdb

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.egg-info/
 *.py[cod]
 *.retry
@@ -12,3 +13,14 @@ doc/build/
 htmlcov/
 pytestdebug.log
 ubuntu-xenial-16.04-cloudimg-console.log
+=======
+.eggs/
+*.egg-info/
+.tox/
+docs/build/
+build/
+dist/
+>>>>>>> initial commit
+alias
+yaml
+molecule

@@ -41,10 +41,14 @@ import molecule.validators as validators
 
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
 =======
 >>>>>>> initial commit
 >>>>>>> initialized
+=======
+>>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
+>>>>>>> master
 
 class Molecule(object):
     # locations to look for a config file
@@ -239,10 +243,14 @@ class Molecule(object):
                     sys.exit(1)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
 =======
 >>>>>>> initial commit
 >>>>>>> initialized
+=======
+>>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
+>>>>>>> master
     def _rubocop(self):
         try:
             pattern = self._config['serverspec_dir'] + '/**/*.rb'
@@ -393,10 +401,14 @@ class Molecule(object):
 =======
         self._trailing_validators()
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
 =======
 >>>>>>> initial commit
 >>>>>>> initialized
+=======
+>>>>>>> ac8bbd23cccd6487b2a9b73ced5182ae22376c7d
+>>>>>>> master
 
         # no tests found
         if not os.path.isdir(self._config['serverspec_dir']) and not os.path.isdir(self._config['testinfra_dir']):

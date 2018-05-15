@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestRakeFileList - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Rake/TestCase.html">Rake::TestCase</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">FileList</span>
+  
+  
+  
+    <li><span class="include">Pathname</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-test_add_default_exclude_list">#test_add_default_exclude_list</a>
+    
+    <li ><a href="#method-i-test_add_many">#test_add_many</a>
+    
+    <li ><a href="#method-i-test_add_matching">#test_add_matching</a>
+    
+    <li ><a href="#method-i-test_add_return">#test_add_return</a>
+    
+    <li ><a href="#method-i-test_append">#test_append</a>
+    
+    <li ><a href="#method-i-test_append_pathname">#test_append_pathname</a>
+    
+    <li ><a href="#method-i-test_array_comparisons">#test_array_comparisons</a>
+    
+    <li ><a href="#method-i-test_array_equality">#test_array_equality</a>
+    
+    <li ><a href="#method-i-test_array_operators">#test_array_operators</a>
+    
+    <li ><a href="#method-i-test_basic_array_functions">#test_basic_array_functions</a>
+    
+    <li ><a href="#method-i-test_claim_to_be_a_filelist_instance">#test_claim_to_be_a_filelist_instance</a>
+    
+    <li ><a href="#method-i-test_claim_to_be_a_kind_of_array">#test_claim_to_be_a_kind_of_array</a>
+    
+    <li ><a href="#method-i-test_claim_to_be_a_kind_of_filelist">#test_claim_to_be_a_kind_of_filelist</a>
+    
+    <li ><a href="#method-i-test_clear_ignore_patterns">#test_clear_ignore_patterns</a>
+    
+    <li ><a href="#method-i-test_clone_and_dup">#test_clone_and_dup</a>
+    
+    <li ><a href="#method-i-test_cloned_items_stay_frozen">#test_cloned_items_stay_frozen</a>
+    
+    <li ><a href="#method-i-test_create">#test_create</a>
+    
+    <li ><a href="#method-i-test_create_with_args">#test_create_with_args</a>
+    
+    <li ><a href="#method-i-test_create_with_block">#test_create_with_block</a>
+    
+    <li ><a href="#method-i-test_create_with_brackets">#test_create_with_brackets</a>
+    
+    <li ><a href="#method-i-test_create_with_brackets_and_filelist">#test_create_with_brackets_and_filelist</a>
+    
+    <li ><a href="#method-i-test_create_with_pathname">#test_create_with_pathname</a>
+    
+    <li ><a href="#method-i-test_curly_bracket_pattern">#test_curly_bracket_pattern</a>
+    
+    <li ><a href="#method-i-test_default_exclude">#test_default_exclude</a>
+    
+    <li ><a href="#method-i-test_delegating_methods_do_not_include_to_a_or_to_ary">#test_delegating_methods_do_not_include_to_a_or_to_ary</a>
+    
+    <li ><a href="#method-i-test_dont_claim_to_be_an_array_instance">#test_dont_claim_to_be_an_array_instance</a>
+    
+    <li ><a href="#method-i-test_dup_and_clone_replicate_taint">#test_dup_and_clone_replicate_taint</a>
+    
+    <li ><a href="#method-i-test_duped_items_will_thaw">#test_duped_items_will_thaw</a>
+    
+    <li ><a href="#method-i-test_egrep_returns_0_if_no_matches">#test_egrep_returns_0_if_no_matches</a>
+    
+    <li ><a href="#method-i-test_egrep_with_block">#test_egrep_with_block</a>
+    
+    <li ><a href="#method-i-test_egrep_with_error">#test_egrep_with_error</a>
+    
+    <li ><a href="#method-i-test_egrep_with_output">#test_egrep_with_output</a>
+    
+    <li ><a href="#method-i-test_enumeration_methods">#test_enumeration_methods</a>
+    
+    <li ><a href="#method-i-test_exclude">#test_exclude</a>
+    
+    <li ><a href="#method-i-test_exclude_pathname">#test_exclude_pathname</a>
+    
+    <li ><a href="#method-i-test_exclude_return_on_create">#test_exclude_return_on_create</a>
+    
+    <li ><a href="#method-i-test_exclude_with_alternate_file_seps">#test_exclude_with_alternate_file_seps</a>
+    
+    <li ><a href="#method-i-test_exclude_with_string_return_on_create">#test_exclude_with_string_return_on_create</a>
+    
+    <li ><a href="#method-i-test_excluding_via_block">#test_excluding_via_block</a>
+    
+    <li ><a href="#method-i-test_existing">#test_existing</a>
+    
+    <li ><a href="#method-i-test_existing-21">#test_existing!</a>
+    
+    <li ><a href="#method-i-test_file_utils_can_use_filelists">#test_file_utils_can_use_filelists</a>
+    
+    <li ><a href="#method-i-test_filelist_ext">#test_filelist_ext</a>
+    
+    <li ><a href="#method-i-test_flatten">#test_flatten</a>
+    
+    <li ><a href="#method-i-test_gsub">#test_gsub</a>
+    
+    <li ><a href="#method-i-test_gsub-21">#test_gsub!</a>
+    
+    <li ><a href="#method-i-test_ignore_special">#test_ignore_special</a>
+    
+    <li ><a href="#method-i-test_include_with_another_array">#test_include_with_another_array</a>
+    
+    <li ><a href="#method-i-test_include_with_another_filelist">#test_include_with_another_filelist</a>
+    
+    <li ><a href="#method-i-test_include_with_pathname">#test_include_with_pathname</a>
+    
+    <li ><a href="#method-i-test_inspect_pending">#test_inspect_pending</a>
+    
+    <li ><a href="#method-i-test_match">#test_match</a>
+    
+    <li ><a href="#method-i-test_multiple_patterns">#test_multiple_patterns</a>
+    
+    <li ><a href="#method-i-test_other_array_returning_methods">#test_other_array_returning_methods</a>
+    
+    <li ><a href="#method-i-test_reject">#test_reject</a>
+    
+    <li ><a href="#method-i-test_special_return_delegating_methods_object_type">#test_special_return_delegating_methods_object_type</a>
+    
+    <li ><a href="#method-i-test_square_bracket_pattern">#test_square_bracket_pattern</a>
+    
+    <li ><a href="#method-i-test_string_ext">#test_string_ext</a>
+    
+    <li ><a href="#method-i-test_sub">#test_sub</a>
+    
+    <li ><a href="#method-i-test_sub-21">#test_sub!</a>
+    
+    <li ><a href="#method-i-test_sub_with_block">#test_sub_with_block</a>
+    
+    <li ><a href="#method-i-test_to_array">#test_to_array</a>
+    
+    <li ><a href="#method-i-test_to_s_pending">#test_to_s_pending</a>
+    
+    <li ><a href="#method-i-test_to_string">#test_to_string</a>
+    
+    <li ><a href="#method-i-test_unique">#test_unique</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestRakeFileList">
+  <h1 id="class-TestRakeFileList" class="class">
+    class TestRakeFileList
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FileList">FileList
+        
+        <dd><p>A <a href="Rake/FileList.html">FileList</a> is essentially an array with a
+few helper methods defined to make file manipulation a bit easier.</p>
+
+<p>FileLists are lazy.  When given a list of glob patterns for possible files
+to be included in the file list, instead of searching the file structures
+to find the files, a <a href="Rake/FileList.html">FileList</a> holds the
+pattern for latter use.</p>
+
+<p>This allows us to define a number of <a
+href="Rake/FileList.html">FileList</a> to match any number of files, but
+only search out the actual files when then <a
+href="Rake/FileList.html">FileList</a> itself is actually used.  The key is
+that the first time an element of the FileList/Array is requested, the
+pending patterns are resolved into a real list of file names.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Rake/TestCase.html#method-i-setup">Rake::TestCase#setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-string">&quot;CVS&quot;</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-string">&quot;.svn&quot;</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@cdir</span> = <span class="ruby-string">&quot;cfiles&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-ivar">@cdir</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;.dummy&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;x.bak&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;x~&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;core&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;x.c&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;xyz.c&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;abc.c&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;abc.h&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;abc.x&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&quot;existing&quot;</span>
+
+  <span class="ruby-identifier">open</span> <span class="ruby-string">&#39;xyzzy.txt&#39;</span>, <span class="ruby-string">&#39;w&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">io</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;x&#39;</span>
+    <span class="ruby-identifier">io</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;XYZZY&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_add_default_exclude_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_add_default_exclude_list</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_add_default_exclude_list-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 443</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_add_default_exclude_list</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-regexp">/~\d+$/</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x/CVS/y&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x\\CVS\\y&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x/.svn/y&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x\\.svn\\y&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x/core&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x\\core&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x/abc~1&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_add_many" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_add_many</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_add_many-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_add_many</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span> <span class="ruby-node">%w(a d c)</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>], <span class="ruby-identifier">fl</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>], <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">resolve</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_add_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_add_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_add_matching-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_add_matching</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;a.java&quot;</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span> <span class="ruby-string">&#39;*.c&#39;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w[a.java abc.c x.c xyz.c]</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_add_return" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_add_return</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_add_return-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_add_return</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">g</span> = <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;x&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">object_id</span>, <span class="ruby-identifier">g</span>.<span class="ruby-identifier">object_id</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&quot;y&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">object_id</span>, <span class="ruby-identifier">h</span>.<span class="ruby-identifier">object_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_append" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_append</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_append-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_append</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;a.rb&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;b.rb&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a.rb&#39;</span>, <span class="ruby-string">&#39;b.rb&#39;</span>], <span class="ruby-identifier">fl</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_append_pathname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_append_pathname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_append_pathname-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_append_pathname</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;a.rb&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a.rb&#39;</span>], <span class="ruby-identifier">fl</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_comparisons" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_comparisons</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_comparisons-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 508</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_array_comparisons</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]
+  <span class="ruby-identifier">a</span> = [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>]
+  <span class="ruby-identifier">b</span> = [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]
+  <span class="ruby-identifier">c</span> = [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>]
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1</span>,  <span class="ruby-identifier">fl</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>,  <span class="ruby-identifier">fl</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">-1</span>, <span class="ruby-identifier">fl</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">c</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">-1</span>, <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">fl</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>,  <span class="ruby-identifier">b</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">fl</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1</span>,  <span class="ruby-identifier">c</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">fl</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_equality" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_equality</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_equality-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 521</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_array_equality</span>
+    <span class="ruby-identifier">a</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]
+    <span class="ruby-identifier">b</span> = [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]
+    <span class="ruby-identifier">assert</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">b</span>
+    <span class="ruby-identifier">assert</span> <span class="ruby-identifier">b</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">a</span>
+<span class="ruby-comment">#   assert a.eql?(b)</span>
+<span class="ruby-comment">#    assert b.eql?(a)</span>
+    <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">b</span>)
+    <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">a</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_operators" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_operators</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_operators-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 579</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_array_operators</span>
+  <span class="ruby-identifier">a</span> = [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]
+  <span class="ruby-identifier">b</span> = [<span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>]
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>]
+  <span class="ruby-identifier">g</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;w&#39;</span>, <span class="ruby-string">&#39;z&#39;</span>]
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">g</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>, <span class="ruby-string">&#39;z&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">a</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">g</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>, <span class="ruby-string">&#39;z&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Array</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;w&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;z&#39;</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">f</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;w&#39;</span>, <span class="ruby-string">&#39;z&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;w&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;z&#39;</span>] <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">f</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span> <span class="ruby-operator">*</span> <span class="ruby-string">&#39;,&#39;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;x,y&#39;</span>, <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">String</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span> <span class="ruby-operator">|</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>].<span class="ruby-identifier">sort</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_basic_array_functions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_basic_array_functions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_basic_array_functions-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 455</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_basic_array_functions</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-identifier">f</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-identifier">f</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-identifier">f</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-identifier">f</span>[<span class="ruby-value">2</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-identifier">f</span>[<span class="ruby-value">-1</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-identifier">f</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">sort!</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-identifier">f</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_claim_to_be_a_filelist_instance" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_claim_to_be_a_filelist_instance</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_claim_to_be_a_filelist_instance-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 286</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_claim_to_be_a_filelist_instance</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.c&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">FileList</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_claim_to_be_a_kind_of_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_claim_to_be_a_kind_of_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_claim_to_be_a_kind_of_array-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_claim_to_be_a_kind_of_array</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.c&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_claim_to_be_a_kind_of_filelist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_claim_to_be_a_kind_of_filelist</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_claim_to_be_a_kind_of_filelist-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 280</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_claim_to_be_a_kind_of_filelist</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.c&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">FileList</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">FileList</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_clear_ignore_patterns" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clear_ignore_patterns</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clear_ignore_patterns-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 422</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear_ignore_patterns</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*&#39;</span>, <span class="ruby-string">&#39;.svn&#39;</span>]
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">clear_exclude</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;abc.c&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;xyz.c&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;CVS&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;.svn&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;x.bak&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;x~&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_clone_and_dup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clone_and_dup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clone_and_dup-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 472</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clone_and_dup</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>]
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;d&#39;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>], <span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-identifier">c</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-identifier">d</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_cloned_items_stay_frozen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_cloned_items_stay_frozen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_cloned_items_stay_frozen-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 499</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_cloned_items_stay_frozen</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>]
+  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">freeze</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">TypeError</span>, <span class="ruby-constant">RuntimeError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">c</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;more&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create_with_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create_with_args</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create_with_args-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create_with_args</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;*.c&quot;</span>, <span class="ruby-string">&quot;x&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.c&quot;</span>, <span class="ruby-string">&quot;x.c&quot;</span>, <span class="ruby-string">&quot;xyz.c&quot;</span>, <span class="ruby-string">&quot;x&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create_with_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create_with_block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create_with_block-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create_with_block</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&quot;x&quot;</span>) }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;x&quot;</span>], <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">resolve</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create_with_brackets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create_with_brackets</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create_with_brackets-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create_with_brackets</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&quot;*.c&quot;</span>, <span class="ruby-string">&quot;x&quot;</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.c&quot;</span>, <span class="ruby-string">&quot;x.c&quot;</span>, <span class="ruby-string">&quot;xyz.c&quot;</span>, <span class="ruby-string">&quot;x&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create_with_brackets_and_filelist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create_with_brackets_and_filelist</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create_with_brackets_and_filelist-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create_with_brackets_and_filelist</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-constant">FileList</span>[<span class="ruby-string">&quot;*.c&quot;</span>, <span class="ruby-string">&quot;x&quot;</span>]]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.c&quot;</span>, <span class="ruby-string">&quot;x.c&quot;</span>, <span class="ruby-string">&quot;xyz.c&quot;</span>, <span class="ruby-string">&quot;x&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create_with_pathname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create_with_pathname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create_with_pathname-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create_with_pathname</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;*.c&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.c&quot;</span>, <span class="ruby-string">&quot;x.c&quot;</span>, <span class="ruby-string">&quot;xyz.c&quot;</span>].<span class="ruby-identifier">sort</span>,
+               <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_curly_bracket_pattern" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_curly_bracket_pattern</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_curly_bracket_pattern-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_curly_bracket_pattern</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&quot;abc.{c,h}&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;abc.c&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;abc.h&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_default_exclude" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_default_exclude</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_default_exclude-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_default_exclude</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">clear_exclude</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&quot;**/*~&quot;</span>, <span class="ruby-string">&quot;**/*.bak&quot;</span>, <span class="ruby-string">&quot;**/core&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-string">&quot;core&quot;</span>), <span class="ruby-string">&quot;Should include core&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-string">&quot;x.bak&quot;</span>), <span class="ruby-string">&quot;Should include .bak files&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_delegating_methods_do_not_include_to_a_or_to_ary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_delegating_methods_do_not_include_to_a_or_to_ary</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_delegating_methods_do_not_include_to_a_or_to_ary-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_delegating_methods_do_not_include_to_a_or_to_ary</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-constant">FileList</span><span class="ruby-operator">::</span><span class="ruby-constant">DELEGATING_METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;to_a&quot;</span>), <span class="ruby-string">&quot;should not include to_a&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-constant">FileList</span><span class="ruby-operator">::</span><span class="ruby-constant">DELEGATING_METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:to_a</span>), <span class="ruby-string">&quot;should not include to_a&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-constant">FileList</span><span class="ruby-operator">::</span><span class="ruby-constant">DELEGATING_METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;to_ary&quot;</span>), <span class="ruby-string">&quot;should not include to_ary&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-constant">FileList</span><span class="ruby-operator">::</span><span class="ruby-constant">DELEGATING_METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:to_ary</span>), <span class="ruby-string">&quot;should not include to_ary&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_dont_claim_to_be_an_array_instance" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_dont_claim_to_be_an_array_instance</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_dont_claim_to_be_an_array_instance-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_dont_claim_to_be_an_array_instance</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.c&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Array</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_dup_and_clone_replicate_taint" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_dup_and_clone_replicate_taint</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_dup_and_clone_replicate_taint-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 482</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_dup_and_clone_replicate_taint</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>]
+  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">taint</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">tainted?</span>, <span class="ruby-string">&quot;Clone should be tainted&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">tainted?</span>, <span class="ruby-string">&quot;Dup should be tainted&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_duped_items_will_thaw" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_duped_items_will_thaw</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_duped_items_will_thaw-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 491</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_duped_items_will_thaw</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>]
+  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">freeze</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">d</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;more&#39;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;more&#39;</span>], <span class="ruby-identifier">d</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_egrep_returns_0_if_no_matches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_egrep_returns_0_if_no_matches</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_egrep_returns_0_if_no_matches-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 361</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_egrep_returns_0_if_no_matches</span>
+  <span class="ruby-identifier">files</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;test/lib/*_test.rb&#39;</span>].<span class="ruby-identifier">exclude</span>(<span class="ruby-string">&quot;test/lib/filelist_test.rb&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">files</span>.<span class="ruby-identifier">egrep</span>(<span class="ruby-regexp">/XYZZY/</span>) { }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_egrep_with_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_egrep_with_block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_egrep_with_block-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 376</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_egrep_with_block</span>
+  <span class="ruby-identifier">files</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.txt&#39;</span>]
+  <span class="ruby-identifier">found</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">files</span>.<span class="ruby-identifier">egrep</span>(<span class="ruby-regexp">/XYZZY/</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span>, <span class="ruby-identifier">ln</span>, <span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">found</span> = [<span class="ruby-identifier">fn</span>, <span class="ruby-identifier">ln</span>, <span class="ruby-identifier">line</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;xyzzy.txt&quot;</span>, <span class="ruby-value">2</span>, <span class="ruby-string">&quot;XYZZY\n&quot;</span>], <span class="ruby-identifier">found</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_egrep_with_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_egrep_with_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_egrep_with_error-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 387</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_egrep_with_error</span>
+  <span class="ruby-identifier">files</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.txt&#39;</span>]
+
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">files</span>.<span class="ruby-identifier">egrep</span>(<span class="ruby-regexp">/XYZZY/</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span>, <span class="ruby-identifier">ln</span>, <span class="ruby-identifier">line</span> <span class="ruby-operator">|</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;_EGREP_FAILURE_&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Error while processing &#39;xyzzy.txt&#39;: _EGREP_FAILURE_\n&quot;</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_egrep_with_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_egrep_with_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_egrep_with_output-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 366</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_egrep_with_output</span>
+  <span class="ruby-identifier">files</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.txt&#39;</span>]
+
+  <span class="ruby-identifier">out</span>, = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">files</span>.<span class="ruby-identifier">egrep</span>(<span class="ruby-regexp">/XYZZY/</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;xyzzy.txt:2:XYZZY\n&quot;</span>, <span class="ruby-identifier">out</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_enumeration_methods" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_enumeration_methods</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_enumeration_methods-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 532</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_enumeration_methods</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">it</span><span class="ruby-operator">|</span> <span class="ruby-identifier">it</span>.<span class="ruby-identifier">upcase</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-string">&#39;B&#39;</span>], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">it</span><span class="ruby-operator">|</span> <span class="ruby-identifier">it</span>.<span class="ruby-identifier">upcase</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-string">&#39;B&#39;</span>], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">it</span><span class="ruby-operator">|</span> <span class="ruby-identifier">it</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">it</span><span class="ruby-operator">|</span> <span class="ruby-identifier">it</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;b&#39;</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">it</span><span class="ruby-operator">|</span> <span class="ruby-identifier">it</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">it</span><span class="ruby-operator">|</span> <span class="ruby-identifier">it</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;b&#39;</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp">/./</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">partition</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">it</span><span class="ruby-operator">|</span> <span class="ruby-identifier">it</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;b&#39;</span> }
+  <span class="ruby-identifier">assert_equal</span> [[<span class="ruby-string">&#39;b&#39;</span>], [<span class="ruby-string">&#39;a&#39;</span>]], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Array</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>,  <span class="ruby-identifier">b</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">zip</span>([<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>]).<span class="ruby-identifier">to_a</span>
+  <span class="ruby-identifier">assert_equal</span> [[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>], [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>]], <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Array</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Array</span>, <span class="ruby-identifier">b</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Array</span>, <span class="ruby-identifier">b</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exclude" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exclude</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exclude-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_exclude</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;x.c&#39;</span>, <span class="ruby-string">&#39;abc.c&#39;</span>, <span class="ruby-string">&#39;xyz.c&#39;</span>, <span class="ruby-string">&#39;existing&#39;</span>]
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">touch</span> <span class="ruby-identifier">fn</span>, <span class="ruby-value">:verbose</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span> }
+
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-regexp">%r{^x.+\.}</span>)
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">x</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w(x.c abc.c existing)</span>, <span class="ruby-identifier">fl</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">object_id</span>, <span class="ruby-identifier">x</span>.<span class="ruby-identifier">object_id</span>
+
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-string">&#39;*.c&#39;</span>)
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;existing&#39;</span>], <span class="ruby-identifier">fl</span>
+
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-string">&#39;existing&#39;</span>)
+
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">fl</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exclude_pathname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exclude_pathname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exclude_pathname-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_exclude_pathname</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;x.c&#39;</span>, <span class="ruby-string">&#39;abc.c&#39;</span>, <span class="ruby-string">&#39;other&#39;</span>]
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">touch</span> <span class="ruby-identifier">fn</span>, <span class="ruby-value">:verbose</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span> }
+
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;*.c&#39;</span>))
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;other&#39;</span>], <span class="ruby-identifier">fl</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exclude_return_on_create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exclude_return_on_create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exclude_return_on_create-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_exclude_return_on_create</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*&#39;</span>].<span class="ruby-identifier">exclude</span>(<span class="ruby-regexp">/.*\.[hcx]$/</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w[cfiles existing xyzzy.txt]</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exclude_with_alternate_file_seps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exclude_with_alternate_file_seps</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exclude_with_alternate_file_seps-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 433</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_exclude_with_alternate_file_seps</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x/CVS/y&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x\\CVS\\y&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x/.svn/y&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x\\.svn\\y&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x/core&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;x\\core&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exclude_with_string_return_on_create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exclude_with_string_return_on_create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exclude_with_string_return_on_create-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_exclude_with_string_return_on_create</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*&#39;</span>].<span class="ruby-identifier">exclude</span>(<span class="ruby-string">&#39;abc.c&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w[abc.h abc.x cfiles existing x.c xyz.c xyzzy.txt]</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_excluding_via_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_excluding_via_block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_excluding_via_block-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_excluding_via_block</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a.c&#39;</span>, <span class="ruby-string">&#39;b.c&#39;</span>, <span class="ruby-string">&#39;xyz.c&#39;</span>]
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">exclude</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fn</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&#39;%n&#39;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&#39;xyz&#39;</span> }
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">excluded_from_list?</span>(<span class="ruby-string">&quot;xyz.c&quot;</span>), <span class="ruby-string">&quot;Should exclude xyz.c&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a.c&#39;</span>, <span class="ruby-string">&#39;b.c&#39;</span>], <span class="ruby-identifier">fl</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_existing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_existing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_existing-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 399</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_existing</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;abc.c&#39;</span>, <span class="ruby-string">&#39;notthere.c&#39;</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.c&quot;</span>], <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">existing</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">existing</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">FileList</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_existing-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_existing!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_existing-21-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_existing!</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;abc.c&#39;</span>, <span class="ruby-string">&#39;notthere.c&#39;</span>]
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">existing!</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.c&quot;</span>], <span class="ruby-identifier">fl</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">object_id</span>, <span class="ruby-identifier">result</span>.<span class="ruby-identifier">object_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_file_utils_can_use_filelists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_file_utils_can_use_filelists</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_file_utils_can_use_filelists-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 660</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_utils_can_use_filelists</span>
+  <span class="ruby-identifier">cfiles</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.c&#39;</span>]
+
+  <span class="ruby-identifier">cp</span> <span class="ruby-identifier">cfiles</span>, <span class="ruby-ivar">@cdir</span>, <span class="ruby-value">:verbose</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@cdir</span>, <span class="ruby-string">&#39;abc.c&#39;</span>))
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@cdir</span>, <span class="ruby-string">&#39;xyz.c&#39;</span>))
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@cdir</span>, <span class="ruby-string">&#39;x.c&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_filelist_ext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_filelist_ext</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_filelist_ext-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_filelist_ext</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;one.c&#39;</span>, <span class="ruby-string">&#39;.one.c&#39;</span>],
+    <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;one.net&#39;</span>, <span class="ruby-string">&#39;.one&#39;</span>].<span class="ruby-identifier">ext</span>(<span class="ruby-string">&#39;c&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_flatten" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_flatten</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_flatten-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 467</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_flatten</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;x.c&#39;</span>, <span class="ruby-string">&#39;xyz.c&#39;</span>, <span class="ruby-string">&#39;abc.c&#39;</span>].<span class="ruby-identifier">sort</span>,
+    [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*.c&#39;</span>]].<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_gsub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_gsub</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_gsub-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_gsub</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&quot;*.c&quot;</span>]
+  <span class="ruby-identifier">f2</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/a/</span>, <span class="ruby-string">&quot;A&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;Abc.c&quot;</span>, <span class="ruby-string">&quot;x.c&quot;</span>, <span class="ruby-string">&quot;xyz.c&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">f2</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_gsub-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_gsub!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_gsub-21-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 354</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_gsub!</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&quot;*.c&quot;</span>]
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/a/</span>, <span class="ruby-string">&quot;A&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;Abc.c&quot;</span>, <span class="ruby-string">&quot;x.c&quot;</span>, <span class="ruby-string">&quot;xyz.c&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ignore_special" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ignore_special</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ignore_special-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 412</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_ignore_special</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;*&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;CVS&quot;</span>), <span class="ruby-string">&quot;Should not contain CVS&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;.svn&quot;</span>), <span class="ruby-string">&quot;Should not contain .svn&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;.dummy&quot;</span>), <span class="ruby-string">&quot;Should not contain dot files&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;x.bak&quot;</span>), <span class="ruby-string">&quot;Should not contain .bak files&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;x~&quot;</span>), <span class="ruby-string">&quot;Should not contain ~ files&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;core&quot;</span>), <span class="ruby-string">&quot;Should not contain core files&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_include_with_another_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_include_with_another_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_include_with_another_array-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_include_with_another_array</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">include</span>([<span class="ruby-string">&quot;x&quot;</span>, <span class="ruby-string">&quot;y&quot;</span>, <span class="ruby-string">&quot;z&quot;</span>])
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;x&quot;</span>, <span class="ruby-string">&quot;y&quot;</span>, <span class="ruby-string">&quot;z&quot;</span>].<span class="ruby-identifier">sort</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_include_with_another_filelist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_include_with_another_filelist</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_include_with_another_filelist-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_include_with_another_filelist</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">include</span>(<span class="ruby-constant">FileList</span>[<span class="ruby-string">&quot;*.c&quot;</span>, <span class="ruby-string">&quot;x&quot;</span>])
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.c&quot;</span>, <span class="ruby-string">&quot;x.c&quot;</span>, <span class="ruby-string">&quot;xyz.c&quot;</span>, <span class="ruby-string">&quot;x&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_include_with_pathname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_include_with_pathname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_include_with_pathname-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_include_with_pathname</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">include</span>(<span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;*.c&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.c&quot;</span>, <span class="ruby-string">&quot;x.c&quot;</span>, <span class="ruby-string">&quot;xyz.c&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_inspect_pending" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_inspect_pending</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_inspect_pending-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_inspect_pending</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;abc.*&#39;</span>]
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">inspect</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">%r{&quot;abc\.c&quot;}</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">%r{&quot;abc\.h&quot;}</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">%r{&quot;abc\.x&quot;}</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">%r|^\[(&quot;abc\..&quot;, ){2}&quot;abc\..&quot;\]$|</span>, <span class="ruby-identifier">result</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_match</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_match-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_match</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span> <span class="ruby-string">&#39;*.c&#39;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w[abc.c x.c xyz.c]</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_multiple_patterns" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_multiple_patterns</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_multiple_patterns-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_patterns</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&#39;*.z&#39;</span>, <span class="ruby-string">&#39;*foo*&#39;</span>)
+
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">fl</span>
+
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&#39;*.c&#39;</span>, <span class="ruby-string">&#39;*xist*&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w[x.c xyz.c abc.c existing]</span>.<span class="ruby-identifier">sort</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_other_array_returning_methods" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_other_array_returning_methods</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_other_array_returning_methods-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 618</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_other_array_returning_methods</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;b&#39;</span>]
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">compact</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>]
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">concat</span>([<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>])
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;d&#39;</span>, <span class="ruby-string">&#39;e&#39;</span>]]
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">flatten</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>, <span class="ruby-string">&#39;e&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>]
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">uniq</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>]
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-value">1</span>, <span class="ruby-value">3</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;d&#39;</span>], <span class="ruby-identifier">r</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_reject" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_reject</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_reject-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_reject</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span> <span class="ruby-node">%w(x.c abc.c xyz.c existing)</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fn</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^x/</span> }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w[abc.c existing]</span>, <span class="ruby-identifier">fl</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_special_return_delegating_methods_object_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_special_return_delegating_methods_object_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_special_return_delegating_methods_object_type-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 645</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_special_return_delegating_methods_object_type</span>
+  <span class="ruby-identifier">custom_file_list</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">FileList</span>)
+  <span class="ruby-identifier">f</span> = <span class="ruby-identifier">custom_file_list</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-constant">FileList</span><span class="ruby-operator">::</span><span class="ruby-constant">SPECIAL_RETURN</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-keyword">if</span> [].<span class="ruby-identifier">method</span>(<span class="ruby-identifier">m</span>).<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">f</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">m</span>, [])
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">f</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">m</span>)
+        <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">custom_file_list</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_square_bracket_pattern" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_square_bracket_pattern</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_square_bracket_pattern-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_square_bracket_pattern</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&quot;abc.[ch]&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;abc.c&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;abc.h&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_string_ext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_string_ext</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_string_ext-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 317</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_string_ext</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.net&quot;</span>, <span class="ruby-string">&quot;one.two&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.net&quot;</span>, <span class="ruby-string">&quot;one.two&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.net&quot;</span>, <span class="ruby-string">&quot;one&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.net&quot;</span>, <span class="ruby-string">&quot;one&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.two.net&quot;</span>, <span class="ruby-string">&quot;one.two.c&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one/two.net&quot;</span>, <span class="ruby-string">&quot;one/two.c&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.x/two.net&quot;</span>, <span class="ruby-string">&quot;one.x/two.c&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.x/two.net&quot;</span>, <span class="ruby-string">&quot;one.x/two&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.onerc.net&quot;</span>, <span class="ruby-string">&quot;.onerc.dot&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.onerc.net&quot;</span>, <span class="ruby-string">&quot;.onerc&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.a/.onerc.net&quot;</span>, <span class="ruby-string">&quot;.a/.onerc&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;net&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one&quot;</span>, <span class="ruby-string">&quot;one.two&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one&quot;</span>, <span class="ruby-string">&quot;one.two&quot;</span>.<span class="ruby-identifier">ext</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.one&quot;</span>, <span class="ruby-string">&quot;.one.two&quot;</span>.<span class="ruby-identifier">ext</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.one&quot;</span>, <span class="ruby-string">&quot;.one&quot;</span>.<span class="ruby-identifier">ext</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.&quot;</span>, <span class="ruby-string">&quot;.&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;c&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;..&quot;</span>, <span class="ruby-string">&quot;..&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;c&quot;</span>)
+  <span class="ruby-comment"># These only need to work in windows</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Win32</span>.<span class="ruby-identifier">windows?</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.x\\two.net&quot;</span>, <span class="ruby-string">&quot;one.x\\two.c&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.net&quot;</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;one.x\\two.net&quot;</span>, <span class="ruby-string">&quot;one.x\\two&quot;</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.net&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sub</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sub-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sub</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&quot;*.c&quot;</span>]
+  <span class="ruby-identifier">f2</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\.c$/</span>, <span class="ruby-string">&quot;.o&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">f2</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.o&quot;</span>, <span class="ruby-string">&quot;x.o&quot;</span>, <span class="ruby-string">&quot;xyz.o&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">f2</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-identifier">f3</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\.c$/</span>, <span class="ruby-string">&quot;.o&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">FileList</span>, <span class="ruby-identifier">f3</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc.o&quot;</span>, <span class="ruby-string">&quot;x.o&quot;</span>, <span class="ruby-string">&quot;xyz.o&quot;</span>].<span class="ruby-identifier">sort</span>,
+    <span class="ruby-identifier">f3</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sub-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sub!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sub-21-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sub!</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-string">&quot;x/a.c&quot;</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-identifier">f</span>, <span class="ruby-string">&quot;x/b.c&quot;</span>]
+  <span class="ruby-identifier">res</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\.c$/</span>, <span class="ruby-string">&quot;.o&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;x/a.o&quot;</span>, <span class="ruby-string">&quot;x/b.o&quot;</span>].<span class="ruby-identifier">sort</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;x/a.c&quot;</span>, <span class="ruby-identifier">f</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">object_id</span>, <span class="ruby-identifier">res</span>.<span class="ruby-identifier">object_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sub_with_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sub_with_block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sub_with_block-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 305</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sub_with_block</span>
+    <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&quot;src/org/onestepback/a.java&quot;</span>, <span class="ruby-string">&quot;src/org/onestepback/b.java&quot;</span>]
+<span class="ruby-comment"># The block version doesn&#39;t work the way I want it to ...</span>
+<span class="ruby-comment">#    f2 = fl.sub(%r{^src/(.*)\.java$}) { |x|  &quot;classes/&quot; + $1 + &quot;.class&quot; }</span>
+    <span class="ruby-identifier">f2</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">%r{^src/(.*)\.java$}</span>, <span class="ruby-string">&quot;classes/\\1.class&quot;</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&quot;classes/org/onestepback/a.class&quot;</span>,
+      <span class="ruby-string">&quot;classes/org/onestepback/b.class&quot;</span>
+    ].<span class="ruby-identifier">sort</span>,
+      <span class="ruby-identifier">f2</span>.<span class="ruby-identifier">sort</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_array-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_to_array</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;a.java&#39;</span>, <span class="ruby-string">&#39;b.java&#39;</span>]
+  <span class="ruby-identifier">assert_equal</span>  [<span class="ruby-string">&#39;a.java&#39;</span>, <span class="ruby-string">&#39;b.java&#39;</span>], <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">to_a</span>
+  <span class="ruby-identifier">assert_equal</span>  <span class="ruby-constant">Array</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-identifier">assert_equal</span>  [<span class="ruby-string">&#39;a.java&#39;</span>, <span class="ruby-string">&#39;b.java&#39;</span>], <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">to_ary</span>
+  <span class="ruby-identifier">assert_equal</span>  <span class="ruby-constant">Array</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">to_ary</span>.<span class="ruby-identifier">class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_s_pending" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_s_pending</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_s_pending-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_to_s_pending</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;abc.*&#39;</span>]
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">%r{abc\.c}</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">%r{abc\.h}</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">%r{abc\.x}</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">%r{(abc\..\b ?){2}}</span>, <span class="ruby-identifier">result</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_string-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_to_string</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;a.java&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;b.java&quot;</span>
+  <span class="ruby-identifier">assert_equal</span>  <span class="ruby-string">&quot;a.java b.java&quot;</span>, <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">assert_equal</span>  <span class="ruby-string">&quot;a.java b.java&quot;</span>, <span class="ruby-node">&quot;#{fl}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_unique" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_unique</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_unique-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_list.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_unique</span>
+  <span class="ruby-identifier">fl</span> = <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">fl</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;x.c&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;a.c&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;b.rb&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;a.c&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;x.c&#39;</span>, <span class="ruby-string">&#39;a.c&#39;</span>, <span class="ruby-string">&#39;b.rb&#39;</span>, <span class="ruby-string">&#39;a.c&#39;</span>], <span class="ruby-identifier">fl</span>
+  <span class="ruby-identifier">fl</span>.<span class="ruby-identifier">uniq!</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;x.c&#39;</span>, <span class="ruby-string">&#39;a.c&#39;</span>, <span class="ruby-string">&#39;b.rb&#39;</span>], <span class="ruby-identifier">fl</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

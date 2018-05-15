@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestRakeTaskManager - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Rake/TestCase.html">Rake::TestCase</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-test_anonymous_namespace">#test_anonymous_namespace</a>
+    
+    <li ><a href="#method-i-test_correctly_scoped_prerequisites_are_invoked">#test_correctly_scoped_prerequisites_are_invoked</a>
+    
+    <li ><a href="#method-i-test_create_filetask_in_namespace">#test_create_filetask_in_namespace</a>
+    
+    <li ><a href="#method-i-test_create_task_manager">#test_create_task_manager</a>
+    
+    <li ><a href="#method-i-test_define_namespace_in_namespace">#test_define_namespace_in_namespace</a>
+    
+    <li ><a href="#method-i-test_define_namespaced_task">#test_define_namespaced_task</a>
+    
+    <li ><a href="#method-i-test_define_task">#test_define_task</a>
+    
+    <li ><a href="#method-i-test_index">#test_index</a>
+    
+    <li ><a href="#method-i-test_lookup_with_explicit_scopes">#test_lookup_with_explicit_scopes</a>
+    
+    <li ><a href="#method-i-test_name_lookup">#test_name_lookup</a>
+    
+    <li ><a href="#method-i-test_name_lookup_in_multiple_scopes">#test_name_lookup_in_multiple_scopes</a>
+    
+    <li ><a href="#method-i-test_name_lookup_with_implicit_file_tasks">#test_name_lookup_with_implicit_file_tasks</a>
+    
+    <li ><a href="#method-i-test_name_lookup_with_nonexistent_task">#test_name_lookup_with_nonexistent_task</a>
+    
+    <li ><a href="#method-i-test_namespace_task_create">#test_namespace_task_create</a>
+    
+    <li ><a href="#method-i-test_namespace_yields_same_namespace_as_returned">#test_namespace_yields_same_namespace_as_returned</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestRakeTaskManager">
+  <h1 id="class-TestRakeTaskManager" class="class">
+    class TestRakeTaskManager
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Rake/TestCase.html#method-i-setup">Rake::TestCase#setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-ivar">@tm</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">TaskManager</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_anonymous_namespace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_anonymous_namespace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_anonymous_namespace-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_anonymous_namespace</span>
+  <span class="ruby-identifier">anon_ns</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-keyword">nil</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:t</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;_anon_1:t&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">task</span> = <span class="ruby-identifier">anon_ns</span>[<span class="ruby-value">:t</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;_anon_1:t&quot;</span>, <span class="ruby-identifier">task</span>.<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_correctly_scoped_prerequisites_are_invoked" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_correctly_scoped_prerequisites_are_invoked</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_correctly_scoped_prerequisites_are_invoked-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_correctly_scoped_prerequisites_are_invoked</span>
+  <span class="ruby-identifier">values</span> = []
+  <span class="ruby-ivar">@tm</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:z</span>) <span class="ruby-keyword">do</span> <span class="ruby-identifier">values</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;top z&quot;</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;a&quot;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:z</span>) <span class="ruby-keyword">do</span> <span class="ruby-identifier">values</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;next z&quot;</span> <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:x</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:z</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;a:x&quot;</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;next z&quot;</span>], <span class="ruby-identifier">values</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create_filetask_in_namespace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create_filetask_in_namespace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create_filetask_in_namespace-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create_filetask_in_namespace</span>
+  <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;x&quot;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileTask</span>, <span class="ruby-string">&quot;fn&quot;</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;fn&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;fn&quot;</span>], <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create_task_manager" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create_task_manager</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create_task_manager-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create_task_manager</span>
+  <span class="ruby-identifier">refute_nil</span> <span class="ruby-ivar">@tm</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">tasks</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_define_namespace_in_namespace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_define_namespace_in_namespace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_define_namespace_in_namespace-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_define_namespace_in_namespace</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;n&quot;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-string">&#39;a:m:e:t&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&quot;e&quot;</span>, <span class="ruby-string">&quot;m&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;n&quot;</span>), <span class="ruby-identifier">t</span>.<span class="ruby-identifier">scope</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;n:a:m:e:t&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-ivar">@tm</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">application</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_define_namespaced_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_define_namespaced_task</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_define_namespaced_task-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_define_namespaced_task</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-string">&#39;n:a:m:e:t&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&quot;e&quot;</span>, <span class="ruby-string">&quot;m&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;n&quot;</span>), <span class="ruby-identifier">t</span>.<span class="ruby-identifier">scope</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;n:a:m:e:t&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-ivar">@tm</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">application</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_define_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_define_task</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_define_task-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_define_task</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;t&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-ivar">@tm</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">application</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_index-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_index</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&#39;bad&#39;</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Don&#39;t know how to build task &#39;bad&#39; (see --tasks)&quot;</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_lookup_with_explicit_scopes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_lookup_with_explicit_scopes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_lookup_with_explicit_scopes-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_lookup_with_explicit_scopes</span>
+  <span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t2</span>, <span class="ruby-identifier">t3</span>, <span class="ruby-identifier">s</span> = (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">4</span>).<span class="ruby-identifier">map</span> { <span class="ruby-keyword">nil</span> }
+  <span class="ruby-identifier">t1</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:t</span>)
+  <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;a&quot;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">t2</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:t</span>)
+    <span class="ruby-identifier">s</span> =  <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:s</span>)
+    <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;b&quot;</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">t3</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:t</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">t1</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-value">:t</span>, <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">t2</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-value">:t</span>, <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&quot;a&quot;</span>)]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">t3</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-value">:t</span>, <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>)]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">s</span>,  <span class="ruby-ivar">@tm</span>[<span class="ruby-value">:s</span>, <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>)]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">s</span>,  <span class="ruby-ivar">@tm</span>[<span class="ruby-value">:s</span>, <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&quot;a&quot;</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_name_lookup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_name_lookup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_name_lookup-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_name_lookup</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">t</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-value">:t</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_name_lookup_in_multiple_scopes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_name_lookup_in_multiple_scopes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_name_lookup_in_multiple_scopes-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_name_lookup_in_multiple_scopes</span>
+  <span class="ruby-identifier">aa</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">bb</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">xx</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:xx</span>)
+  <span class="ruby-identifier">top_z</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:z</span>)
+  <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;a&quot;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">aa</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:aa</span>)
+    <span class="ruby-identifier">mid_z</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:z</span>)
+    <span class="ruby-identifier">ns_d</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-string">&quot;n:t&quot;</span>)
+    <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;b&quot;</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">bb</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:bb</span>)
+      <span class="ruby-identifier">bot_z</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:z</span>)
+
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>), <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">current_scope</span>
+
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">bb</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;a:b:bb&quot;</span>]
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">aa</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;a:aa&quot;</span>]
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">xx</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;xx&quot;</span>]
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">bot_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;z&quot;</span>]
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">mid_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;^z&quot;</span>]
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">top_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;^^z&quot;</span>]
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">top_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;^^^z&quot;</span>] <span class="ruby-comment"># Over the top</span>
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">top_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;rake:z&quot;</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&quot;a&quot;</span>), <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">current_scope</span>
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">bb</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;a:b:bb&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">aa</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;a:aa&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">xx</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;xx&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">bb</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;b:bb&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">aa</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;aa&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">mid_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;z&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">top_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;^z&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">top_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;^^z&quot;</span>] <span class="ruby-comment"># Over the top</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">top_z</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;rake:z&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">ns_d</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;n:t&quot;</span>]
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">ns_d</span>, <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;a:n:t&quot;</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>, <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">current_scope</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>, <span class="ruby-identifier">xx</span>.<span class="ruby-identifier">scope</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&#39;a&#39;</span>), <span class="ruby-identifier">aa</span>.<span class="ruby-identifier">scope</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Scope</span>.<span class="ruby-identifier">make</span>(<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>), <span class="ruby-identifier">bb</span>.<span class="ruby-identifier">scope</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_name_lookup_with_implicit_file_tasks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_name_lookup_with_implicit_file_tasks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_name_lookup_with_implicit_file_tasks-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_name_lookup_with_implicit_file_tasks</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;README.rdoc&#39;</span>
+
+  <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;README.rdoc&quot;</span>]
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;README.rdoc&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileTask</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">t</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_name_lookup_with_nonexistent_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_name_lookup_with_nonexistent_task</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_name_lookup_with_nonexistent_task-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_name_lookup_with_nonexistent_task</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) {
+    <span class="ruby-ivar">@tm</span>[<span class="ruby-string">&quot;DOES NOT EXIST&quot;</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_namespace_task_create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_namespace_task_create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_namespace_task_create-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_namespace_task_create</span>
+  <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;x&quot;</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">define_task</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>, <span class="ruby-value">:t</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;x:t&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;x:t&quot;</span>], <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_namespace_yields_same_namespace_as_returned" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_namespace_yields_same_namespace_as_returned</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_namespace_yields_same_namespace_as_returned-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task_manager.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_namespace_yields_same_namespace_as_returned</span>
+  <span class="ruby-identifier">yielded_namespace</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">returned_namespace</span> = <span class="ruby-ivar">@tm</span>.<span class="ruby-identifier">in_namespace</span>(<span class="ruby-string">&quot;x&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ns</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">yielded_namespace</span> = <span class="ruby-identifier">ns</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">returned_namespace</span>, <span class="ruby-identifier">yielded_namespace</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

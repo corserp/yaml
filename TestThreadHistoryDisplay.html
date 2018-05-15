@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestThreadHistoryDisplay - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Rake/TestCase.html">Rake::TestCase</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-test_banner">#test_banner</a>
+    
+    <li ><a href="#method-i-test_continue">#test_continue</a>
+    
+    <li ><a href="#method-i-test_item_dequeued">#test_item_dequeued</a>
+    
+    <li ><a href="#method-i-test_item_queued">#test_item_queued</a>
+    
+    <li ><a href="#method-i-test_multiple_items">#test_multiple_items</a>
+    
+    <li ><a href="#method-i-test_thread_created">#test_thread_created</a>
+    
+    <li ><a href="#method-i-test_thread_deleted">#test_thread_deleted</a>
+    
+    <li ><a href="#method-i-test_waiting">#test_waiting</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestThreadHistoryDisplay">
+  <h1 id="class-TestThreadHistoryDisplay" class="class">
+    class TestThreadHistoryDisplay
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Rake/TestCase.html#method-i-setup">Rake::TestCase#setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@time</span> = <span class="ruby-value">1_000_000</span>
+  <span class="ruby-ivar">@stats</span> = []
+  <span class="ruby-ivar">@display</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">ThreadHistoryDisplay</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@stats</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_banner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_banner</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_banner-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_banner</span>
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/Job History/i</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_continue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_continue</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_continue-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_continue</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:continue</span>, <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +continue +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_item_dequeued" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_item_dequeued</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_item_dequeued-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_item_dequeued</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:item_dequeued</span>,  <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +item_dequeued +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_item_queued" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_item_queued</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_item_queued-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_item_queued</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:item_queued</span>,  <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +item_queued +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_multiple_items" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_multiple_items</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_multiple_items-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_items</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:item_queued</span>,  <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:item_queued</span>,  <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">124</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +item_queued +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000001 +A +item_queued +item_id:2$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_thread_created" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_thread_created</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_thread_created-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_thread_created</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(
+    <span class="ruby-value">:thread_created</span>,
+    <span class="ruby-value">:new_thread</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123_456</span>,
+    <span class="ruby-value">:thread_count</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">13</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(
+    <span class="ruby-regexp">/^ *1000000 +A +thread_created( +new_thread:B| +thread_count:13){2}$/</span>,
+    <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_thread_deleted" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_thread_deleted</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_thread_deleted-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_thread_deleted</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(
+    <span class="ruby-value">:thread_deleted</span>,
+    <span class="ruby-value">:deleted_thread</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123_456</span>,
+    <span class="ruby-value">:thread_count</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">12</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(
+    <span class="ruby-regexp">/^ *1000000 +A +thread_deleted( +deleted_thread:B| +thread_count:12){2}$/</span>,
+    <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_waiting" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_waiting</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_waiting-source">
+            <pre><span class="ruby-comment"># File test/test_thread_history_display.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_waiting</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:waiting</span>, <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +waiting +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

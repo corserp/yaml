@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestRakePackageTask - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Rake/TestCase.html">Rake::TestCase</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-test_clone">#test_clone</a>
+    
+    <li ><a href="#method-i-test_initialize">#test_initialize</a>
+    
+    <li ><a href="#method-i-test_initialize_no_version">#test_initialize_no_version</a>
+    
+    <li ><a href="#method-i-test_initialize_noversion">#test_initialize_noversion</a>
+    
+    <li ><a href="#method-i-test_package_name">#test_package_name</a>
+    
+    <li ><a href="#method-i-test_package_name_noversion">#test_package_name_noversion</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestRakePackageTask">
+  <h1 id="class-TestRakePackageTask" class="class">
+    class TestRakePackageTask
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-test_clone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clone</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clone-source">
+            <pre><span class="ruby-comment"># File test/test_rake_package_task.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clone</span>
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;x&quot;</span>, <span class="ruby-value">:noversion</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;y&quot;</span>
+  <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">package_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;x&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;y&quot;</span>], <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_files</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;x&quot;</span>], <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">package_files</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize-source">
+            <pre><span class="ruby-comment"># File test/test_rake_package_task.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_initialize</span>
+  <span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;install.rb&#39;</span>
+  <span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;a.c&#39;</span>
+  <span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;b.c&#39;</span>
+  <span class="ruby-identifier">mkdir</span> <span class="ruby-string">&#39;CVS&#39;</span>
+  <span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;a.rb~&#39;</span>
+
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;pkgr&quot;</span>, <span class="ruby-string">&quot;1.2.3&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;install.rb&quot;</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_files</span>.<span class="ruby-identifier">include</span> <span class="ruby-string">&#39;*.c&#39;</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_files</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-regexp">/\bCVS\b/</span>)
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_files</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-regexp">/~$/</span>)
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_dir</span> = <span class="ruby-string">&#39;pkg&#39;</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">need_tar</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">need_tar_gz</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">need_tar_bz2</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">need_zip</span> = <span class="ruby-keyword">true</span>
+  }
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;pkg&quot;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_dir</span>
+
+  <span class="ruby-identifier">assert_includes</span> <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_files</span>, <span class="ruby-string">&#39;a.c&#39;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;pkgr&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;1.2.3&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">version</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-value">:package</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3.tgz&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3.tar.gz&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3.tar.bz2&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3.zip&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-value">:clobber_package</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-value">:repackage</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_no_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_no_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_no_version-source">
+            <pre><span class="ruby-comment"># File test/test_rake_package_task.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_initialize_no_version</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;pkgr&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;Version required (or :noversion)&#39;</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_noversion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_noversion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_noversion-source">
+            <pre><span class="ruby-comment"># File test/test_rake_package_task.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_initialize_noversion</span>
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;pkgr&#39;</span>, <span class="ruby-value">:noversion</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;pkg&#39;</span>,  <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_dir</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;pkgr&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">nil</span>,    <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">version</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_package_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_package_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_package_name-source">
+            <pre><span class="ruby-comment"># File test/test_rake_package_task.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_package_name</span>
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;1&#39;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;a-1&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_package_name_noversion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_package_name_noversion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_package_name_noversion-source">
+            <pre><span class="ruby-comment"># File test/test_rake_package_task.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_package_name_noversion</span>
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-value">:noversion</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestRakeFileTask - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Rake/TestCase.html">Rake::TestCase</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Rake.html">Rake</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-load_phony">#load_phony</a>
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-test_existing_file_depends_on_non_existing_file">#test_existing_file_depends_on_non_existing_file</a>
+    
+    <li ><a href="#method-i-test_file_depends_on_task_depend_on_file">#test_file_depends_on_task_depend_on_file</a>
+    
+    <li ><a href="#method-i-test_file_need">#test_file_need</a>
+    
+    <li ><a href="#method-i-test_file_times_new_depend_on_regular_task_timestamps">#test_file_times_new_depend_on_regular_task_timestamps</a>
+    
+    <li ><a href="#method-i-test_file_times_new_depends_on_old">#test_file_times_new_depends_on_old</a>
+    
+    <li ><a href="#method-i-test_file_times_old_depends_on_new">#test_file_times_old_depends_on_new</a>
+    
+    <li ><a href="#method-i-test_needed_eh_build_all">#test_needed_eh_build_all</a>
+    
+    <li ><a href="#method-i-test_needed_eh_dependency">#test_needed_eh_dependency</a>
+    
+    <li ><a href="#method-i-test_needed_eh_exists">#test_needed_eh_exists</a>
+    
+    <li ><a href="#method-i-test_prerequisite_can_be_pathname">#test_prerequisite_can_be_pathname</a>
+    
+    <li ><a href="#method-i-test_source_is_first_prerequisite">#test_source_is_first_prerequisite</a>
+    
+    <li ><a href="#method-i-test_sources_is_all_prerequisites">#test_sources_is_all_prerequisites</a>
+    
+    <li ><a href="#method-i-test_task_can_be_pathname">#test_task_can_be_pathname</a>
+    
+    <li ><a href="#method-i-ztest_file_deletes_on_failure">#ztest_file_deletes_on_failure</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestRakeFileTask">
+  <h1 id="class-TestRakeFileTask" class="class">
+    class TestRakeFileTask
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-load_phony" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_phony</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_phony-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_phony</span>
+  <span class="ruby-identifier">load</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@rake_lib</span>, <span class="ruby-string">&quot;rake/phony.rb&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Rake/TestCase.html#method-i-setup">Rake::TestCase#setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-constant">Task</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-ivar">@runs</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_f</span> <span class="ruby-constant">NEWFILE</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_f</span> <span class="ruby-constant">OLDFILE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_existing_file_depends_on_non_existing_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_existing_file_depends_on_non_existing_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_existing_file_depends_on_non_existing_file-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_existing_file_depends_on_non_existing_file</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">OLDFILE</span>)
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">NEWFILE</span>)
+  <span class="ruby-identifier">file</span> <span class="ruby-constant">NEWFILE</span>            <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">file</span> <span class="ruby-constant">OLDFILE</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">NEWFILE</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OLDFILE</span>].<span class="ruby-identifier">invoke</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-constant">NEWFILE</span>, <span class="ruby-constant">OLDFILE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_file_depends_on_task_depend_on_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_file_depends_on_task_depend_on_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_file_depends_on_task_depend_on_file-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_depends_on_task_depend_on_file</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OLDFILE</span>, <span class="ruby-constant">NEWFILE</span>)
+
+  <span class="ruby-identifier">file</span> <span class="ruby-constant">NEWFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:obj</span>] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:obj</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-constant">OLDFILE</span>] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">file</span> <span class="ruby-constant">OLDFILE</span>           <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Task</span>[<span class="ruby-value">:obj</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">NEWFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-ivar">@runs</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">NEWFILE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_file_need" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_file_need</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_file_need-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_need</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;dummy&quot;</span>
+  <span class="ruby-identifier">file</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">ftask</span> = <span class="ruby-constant">Task</span>[<span class="ruby-identifier">name</span>]
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">name</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">needed?</span>, <span class="ruby-string">&quot;file should be needed&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">LATE</span>, <span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">timestamp</span>
+
+  <span class="ruby-identifier">open</span>(<span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">name</span>, <span class="ruby-string">&quot;w&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;HI&quot;</span> }
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">prerequisites</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-constant">Task</span>[<span class="ruby-identifier">n</span>].<span class="ruby-identifier">timestamp</span> }.<span class="ruby-identifier">max</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">needed?</span>, <span class="ruby-string">&quot;file should not be needed&quot;</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">name</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_file_times_new_depend_on_regular_task_timestamps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_file_times_new_depend_on_regular_task_timestamps</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_file_times_new_depend_on_regular_task_timestamps-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_times_new_depend_on_regular_task_timestamps</span>
+  <span class="ruby-identifier">load_phony</span>
+
+  <span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;dummy&quot;</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">NEWFILE</span>)
+
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">intern</span>(<span class="ruby-constant">FileTask</span>, <span class="ruby-constant">NEWFILE</span>).<span class="ruby-identifier">enhance</span>([<span class="ruby-identifier">name</span>])
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">needed?</span>, <span class="ruby-string">&quot;depending on non-file task uses Time.now&quot;</span>
+
+  <span class="ruby-identifier">task</span>(<span class="ruby-identifier">name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:phony</span>)
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">needed?</span>, <span class="ruby-string">&quot;unless the non-file task has a timestamp&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_file_times_new_depends_on_old" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_file_times_new_depends_on_old</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_file_times_new_depends_on_old-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_times_new_depends_on_old</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OLDFILE</span>, <span class="ruby-constant">NEWFILE</span>)
+
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">intern</span>(<span class="ruby-constant">FileTask</span>, <span class="ruby-constant">NEWFILE</span>).<span class="ruby-identifier">enhance</span>([<span class="ruby-constant">OLDFILE</span>])
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">intern</span>(<span class="ruby-constant">FileTask</span>, <span class="ruby-constant">OLDFILE</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">t2</span>.<span class="ruby-identifier">needed?</span>, <span class="ruby-string">&quot;Should not need to build old file&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">needed?</span>, <span class="ruby-string">&quot;Should not need to rebuild new file because of old&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_file_times_old_depends_on_new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_file_times_old_depends_on_new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_file_times_old_depends_on_new-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_times_old_depends_on_new</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OLDFILE</span>, <span class="ruby-constant">NEWFILE</span>)
+
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">intern</span>(<span class="ruby-constant">FileTask</span>, <span class="ruby-constant">OLDFILE</span>).<span class="ruby-identifier">enhance</span>([<span class="ruby-constant">NEWFILE</span>])
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">intern</span>(<span class="ruby-constant">FileTask</span>, <span class="ruby-constant">NEWFILE</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">t2</span>.<span class="ruby-identifier">needed?</span>, <span class="ruby-string">&quot;Should not need to build new file&quot;</span>
+  <span class="ruby-identifier">preq_stamp</span> = <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">prerequisites</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-constant">Task</span>[<span class="ruby-identifier">t</span>].<span class="ruby-identifier">timestamp</span> }.<span class="ruby-identifier">max</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">t2</span>.<span class="ruby-identifier">timestamp</span>, <span class="ruby-identifier">preq_stamp</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">timestamp</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">preq_stamp</span>, <span class="ruby-string">&quot;T1 should be older&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">needed?</span>, <span class="ruby-string">&quot;Should need to rebuild old file because of new&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_needed_eh_build_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_needed_eh_build_all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_needed_eh_build_all-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_needed_eh_build_all</span>
+  <span class="ruby-identifier">create_file</span> <span class="ruby-string">&#39;a&#39;</span>
+
+  <span class="ruby-identifier">file</span> <span class="ruby-string">&#39;a&#39;</span>
+
+  <span class="ruby-identifier">a_task</span> = <span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;a&#39;</span>]
+
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">a_task</span>.<span class="ruby-identifier">needed?</span>
+
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">build_all</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">a_task</span>.<span class="ruby-identifier">needed?</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">delete_file</span> <span class="ruby-string">&#39;a&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_needed_eh_dependency" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_needed_eh_dependency</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_needed_eh_dependency-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_needed_eh_dependency</span>
+  <span class="ruby-identifier">create_file</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">create_file</span> <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-value">60</span>
+
+  <span class="ruby-identifier">create_file</span> <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">create_file</span> <span class="ruby-string">&#39;d&#39;</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-value">60</span>
+
+  <span class="ruby-identifier">file</span> <span class="ruby-string">&#39;b&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;a&#39;</span>
+
+  <span class="ruby-identifier">b_task</span> = <span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;b&#39;</span>]
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">b_task</span>.<span class="ruby-identifier">needed?</span>
+
+  <span class="ruby-identifier">file</span> <span class="ruby-string">&#39;c&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;d&#39;</span>
+
+  <span class="ruby-identifier">c_task</span> = <span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;c&#39;</span>]
+
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">c_task</span>.<span class="ruby-identifier">needed?</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">delete_file</span> <span class="ruby-string">&#39;old&#39;</span>
+  <span class="ruby-identifier">delete_file</span> <span class="ruby-string">&#39;new&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_needed_eh_exists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_needed_eh_exists</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_needed_eh_exists-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_needed_eh_exists</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;dummy&quot;</span>
+  <span class="ruby-identifier">file</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">ftask</span> = <span class="ruby-constant">Task</span>[<span class="ruby-identifier">name</span>]
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">needed?</span>
+
+  <span class="ruby-identifier">create_file</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">refute</span> <span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">needed?</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">delete_file</span> <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_prerequisite_can_be_pathname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_prerequisite_can_be_pathname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_prerequisite_can_be_pathname-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_prerequisite_can_be_pathname</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">file</span> <span class="ruby-value">:f</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;preq&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;preq&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">source</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_source_is_first_prerequisite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_source_is_first_prerequisite</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_source_is_first_prerequisite-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_source_is_first_prerequisite</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">file</span> <span class="ruby-value">:f</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;preqA&quot;</span>, <span class="ruby-string">&quot;preqB&quot;</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;preqA&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">source</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sources_is_all_prerequisites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sources_is_all_prerequisites</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sources_is_all_prerequisites-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sources_is_all_prerequisites</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">file</span> <span class="ruby-value">:f</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;preqA&quot;</span>, <span class="ruby-string">&quot;preqB&quot;</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;preqA&quot;</span>, <span class="ruby-string">&quot;preqB&quot;</span>], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">sources</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_task_can_be_pathname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_task_can_be_pathname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_task_can_be_pathname-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_task_can_be_pathname</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;dummy&quot;</span>
+    <span class="ruby-identifier">file</span> <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">name</span>
+
+    <span class="ruby-identifier">ftask</span> = <span class="ruby-constant">Task</span>[<span class="ruby-identifier">name</span>]
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">ftask</span>.<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ztest_file_deletes_on_failure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ztest_file_deletes_on_failure</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>I have currently disabled this test.  I&#39;m not convinced that deleting
+the file target on failure is always the proper thing to do.  I&#39;m
+willing to hear input on this topic.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ztest_file_deletes_on_failure-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_task.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ztest_file_deletes_on_failure</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:obj</span>
+  <span class="ruby-identifier">file</span> <span class="ruby-constant">NEWFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:obj</span>] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-constant">NEWFILE</span>
+    <span class="ruby-identifier">fail</span> <span class="ruby-string">&quot;Ooops&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Task</span>[<span class="ruby-constant">NEWFILE</span>]
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Task</span>[<span class="ruby-constant">NEWFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert</span>(<span class="ruby-operator">!</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">NEWFILE</span>), <span class="ruby-string">&quot;NEWFILE should be deleted&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

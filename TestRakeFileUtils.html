@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestRakeFileUtils - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Rake/TestCase.html">Rake::TestCase</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-check_expansion">#check_expansion</a>
+    
+    <li ><a href="#method-i-check_no_expansion">#check_no_expansion</a>
+    
+    <li ><a href="#method-i-command">#command</a>
+    
+    <li ><a href="#method-i-env_var">#env_var</a>
+    
+    <li ><a href="#method-i-replace_ruby">#replace_ruby</a>
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-shellcommand">#shellcommand</a>
+    
+    <li class="calls-super" ><a href="#method-i-teardown">#teardown</a>
+    
+    <li ><a href="#method-i-test_file_utils_methods_are_available_at_top_level">#test_file_utils_methods_are_available_at_top_level</a>
+    
+    <li ><a href="#method-i-test_fileutils_methods_dont_leak">#test_fileutils_methods_dont_leak</a>
+    
+    <li ><a href="#method-i-test_ln">#test_ln</a>
+    
+    <li ><a href="#method-i-test_nowrite">#test_nowrite</a>
+    
+    <li ><a href="#method-i-test_rm_filelist">#test_rm_filelist</a>
+    
+    <li ><a href="#method-i-test_rm_one_file">#test_rm_one_file</a>
+    
+    <li ><a href="#method-i-test_rm_two_files">#test_rm_two_files</a>
+    
+    <li ><a href="#method-i-test_ruby_with_a_single_string_argument">#test_ruby_with_a_single_string_argument</a>
+    
+    <li ><a href="#method-i-test_ruby_with_multiple_arguments">#test_ruby_with_multiple_arguments</a>
+    
+    <li ><a href="#method-i-test_safe_ln_failover_to_cp_on_not_implemented_error">#test_safe_ln_failover_to_cp_on_not_implemented_error</a>
+    
+    <li ><a href="#method-i-test_safe_ln_failover_to_cp_on_standard_error">#test_safe_ln_failover_to_cp_on_standard_error</a>
+    
+    <li ><a href="#method-i-test_safe_ln_fails_on_script_error">#test_safe_ln_fails_on_script_error</a>
+    
+    <li ><a href="#method-i-test_sh">#test_sh</a>
+    
+    <li ><a href="#method-i-test_sh_bad_option">#test_sh_bad_option</a>
+    
+    <li ><a href="#method-i-test_sh_failure">#test_sh_failure</a>
+    
+    <li ><a href="#method-i-test_sh_noop">#test_sh_noop</a>
+    
+    <li ><a href="#method-i-test_sh_special_handling">#test_sh_special_handling</a>
+    
+    <li ><a href="#method-i-test_sh_verbose">#test_sh_verbose</a>
+    
+    <li ><a href="#method-i-test_sh_verbose_false">#test_sh_verbose_false</a>
+    
+    <li ><a href="#method-i-test_sh_verbose_flag_nil">#test_sh_verbose_flag_nil</a>
+    
+    <li ><a href="#method-i-test_sh_with_a_single_string_argument">#test_sh_with_a_single_string_argument</a>
+    
+    <li ><a href="#method-i-test_sh_with_multiple_arguments">#test_sh_with_multiple_arguments</a>
+    
+    <li ><a href="#method-i-test_split_all">#test_split_all</a>
+    
+    <li ><a href="#method-i-test_verbose">#test_verbose</a>
+    
+    <li ><a href="#method-i-windows-3F">#windows?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestRakeFileUtils">
+  <h1 id="class-TestRakeFileUtils" class="class">
+    class TestRakeFileUtils
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-check_expansion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_expansion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_expansion-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 278</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check_expansion</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-string">&#39;check_expansion.rb&#39;</span>, <span class="ruby-identifier">&lt;&lt;-CHECK_EXPANSION</span>
+<span class="ruby-value">if ARGV[0] != ARGV[1]
+  exit 1
+else
+  exit 0
+end
+</span><span class="ruby-identifier">    CHECK_EXPANSION</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_no_expansion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_no_expansion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_no_expansion-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 268</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check_no_expansion</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-string">&#39;check_no_expansion.rb&#39;</span>, <span class="ruby-identifier">&lt;&lt;-CHECK_EXPANSION</span>
+<span class="ruby-value">if ARGV[0] != ARGV[1]
+  exit 0
+else
+  exit 1
+end
+</span><span class="ruby-identifier">    CHECK_EXPANSION</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command</span><span
+            class="method-args">(name, text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">command</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">open</span> <span class="ruby-identifier">name</span>, <span class="ruby-string">&#39;w&#39;</span>, <span class="ruby-value">0750</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">io</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-env_var" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">env_var</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="env_var-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">env_var</span>
+  <span class="ruby-identifier">windows?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;%RAKE_TEST_SH%&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;$RAKE_TEST_SH&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace_ruby" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace_ruby</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="replace_ruby-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replace_ruby</span>
+  <span class="ruby-identifier">ruby</span> = <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">RUBY</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:remove_const</span>, <span class="ruby-value">:RUBY</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">const_set</span> <span class="ruby-value">:RUBY</span>, <span class="ruby-constant">RUBY</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:remove_const</span>, <span class="ruby-value">:RUBY</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">const_set</span><span class="ruby-value">:RUBY</span>, <span class="ruby-identifier">ruby</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Rake/TestCase.html#method-i-setup">Rake::TestCase#setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@rake_test_sh</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shellcommand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shellcommand</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shellcommand-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 298</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shellcommand</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-string">&#39;shellcommand.rb&#39;</span>, <span class="ruby-identifier">&lt;&lt;-SHELLCOMMAND</span>
+<span class="ruby-value">#!/usr/bin/env ruby
+
+exit((ARGV[0] || &quot;0&quot;).to_i)
+</span><span class="ruby-identifier">    SHELLCOMMAND</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-teardown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teardown</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Rake/TestCase.html#method-i-teardown">Rake::TestCase#teardown</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="teardown-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">teardown</span>
+  <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">LN_SUPPORTED</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-constant">RakeFileUtils</span>.<span class="ruby-identifier">verbose_flag</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-ivar">@rake_test_sh</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_file_utils_methods_are_available_at_top_level" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_file_utils_methods_are_available_at_top_level</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_file_utils_methods_are_available_at_top_level-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_utils_methods_are_available_at_top_level</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;a&quot;</span>)
+
+  <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">rm_rf</span> <span class="ruby-string">&quot;a&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;a&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_fileutils_methods_dont_leak" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_fileutils_methods_dont_leak</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_fileutils_methods_dont_leak-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_fileutils_methods_dont_leak</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">NoMethodError</span>) { <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">copy</span> } <span class="ruby-comment"># from FileUtils</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">NoMethodError</span>) { <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ruby</span> <span class="ruby-string">&quot;-v&quot;</span> } <span class="ruby-comment"># from RubyFileUtils</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ln" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ln</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ln-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_ln</span>
+  <span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;TEST_LN&quot;</span> }
+
+  <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">safe_ln</span>(<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-value">:verbose</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;TEST_LN\n&quot;</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;b&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_nowrite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nowrite</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_nowrite-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_nowrite</span>
+  <span class="ruby-identifier">nowrite</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">nowrite</span>
+  <span class="ruby-identifier">nowrite</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">nowrite</span>
+  <span class="ruby-identifier">nowrite</span>(<span class="ruby-keyword">true</span>) {
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">nowrite</span>
+  }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">nowrite</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_rm_filelist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_rm_filelist</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_rm_filelist-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rm_filelist</span>
+  <span class="ruby-identifier">list</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;a&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">create_file</span>(<span class="ruby-identifier">fn</span>) }
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;b&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_rm_one_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_rm_one_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_rm_one_file-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rm_one_file</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-string">&quot;a&quot;</span>
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;a&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_rm_two_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_rm_two_files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_rm_two_files-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rm_two_files</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;b&quot;</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> [<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>]
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;b&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ruby_with_a_single_string_argument" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ruby_with_a_single_string_argument</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ruby_with_a_single_string_argument-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_ruby_with_a_single_string_argument</span>
+  <span class="ruby-identifier">check_expansion</span>
+
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-string">&#39;someval&#39;</span>
+
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">replace_ruby</span> {
+      <span class="ruby-identifier">ruby</span> <span class="ruby-node">%{check_expansion.rb #{env_var} someval}</span>
+    }
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ruby_with_multiple_arguments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ruby_with_multiple_arguments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ruby_with_multiple_arguments-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_ruby_with_multiple_arguments</span>
+  <span class="ruby-identifier">check_no_expansion</span>
+
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-string">&#39;someval&#39;</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">replace_ruby</span> {
+      <span class="ruby-identifier">ruby</span> <span class="ruby-string">&#39;check_no_expansion.rb&#39;</span>, <span class="ruby-identifier">env_var</span>, <span class="ruby-string">&#39;someval&#39;</span>
+    }
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_safe_ln_failover_to_cp_on_not_implemented_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_safe_ln_failover_to_cp_on_not_implemented_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_safe_ln_failover_to_cp_on_not_implemented_error-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_safe_ln_failover_to_cp_on_not_implemented_error</span>
+  <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">LN_SUPPORTED</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-constant">BadLink</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">NotImplementedError</span>)
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">safe_ln</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">c</span>.<span class="ruby-identifier">cp_args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_safe_ln_failover_to_cp_on_standard_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_safe_ln_failover_to_cp_on_standard_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_safe_ln_failover_to_cp_on_standard_error-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_safe_ln_failover_to_cp_on_standard_error</span>
+  <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">LN_SUPPORTED</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-constant">BadLink</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">StandardError</span>)
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">safe_ln</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">c</span>.<span class="ruby-identifier">cp_args</span>
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">safe_ln</span> <span class="ruby-string">&quot;x&quot;</span>, <span class="ruby-string">&quot;y&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>], <span class="ruby-identifier">c</span>.<span class="ruby-identifier">cp_args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_safe_ln_fails_on_script_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_safe_ln_fails_on_script_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_safe_ln_fails_on_script_error-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_safe_ln_fails_on_script_error</span>
+  <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">LN_SUPPORTED</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-constant">BadLink</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">ScriptError</span>)
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ScriptError</span>) <span class="ruby-keyword">do</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">safe_ln</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span> <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) { <span class="ruby-identifier">sh</span> <span class="ruby-node">%{#{Rake::TestCase::RUBY} shellcommand.rb}</span> }
+  <span class="ruby-identifier">assert</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&quot;should not fail&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_bad_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_bad_option</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_bad_option-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_bad_option</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">ex</span> = <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ArgumentError</span>) {
+    <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) { <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb}</span>, <span class="ruby-value">:bad_option</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span> }
+  }
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/bad_option/</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_failure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_failure</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_failure-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_failure</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) {
+    <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) { <span class="ruby-identifier">sh</span> <span class="ruby-node">%{#{RUBY} shellcommand.rb 1}</span> }
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_noop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_noop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_noop-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_noop</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) { <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb 1}</span>, <span class="ruby-value">:noop</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span> }
+  <span class="ruby-identifier">assert</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&quot;should not fail&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_special_handling" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_special_handling</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_special_handling-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_special_handling</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">sh</span>(<span class="ruby-node">%{#{RUBY} shellcommand.rb}</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ok</span>, <span class="ruby-identifier">res</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">ok</span>)
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">res</span>.<span class="ruby-identifier">exitstatus</span>
+      <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">sh</span>(<span class="ruby-node">%{#{RUBY} shellcommand.rb 1}</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ok</span>, <span class="ruby-identifier">res</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">assert</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">ok</span>)
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">res</span>.<span class="ruby-identifier">exitstatus</span>
+      <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">count</span>, <span class="ruby-string">&quot;Block count should be 2&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_verbose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_verbose</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_verbose-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_verbose</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">true</span>) {
+      <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb}</span>, <span class="ruby-value">:noop</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span>
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;shellcommand.rb\n&quot;</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_verbose_false" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_verbose_false</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_verbose_false-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_verbose_false</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+      <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb}</span>, <span class="ruby-value">:noop</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span>
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_verbose_flag_nil" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_verbose_flag_nil</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_verbose_flag_nil-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_verbose_flag_nil</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-constant">RakeFileUtils</span>.<span class="ruby-identifier">verbose_flag</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">assert_silent</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb}</span>, <span class="ruby-value">:noop</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_with_a_single_string_argument" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_with_a_single_string_argument</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_with_a_single_string_argument-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_with_a_single_string_argument</span>
+  <span class="ruby-identifier">check_expansion</span>
+
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-string">&#39;someval&#39;</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">sh</span> <span class="ruby-node">%{#{RUBY} check_expansion.rb #{env_var} someval}</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sh_with_multiple_arguments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sh_with_multiple_arguments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sh_with_multiple_arguments-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_with_multiple_arguments</span>
+  <span class="ruby-identifier">check_no_expansion</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-string">&#39;someval&#39;</span>
+
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">sh</span> <span class="ruby-constant">RUBY</span>, <span class="ruby-string">&#39;check_no_expansion.rb&#39;</span>, <span class="ruby-identifier">env_var</span>, <span class="ruby-string">&#39;someval&#39;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_split_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_split_all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_split_all-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_split_all</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;a&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;..&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;..&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;/&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;/&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;a/b&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;/a/b&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;..&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;../a/b&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_verbose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_verbose</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_verbose-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_verbose</span>
+  <span class="ruby-identifier">verbose</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">verbose</span>
+  <span class="ruby-identifier">verbose</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">verbose</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">true</span>) {
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">verbose</span>
+  }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">verbose</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-windows-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">windows?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="windows-3F-source">
+            <pre><span class="ruby-comment"># File test/test_rake_file_utils.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">windows?</span>
+  <span class="ruby-operator">!</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

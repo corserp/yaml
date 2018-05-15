@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestRakeTask - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Rake/TestCase.html">Rake::TestCase</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Rake.html">Rake</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li class="calls-super" ><a href="#method-i-teardown">#teardown</a>
+    
+    <li ><a href="#method-i-test_all_prerequisite_tasks_does_not_include_duplicates">#test_all_prerequisite_tasks_does_not_include_duplicates</a>
+    
+    <li ><a href="#method-i-test_all_prerequisite_tasks_includes_all_prerequisites">#test_all_prerequisite_tasks_includes_all_prerequisites</a>
+    
+    <li ><a href="#method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies">#test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies</a>
+    
+    <li ><a href="#method-i-test_always_multitask">#test_always_multitask</a>
+    
+    <li ><a href="#method-i-test_arrays_can_be_prerequisites">#test_arrays_can_be_prerequisites</a>
+    
+    <li ><a href="#method-i-test_can_double_invoke_with_reenable">#test_can_double_invoke_with_reenable</a>
+    
+    <li ><a href="#method-i-test_clear">#test_clear</a>
+    
+    <li ><a href="#method-i-test_clear_actions">#test_clear_actions</a>
+    
+    <li ><a href="#method-i-test_clear_comments">#test_clear_comments</a>
+    
+    <li ><a href="#method-i-test_clear_prerequisites">#test_clear_prerequisites</a>
+    
+    <li ><a href="#method-i-test_comment_setting">#test_comment_setting</a>
+    
+    <li ><a href="#method-i-test_comments_do_not_set">#test_comments_do_not_set</a>
+    
+    <li ><a href="#method-i-test_comments_is_nil">#test_comments_is_nil</a>
+    
+    <li ><a href="#method-i-test_comments_with_decimal_points">#test_comments_with_decimal_points</a>
+    
+    <li ><a href="#method-i-test_comments_with_sentences">#test_comments_with_sentences</a>
+    
+    <li ><a href="#method-i-test_comments_with_tabbed_sentences">#test_comments_with_tabbed_sentences</a>
+    
+    <li ><a href="#method-i-test_create">#test_create</a>
+    
+    <li ><a href="#method-i-test_defined">#test_defined</a>
+    
+    <li ><a href="#method-i-test_dry_run_prevents_actions">#test_dry_run_prevents_actions</a>
+    
+    <li ><a href="#method-i-test_duplicate_comments">#test_duplicate_comments</a>
+    
+    <li ><a href="#method-i-test_extended_comments">#test_extended_comments</a>
+    
+    <li ><a href="#method-i-test_filelists_can_be_prerequisites">#test_filelists_can_be_prerequisites</a>
+    
+    <li ><a href="#method-i-test_find">#test_find</a>
+    
+    <li ><a href="#method-i-test_inspect">#test_inspect</a>
+    
+    <li ><a href="#method-i-test_interspersed_duplicate_comments">#test_interspersed_duplicate_comments</a>
+    
+    <li ><a href="#method-i-test_investigation_output">#test_investigation_output</a>
+    
+    <li ><a href="#method-i-test_invoke">#test_invoke</a>
+    
+    <li ><a href="#method-i-test_invoke_with_circular_dependencies">#test_invoke_with_circular_dependencies</a>
+    
+    <li ><a href="#method-i-test_multi_invocations">#test_multi_invocations</a>
+    
+    <li ><a href="#method-i-test_multiple_comments">#test_multiple_comments</a>
+    
+    <li ><a href="#method-i-test_no_double_invoke">#test_no_double_invoke</a>
+    
+    <li ><a href="#method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined">#test_prerequisite_tasks_fails_if_prerequisites_are_undefined</a>
+    
+    <li ><a href="#method-i-test_prerequisite_tasks_honors_namespaces">#test_prerequisite_tasks_honors_namespaces</a>
+    
+    <li ><a href="#method-i-test_prerequisite_tasks_returns_tasks_not_strings">#test_prerequisite_tasks_returns_tasks_not_strings</a>
+    
+    <li ><a href="#method-i-test_source_is_first_prerequisite">#test_source_is_first_prerequisite</a>
+    
+    <li ><a href="#method-i-test_strings_can_be_prerequisites">#test_strings_can_be_prerequisites</a>
+    
+    <li ><a href="#method-i-test_symbols_can_be_prerequisites">#test_symbols_can_be_prerequisites</a>
+    
+    <li ><a href="#method-i-test_task_gives_name_on_to_s">#test_task_gives_name_on_to_s</a>
+    
+    <li ><a href="#method-i-test_task_list">#test_task_list</a>
+    
+    <li ><a href="#method-i-test_tasks_can_be_traced">#test_tasks_can_be_traced</a>
+    
+    <li ><a href="#method-i-test_timestamp_returns_latest_prereq_timestamp">#test_timestamp_returns_latest_prereq_timestamp</a>
+    
+    <li ><a href="#method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times">#test_timestamp_returns_now_if_all_prereqs_have_no_times</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestRakeTask">
+  <h1 id="class-TestRakeTask" class="class">
+    class TestRakeTask
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Rake/TestCase.html#method-i-setup">Rake::TestCase#setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-constant">Task</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">TaskManager</span>.<span class="ruby-identifier">record_task_metadata</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-teardown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teardown</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Rake/TestCase.html#method-i-teardown">Rake::TestCase#teardown</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="teardown-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">teardown</span>
+  <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">TaskManager</span>.<span class="ruby-identifier">record_task_metadata</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">thread_pool</span>.<span class="ruby-identifier">join</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_all_prerequisite_tasks_does_not_include_duplicates" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_all_prerequisite_tasks_does_not_include_duplicates</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_all_prerequisite_tasks_does_not_include_duplicates-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_all_prerequisite_tasks_does_not_include_duplicates</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;c&quot;</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">all_prerequisite_tasks</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_all_prerequisite_tasks_includes_all_prerequisites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_all_prerequisite_tasks_includes_all_prerequisites</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_all_prerequisite_tasks_includes_all_prerequisites-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_all_prerequisite_tasks_includes_all_prerequisites</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;c&quot;</span>, <span class="ruby-string">&quot;d&quot;</span>]
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;e&quot;</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:d</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:e</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>, <span class="ruby-identifier">d</span>, <span class="ruby-identifier">e</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">all_prerequisite_tasks</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;a&quot;</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">all_prerequisite_tasks</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_always_multitask" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_always_multitask</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_always_multitask-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_always_multitask</span>
+  <span class="ruby-identifier">mx</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">result</span> = []
+
+  <span class="ruby-identifier">t_a</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:a</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.2</span>
+    <span class="ruby-identifier">mx</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">t_b</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:b</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">mx</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">t_c</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:c</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:a</span>, <span class="ruby-value">:b</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">mx</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">t_c</span>.<span class="ruby-identifier">invoke</span>
+
+  <span class="ruby-comment"># task should always run in order</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-identifier">result</span>
+
+  [<span class="ruby-identifier">t_a</span>, <span class="ruby-identifier">t_b</span>, <span class="ruby-identifier">t_c</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">reenable</span> }
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">clear</span>
+
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">always_multitask</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">t_c</span>.<span class="ruby-identifier">invoke</span>
+
+  <span class="ruby-comment"># with multitask, task &#39;b&#39; should grab the mutex first</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_arrays_can_be_prerequisites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_arrays_can_be_prerequisites</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_arrays_can_be_prerequisites-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_arrays_can_be_prerequisites</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>], <span class="ruby-constant">Task</span>[<span class="ruby-value">:a</span>].<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_can_double_invoke_with_reenable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_can_double_invoke_with_reenable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_can_double_invoke_with_reenable-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_can_double_invoke_with_reenable</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">reenable</span>
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t1&quot;</span>, <span class="ruby-string">&quot;t1&quot;</span>], <span class="ruby-identifier">runlist</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clear-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;a task&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-string">&quot;t&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;a&quot;</span>) { }
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">prerequisites</span>.<span class="ruby-identifier">empty?</span>, <span class="ruby-string">&quot;prerequisites should be empty&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">actions</span>.<span class="ruby-identifier">empty?</span>, <span class="ruby-string">&quot;actions should be empty&quot;</span>
+  <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>, <span class="ruby-string">&quot;comments should be empty&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_clear_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clear_actions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clear_actions-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear_actions</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-string">&quot;t&quot;</span>) { }
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">clear_actions</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">actions</span>.<span class="ruby-identifier">empty?</span>, <span class="ruby-string">&quot;actions should be empty&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_clear_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clear_comments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clear_comments-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;the original foo&quot;</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:foo</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:x</span>] <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Dummy action</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span>).<span class="ruby-identifier">clear_comments</span>
+
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;a slightly different foo&quot;</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:foo</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;a slightly different foo&quot;</span>, <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span>).<span class="ruby-identifier">comment</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;x&quot;</span>], <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span>).<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span>).<span class="ruby-identifier">actions</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_clear_prerequisites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clear_prerequisites</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clear_prerequisites-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear_prerequisites</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-string">&quot;t&quot;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>])
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">clear_prerequisites</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comment_setting" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comment_setting</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>NOTE: Rail-ties uses comment=.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_comment_setting-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comment_setting</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span> = <span class="ruby-string">&quot;A Comment&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;A Comment&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comments_do_not_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comments_do_not_set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comments_do_not_set-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_do_not_set</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comments_is_nil" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comments_is_nil</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comments_is_nil-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_is_nil</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comments_with_decimal_points" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comments_with_decimal_points</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comments_with_decimal_points-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_with_decimal_points</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;Revision 1.2.3.&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Revision 1.2.3&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comments_with_sentences" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comments_with_sentences</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comments_with_sentences-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_with_sentences</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;Comment 1. Comment 2.&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Comment 1&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comments_with_tabbed_sentences" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comments_with_tabbed_sentences</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comments_with_tabbed_sentences-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_with_tabbed_sentences</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;Comment 1.\tComment 2.&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Comment 1&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_create-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create</span>
+  <span class="ruby-identifier">arg</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:name</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span> <span class="ruby-identifier">arg</span> = <span class="ruby-identifier">task</span>; <span class="ruby-value">1234</span> }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">needed?</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">t</span>, <span class="ruby-identifier">arg</span>
+  <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">source</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">sources</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">locations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/#{Regexp.quote(__FILE__)}/</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">locations</span>.<span class="ruby-identifier">first</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_defined" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_defined</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_defined-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_defined</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-constant">Task</span>.<span class="ruby-identifier">task_defined?</span>(<span class="ruby-value">:a</span>)
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Task</span>.<span class="ruby-identifier">task_defined?</span>(<span class="ruby-value">:a</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_dry_run_prevents_actions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_dry_run_prevents_actions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_dry_run_prevents_actions-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_dry_run_prevents_actions</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">dryrun</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> { <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span> }
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/execute .*t1/i</span>, <span class="ruby-identifier">err</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/dry run/i</span>, <span class="ruby-identifier">err</span>)
+  <span class="ruby-identifier">refute_match</span>(<span class="ruby-regexp">/invoke/i</span>, <span class="ruby-identifier">err</span>)
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">runlist</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">dryrun</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_duplicate_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_duplicate_comments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_duplicate_comments-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 371</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_duplicate_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;line one&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_extended_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_extended_comments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_extended_comments-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_extended_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">%{
+    This is a comment.
+
+    And this is the extended comment.
+    name -- Name of task to execute.
+    rev  -- Software revision to use.
+  }</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;[name,rev]&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">arg_description</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;This is a comment&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^\s*name -- Name/</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">full_comment</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^\s*rev  -- Software/</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">full_comment</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/\A\s*This is a comment\.$/</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">full_comment</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_filelists_can_be_prerequisites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_filelists_can_be_prerequisites</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_filelists_can_be_prerequisites-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_filelists_can_be_prerequisites</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>], <span class="ruby-constant">Task</span>[<span class="ruby-value">:a</span>].<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_find</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_find-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_find</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:tfind</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;tfind&quot;</span>, <span class="ruby-constant">Task</span>[<span class="ruby-value">:tfind</span>].<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">ex</span> = <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) { <span class="ruby-constant">Task</span>[<span class="ruby-value">:leaves</span>] }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Don&#39;t know how to build task &#39;leaves&#39; (see --tasks)&quot;</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_inspect-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_inspect</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:bar</span>, <span class="ruby-value">:baz</span>])
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&lt;Rake::Task foo =&gt; [bar, baz]&gt;&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_interspersed_duplicate_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_interspersed_duplicate_comments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_interspersed_duplicate_comments-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_interspersed_duplicate_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line two&quot;</span>
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;line one / line two&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_investigation_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_investigation_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_investigation_output-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_investigation_output</span>
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>, <span class="ruby-value">:t3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t2</span>)
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t3</span>)
+  <span class="ruby-identifier">out</span> = <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">investigation</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/class:\s*Rake::Task/</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/needed:\s*true/</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/pre-requisites:\s*--t[23]/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_invoke" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_invoke</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_invoke-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_invoke</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>, <span class="ruby-value">:t3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t3</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t2&quot;</span>, <span class="ruby-string">&quot;t3&quot;</span>], <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t2&quot;</span>, <span class="ruby-string">&quot;t3&quot;</span>, <span class="ruby-string">&quot;t1&quot;</span>], <span class="ruby-identifier">runlist</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_invoke_with_circular_dependencies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_invoke_with_circular_dependencies</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_invoke_with_circular_dependencies-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_invoke_with_circular_dependencies</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">t2</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t2</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t1</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t2&quot;</span>], <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t1&quot;</span>], <span class="ruby-identifier">t2</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">ex</span> = <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/circular dependency/i</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/t1 =&gt; t2 =&gt; t1/</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_multi_invocations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_multi_invocations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_multi_invocations-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multi_invocations</span>
+  <span class="ruby-identifier">runs</span> = []
+  <span class="ruby-identifier">p</span> = <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">task</span>({ <span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>, <span class="ruby-value">:t3</span>] }, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">task</span>({ <span class="ruby-value">:t2</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t3</span>] }, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t3</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">p</span>)
+  <span class="ruby-constant">Task</span>[<span class="ruby-value">:t1</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t1&quot;</span>, <span class="ruby-string">&quot;t2&quot;</span>, <span class="ruby-string">&quot;t3&quot;</span>], <span class="ruby-identifier">runs</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_multiple_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_multiple_comments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_multiple_comments-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 363</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line two&quot;</span>
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;line one / line two&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_no_double_invoke" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_no_double_invoke</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_no_double_invoke-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_no_double_invoke</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>, <span class="ruby-value">:t3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t2</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t3</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t3&quot;</span>, <span class="ruby-string">&quot;t2&quot;</span>, <span class="ruby-string">&quot;t1&quot;</span>], <span class="ruby-identifier">runlist</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_prerequisite_tasks_fails_if_prerequisites_are_undefined</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_prerequisite_tasks_fails_if_prerequisites_are_undefined-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_prerequisite_tasks_fails_if_prerequisites_are_undefined</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">a</span>.<span class="ruby-identifier">prerequisite_tasks</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_prerequisite_tasks_honors_namespaces" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_prerequisite_tasks_honors_namespaces</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_prerequisite_tasks_honors_namespaces-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_prerequisite_tasks_honors_namespaces</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">b</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">namespace</span> <span class="ruby-string">&quot;X&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+    <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">prerequisite_tasks</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_prerequisite_tasks_returns_tasks_not_strings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_prerequisite_tasks_returns_tasks_not_strings</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_prerequisite_tasks_returns_tasks_not_strings-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_prerequisite_tasks_returns_tasks_not_strings</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">prerequisite_tasks</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_source_is_first_prerequisite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_source_is_first_prerequisite</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_source_is_first_prerequisite-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_source_is_first_prerequisite</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:t</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;preqA&quot;</span>, <span class="ruby-string">&quot;preqB&quot;</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;preqA&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">source</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_strings_can_be_prerequisites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_strings_can_be_prerequisites</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_strings_can_be_prerequisites-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_strings_can_be_prerequisites</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;b&quot;</span>], <span class="ruby-constant">Task</span>[<span class="ruby-value">:a</span>].<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_symbols_can_be_prerequisites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_symbols_can_be_prerequisites</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_symbols_can_be_prerequisites-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_symbols_can_be_prerequisites</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;b&quot;</span>], <span class="ruby-constant">Task</span>[<span class="ruby-value">:a</span>].<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_task_gives_name_on_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_task_gives_name_on_to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_task_gives_name_on_to_s-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_task_gives_name_on_to_s</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:abc</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-constant">Task</span>[<span class="ruby-value">:abc</span>].<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_task_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_task_list</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_task_list-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_task_list</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:t2</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t1&quot;</span>, <span class="ruby-string">&quot;t2&quot;</span>], <span class="ruby-constant">Task</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_tasks_can_be_traced" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_tasks_can_be_traced</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_tasks_can_be_traced-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_tasks_can_be_traced</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">trace</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span>)
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> {
+    <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  }
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/invoke t1/i</span>, <span class="ruby-identifier">err</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/execute t1/i</span>, <span class="ruby-identifier">err</span>)
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">trace</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_timestamp_returns_latest_prereq_timestamp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_timestamp_returns_latest_prereq_timestamp</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_timestamp_returns_latest_prereq_timestamp-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_timestamp_returns_latest_prereq_timestamp</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+
+  <span class="ruby-identifier">now</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">b</span>.<span class="ruby-identifier">timestamp</span>() <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-value">10</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">c</span>.<span class="ruby-identifier">timestamp</span>() <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-value">5</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_in_delta</span> <span class="ruby-identifier">now</span>, <span class="ruby-identifier">a</span>.<span class="ruby-identifier">timestamp</span>, <span class="ruby-value">0.1</span>, <span class="ruby-string">&#39;computer too slow?&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_timestamp_returns_now_if_all_prereqs_have_no_times</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_timestamp_returns_now_if_all_prereqs_have_no_times-source">
+            <pre><span class="ruby-comment"># File test/test_rake_task.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_timestamp_returns_now_if_all_prereqs_have_no_times</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+
+  <span class="ruby-identifier">assert_in_delta</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>, <span class="ruby-identifier">a</span>.<span class="ruby-identifier">timestamp</span>, <span class="ruby-value">0.1</span>, <span class="ruby-string">&#39;computer too slow?&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

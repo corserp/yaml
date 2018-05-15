@@ -1,0 +1,16 @@
+[run]
+<<<<<<< HEAD
+source = gitdb
+
+; to make nosetests happy
+[report]
+include = */gitdb/*
+omit = */gitdb/ext/*
+=======
+omit =
+  */molecule/cookiecutter/*
+
+[report]
+fail_under =
+  100
+>>>>>>> d2d2dce8a61ea35094b5fef4afb8aa48f28a985d

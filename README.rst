@@ -1,78 +1,125 @@
-GitDB
-=====
+<<<<<<< HEAD
+********
+=======
+.. image:: https://cloud.githubusercontent.com/assets/9895/11250011/11e827d0-8ddf-11e5-80f5-259036d868c2.png
+   :align: center
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
 
-GitDB allows you to access bare git repositories for reading and writing. It aims at allowing full access to loose objects as well as packs with performance and scalability in mind. It operates exclusively on streams, allowing to handle large objects with a small memory footprint.
+>>>>>>> Having our image hosted on GH CDN vs repo
+Molecule
+********
 
-Installation
-============
+.. image:: https://badge.fury.io/py/molecule.svg
+   :target: https://badge.fury.io/py/molecule
+   :alt: PyPI Package
 
-.. image:: https://img.shields.io/pypi/v/gitdb.svg
-    :target: https://pypi.python.org/pypi/gitdb/
-    :alt: Latest Version
-.. image:: https://img.shields.io/pypi/pyversions/gitdb.svg
-    :target: https://pypi.python.org/pypi/gitdb/
-    :alt: Supported Python versions
-.. image:: https://readthedocs.org/projects/gitdb/badge/?version=latest
-    :target: https://readthedocs.org/projects/gitdb/?badge=latest
-    :alt: Documentation Status
+.. image:: https://readthedocs.org/projects/molecule/badge/?version=latest
+   :target: https://molecule.readthedocs.io/en/latest/
+   :alt: Documentation Status
 
-From `PyPI <https://pypi.python.org/pypi/gitdb>`_
+.. image:: https://img.shields.io/badge/license-MIT-brightgreen.svg
+   :target: LICENSE
+   :alt: Repository License
 
- pip install gitdb
+Molecule is designed to aid in the development and testing of `Ansible`_ roles.
+Molecule provides support for testing with multiple instances, operating
+systems and distributions, virtualization providers, test frameworks and
+testing scenarios.  Molecule is opinionated in order to encourage an approach
+that results in consistently developed roles that are well-written, easily
+understood and maintained.
 
-SPEEDUPS
-========
+Molecule uses `Ansible`_ `playbooks`_ to exercise the `role`_ and its
+associated tests.  Molecule supports any provider [#]_ that `Ansible`_
+supports.
 
-If you want to go up to 20% faster, you can install gitdb-speedups with:
+.. [#]
 
- pip install gitdb-speedups
+   Providers can be bare-metal, virtual, cloud or containers.  If Ansible can
+   use it, Molecule can test it.  Molecule simply leverages Ansible's module
+   system to manage instances.
 
-REQUIREMENTS
-============
+.. _`playbooks`: https://docs.ansible.com/ansible/playbooks.html
+.. _`role`: http://docs.ansible.com/ansible/playbooks_roles.html
 
-* Python  Nose - for running the tests
-
-SOURCE
-======
-The source is available in a git repository at gitorious and github:
-
-https://github.com/gitpython-developers/gitdb
-
-Once the clone is complete, please be sure to initialize the submodules using
-
- cd gitdb
- git submodule update --init
-
-Run the tests with
-
- nosetests
-
-DEVELOPMENT
+Quick Start
 ===========
 
-.. image:: https://travis-ci.org/gitpython-developers/gitdb.svg?branch=master
-    :target: https://travis-ci.org/gitpython-developers/gitdb
-.. image:: https://ci.appveyor.com/api/projects/status/2qa4km4ln7bfv76r/branch/master?svg=true&passingText=windows%20OK&failingText=windows%20failed
-    :target: https://ci.appveyor.com/project/ankostis/gitpython/branch/master)
-.. image:: https://coveralls.io/repos/gitpython-developers/gitdb/badge.png
-    :target: https://coveralls.io/r/gitpython-developers/gitdb
-.. image:: http://www.issuestats.com/github/gitpython-developers/gitdb/badge/pr
-    :target: http://www.issuestats.com/github/gitpython-developers/gitdb
-.. image:: http://www.issuestats.com/github/gitpython-developers/gitdb/badge/issue
-    :target: http://www.issuestats.com/github/gitpython-developers/gitdb
+Installing
+----------
 
-The library is considered mature, and not under active development. It's primary (known) use is in git-python.
+.. image:: https://asciinema.org/a/161970.png
+   :target: https://asciinema.org/a/161970?speed=5&autoplay=1&loop=1
+   :alt: Installing
 
-INFRASTRUCTURE
-==============
+Creating a new role
+-------------------
 
-* Mailing List
-    * http://groups.google.com/group/git-python
+.. image:: https://asciinema.org/a/161976.png
+   :target: https://asciinema.org/a/161976?speed=5&autoplay=1&loop=1
+   :alt: Creating a new role
 
-* Issue Tracker
-    * https://github.com/gitpython-developers/gitdb/issues
+Testing a new role
+-------------------
 
-LICENSE
+.. image:: https://asciinema.org/a/161977.png
+   :target: https://asciinema.org/a/161977?speed=5&autoplay=1&loop=1
+   :alt: Testing a new role
+
+Testing an existing role
+------------------------
+
+.. image:: https://asciinema.org/a/AkQ4KhxuGAxwn1YJX3tM5BZld.png
+   :target: https://asciinema.org/a/AkQ4KhxuGAxwn1YJX3tM5BZld?speed=5&autoplay=1&loop=1
+   :alt: Testing an existing role
+
+Docker in Docker
+----------------
+
+.. image:: https://asciinema.org/a/172713.png
+   :target: https://asciinema.org/a/172713?speed=5&autoplay=1&loop=1
+   :alt: Testing an existing role
+
+Documentation
+=============
+
+https://molecule.readthedocs.io/
+
+Contact
 =======
 
-New BSD License
+IRC
+---
+
+Join us in the #molecule-users channel on `freenode`_.
+
+.. _`freenode`: https://freenode.net
+
+Forums
+------
+
+* `molecule-users`_
+* `molecule-dev`_
+
+.. _`molecule-users`: https://groups.google.com/forum/#!forum/molecule-users
+.. _`molecule-dev`: https://groups.google.com/forum/#!forum/molecule-dev
+
+Ansible Support
+===============
+
+Molecule requires Ansible version 2.2 or later.
+
+.. _`Ansible`: https://docs.ansible.com
+
+License
+=======
+
+`MIT`_
+
+.. _`MIT`: https://github.com/metacloud/molecule/blob/master/LICENSE
+
+The logo is licensed under the `Creative Commons NoDerivatives 4.0 License`_.
+If you have some other use in mind, contact us.
+
+.. _`Creative Commons NoDerivatives 4.0 License`: https://creativecommons.org/licenses/by-nd/4.0/

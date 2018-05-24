@@ -1,0 +1,20 @@
+require "rake/testtask"
+
+begin
+  require "hanna/rdoctask"
+rescue LoadError
+  require "rake/rdoctask"
+end
+
+task :default => [:test]
+
+Rake::TestTask.new do |t|
+  t.test_files = Dir["test/*_test.rb"]
+end
+
+Rake::RDocTask.new do |t|
+  t.title = "Core Documentation"
+  t.main = "README.rdoc"
+  t.rdoc_files.include("README.rdoc", "lib/**/*.rb")
+  t.rdoc_dir = "doc"
+end

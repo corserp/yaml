@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"headers:EFI"7Bundler::Persistent::Net::HTTP::Persistent#headers;FI"R;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"FHeaders that are added to every request using Net::HTTP#add_field;T:
+@file0FI"Flib/bundler/vendor/net-http-persistent/lib/net/http/persistent.rb;T

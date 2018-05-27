@@ -1,0 +1,12 @@
+Wed, 09 May 2018 16:22:36 +0000
+lib/core/forwardable.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/core/object.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/core/functor.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/core/accessor.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/core/module.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/core/this.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/core/inspect.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/core/hash.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/kinda-core.rb	Wed, 09 May 2018 16:22:36 +0000
+lib/core.rb	Wed, 09 May 2018 16:22:36 +0000
+README.rdoc	Wed, 09 May 2018 16:22:36 +0000

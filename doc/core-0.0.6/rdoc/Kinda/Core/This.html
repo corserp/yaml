@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Module: Kinda::Core::This</title>
+
+  <link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../../lib/core/this_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/core/this.rb">lib/core/this.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">MODULE</span> <a href="This/ProcExtension.html">Kinda::Core::This::ProcExtension</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-call_with_this">#call_with_this</a></li>
+          
+          <li><a href="#method-i-contextual_method">#contextual_method</a></li>
+          
+          <li><a href="#method-i-contextual_method-3F">#contextual_method?</a></li>
+          
+          <li><a href="#method-i-method_missing">#method_missing</a></li>
+          
+          <li><a href="#method-i-pop_this">#pop_this</a></li>
+          
+          <li><a href="#method-i-push_this">#push_this</a></li>
+          
+          <li><a href="#method-i-this">#this</a></li>
+          
+          <li><a href="#method-i-this_eval">#this_eval</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="../../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../../Kinda.html">Kinda</a></li>
+        
+          <li><a href="../../Kinda/Core.html">Kinda::Core</a></li>
+        
+          <li><a href="../../Kinda/Core/Accessor.html">Kinda::Core::Accessor</a></li>
+        
+          <li><a href="../../Kinda/Core/Forwardable.html">Kinda::Core::Forwardable</a></li>
+        
+          <li><a href="../../Kinda/Core/Functor.html">Kinda::Core::Functor</a></li>
+        
+          <li><a href="../../Kinda/Core/HashExtension.html">Kinda::Core::HashExtension</a></li>
+        
+          <li><a href="../../Kinda/Core/ModuleExtension.html">Kinda::Core::ModuleExtension</a></li>
+        
+          <li><a href="../../Kinda/Core/ObjectExtension.html">Kinda::Core::ObjectExtension</a></li>
+        
+          <li><a href="../../Kinda/Core/This.html">Kinda::Core::This</a></li>
+        
+          <li><a href="../../Kinda/Core/This/ProcExtension.html">Kinda::Core::This::ProcExtension</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">Kinda::Core::This</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+      <!-- Attributes -->
+      <div id="attribute-method-details" class="method-section section">
+        <h3 class="section-header">Attributes</h3>
+
+        
+        <div id="contextual_methods-attribute-method" class="method-detail">
+          <a name="contextual_methods"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">contextual_methods</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+      </div><!-- attribute-method-details -->
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="call_with_this-method" class="method-detail ">
+          <a name="method-i-call_with_this"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">call_with_this</span><span
+              class="method-args">(proc, *args, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="call_with_this-source">
+<pre>
+<span class="ruby-comment"># File lib/core/this.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call_with_this</span>(<span class="ruby-identifier">proc</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">proc</span>
+  <span class="ruby-identifier">binding_self</span> = <span class="ruby-identifier">proc</span>.<span class="ruby-identifier">binding</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">'self'</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Object #{binding_self.inspect} doesn't respond to Kinda::Core::This methods &quot;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-node">&quot;(proc=#{proc.inspect})&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">binding_self</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:push_this</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">binding_self</span>.<span class="ruby-identifier">push_this</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">proc</span>.<span class="ruby-identifier">call</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">binding_self</span>.<span class="ruby-identifier">pop_this</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- call_with_this-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- call_with_this-method -->
+
+      
+        <div id="contextual_method-method" class="method-detail ">
+          <a name="method-i-contextual_method"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">contextual_method</span><span
+              class="method-args">(*methods)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="contextual_method-source">
+<pre>
+<span class="ruby-comment"># File lib/core/this.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">contextual_method</span>(*<span class="ruby-identifier">methods</span>)
+  <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    (<span class="ruby-ivar">@contextual_methods</span> <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- contextual_method-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- contextual_method-method -->
+
+      
+        <div id="contextual_method-3F-method" class="method-detail ">
+          <a name="method-i-contextual_method-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">contextual_method?</span><span
+              class="method-args">(method)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="contextual_method-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/core/this.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">contextual_method?</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">to_class</span>.<span class="ruby-identifier">self_and_ancestors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ancestor</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ancestor</span>.<span class="ruby-identifier">contextual_methods</span> <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">ancestor</span>.<span class="ruby-identifier">contextual_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_sym</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- contextual_method-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- contextual_method-3F-method -->
+
+      
+        <div id="method_missing-method" class="method-detail ">
+          <a name="method-i-method_missing"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">method_missing</span><span
+              class="method-args">(method_name, *args, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="method_missing-source">
+<pre>
+<span class="ruby-comment"># File lib/core/this.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">method_name</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">this</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">this</span>.<span class="ruby-identifier">contextual_method?</span>(<span class="ruby-identifier">method_name</span>)
+    <span class="ruby-identifier">this</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method_name</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- method_missing-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- method_missing-method -->
+
+      
+        <div id="pop_this-method" class="method-detail ">
+          <a name="method-i-pop_this"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">pop_this</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="pop_this-source">
+<pre>
+<span class="ruby-comment"># File lib/core/this.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pop_this</span>
+  <span class="ruby-ivar">@these</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@these</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- pop_this-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pop_this-method -->
+
+      
+        <div id="push_this-method" class="method-detail ">
+          <a name="method-i-push_this"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">push_this</span><span
+              class="method-args">(object)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="push_this-source">
+<pre>
+<span class="ruby-comment"># File lib/core/this.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push_this</span>(<span class="ruby-identifier">object</span>)
+  (<span class="ruby-ivar">@these</span> <span class="ruby-operator">||=</span> []).<span class="ruby-identifier">push</span>(<span class="ruby-identifier">object</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- push_this-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- push_this-method -->
+
+      
+        <div id="this-method" class="method-detail ">
+          <a name="method-i-this"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">this</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="this-source">
+<pre>
+<span class="ruby-comment"># File lib/core/this.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">this</span>
+  (<span class="ruby-ivar">@these</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@these</span>.<span class="ruby-identifier">last</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- this-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- this-method -->
+
+      
+        <div id="this_eval-method" class="method-detail ">
+          <a name="method-i-this_eval"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">this_eval</span><span
+              class="method-args">(&block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="this_eval-source">
+<pre>
+<span class="ruby-comment"># File lib/core/this.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">this_eval</span>(&amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">this</span>.<span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- this_eval-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- this_eval-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

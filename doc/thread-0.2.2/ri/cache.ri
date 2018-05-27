@@ -1,0 +1,19 @@
+{:ancestors{I"Thread::Channel:EF[I"Object;FI"Thread;F[I"Object;FI"Thread::Every;F[I"Object;FI"Thread::Pool;F[I"Object;FI"Thread::Pool::Task;F[I"Object;FI"RecursiveMutex;F[I"
+Mutex;FI"Thread::Process;F[I"Object;FI"Thread::Future;F[I"Object;FI"Thread::Delay;F[I"Object;FI"Thread::Promise;F[I"Object;FI"Thread::Pipe;F[I"Object;FI"Thread::Pipe::Task;F[I"Object;F:attributes{@[
+I"%attr_accessor abort_on_exception;FI"attr_reader max;FI"attr_reader min;FI"attr_reader spawned;FI"attr_reader waiting;F@[I"attr_reader exception;FI"attr_reader pool;FI"attr_reader result;FI"attr_reader started_at;FI"attr_reader thread;FI"attr_reader timeout;F@([I"attr_accessor input;FI"attr_accessor output;F:class_methods{@[I"new;FI"Thread;F[I"channel;FI"
+delay;FI"
+every;FI"future;FI"	pool;FI"process;FI"promise;FI"|;F@[I"finalizer;FI"new;F@[I"abort_on_exception;FI"new;F@[I"new;F@[I"new;F@[
+I"[];FI"all;FI"new;FI"register;FI"unregister;F@[I"finalizer;FI"new;F@[I"new;F@"[I"new;F@%[I"finalizer;FI"new;F@([I"new;F:encodingIu:Encoding
+UTF-8;F:instance_methods{@[I"receive;FI"receive!;FI"	send;F@[I"called_at;FI"cancel;FI"cancelled?;FI"cancelled_at;FI"
+every;FI"next_in;FI"	old?;FI"restart;FI"running?;FI"
+value;FI"value!;FI"~;F@[I"<<;FI"auto_trim!;FI"auto_trim?;FI"backlog;FI"
+done?;FI"future;FI"
+idle?;FI"idle_trim!;FI"idle_trim?;FI"max;FI"min;FI"no_auto_trim!;FI"no_idle_trim!;FI"process;FI"resize;FI"shutdown;FI"shutdown!;FI"shutdown?;FI"shutdown_after;FI"spawned;FI"	trim;FI"
+trim!;FI"	wait;FI"waiting;F@[I"exception;FI"execute;FI"finished?;FI"	pool;FI"
+raise;FI"result;FI"running?;FI"started_at;FI"terminate!;FI"terminated?;FI"thread;FI"timeout;FI"timeout!;FI"timeout?;FI"timeout_after;F@[I"	lock;FI"unlock;F@[I"<<;FI"	send;F@[I"!;FI"cancel;FI"cancelled?;FI"delivered?;FI"exception;FI"exception?;FI"realized?;FI"
+value;FI"value!;FI"~;F@[I"!;FI"delivered?;FI"exception;FI"exception?;FI"realized?;FI"
+value;FI"value!;FI"~;F@"[I"<<;FI"deliver;FI"delivered?;FI"realized?;FI"
+value;FI"~;F@%[I"<<;FI"deq;FI"empty?;FI"enq;FI"pop;FI"	push;FI"|;FI"~;F@([	I"empty?;FI"
+input;FI"	kill;FI"output;FI"Kernel;F[	I"
+delay;FI"
+every;FI"future;FI"promise;F:modules[I"Kernel;FI"RecursiveMutex;FI"Thread;FI"Thread::Channel;FI"Thread::Delay;FI"Thread::Every;FI"Thread::Future;FI"Thread::Pipe;FI"Thread::Pipe::Task;FI"Thread::Pool;FI"Thread::Pool::Task;FI"Thread::Process;FI"Thread::Promise;F

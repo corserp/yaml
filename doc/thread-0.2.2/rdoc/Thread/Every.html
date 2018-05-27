@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Thread::Every</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../lib/thread/every_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/every.rb">lib/thread/every.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-finalizer">::finalizer</a></li>
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-called_at">#called_at</a></li>
+          
+          <li><a href="#method-i-cancel">#cancel</a></li>
+          
+          <li><a href="#method-i-cancelled-3F">#cancelled?</a></li>
+          
+          <li><a href="#method-i-cancelled_at">#cancelled_at</a></li>
+          
+          <li><a href="#method-i-every">#every</a></li>
+          
+          <li><a href="#method-i-next_in">#next_in</a></li>
+          
+          <li><a href="#method-i-old-3F">#old?</a></li>
+          
+          <li><a href="#method-i-restart">#restart</a></li>
+          
+          <li><a href="#method-i-running-3F">#running?</a></li>
+          
+          <li><a href="#method-i-value">#value</a></li>
+          
+          <li><a href="#method-i-value-21">#value!</a></li>
+          
+          <li><a href="#method-i-7E">#~</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          <li><a href="../Thread/Channel.html">Thread::Channel</a></li>
+        
+          <li><a href="../Thread/Delay.html">Thread::Delay</a></li>
+        
+          <li><a href="../Thread/Every.html">Thread::Every</a></li>
+        
+          <li><a href="../Thread/Future.html">Thread::Future</a></li>
+        
+          <li><a href="../Thread/Pipe.html">Thread::Pipe</a></li>
+        
+          <li><a href="../Thread/Pipe/Task.html">Thread::Pipe::Task</a></li>
+        
+          <li><a href="../Thread/Pool.html">Thread::Pool</a></li>
+        
+          <li><a href="../Thread/Pool/Task.html">Thread::Pool::Task</a></li>
+        
+          <li><a href="../Thread/Process.html">Thread::Process</a></li>
+        
+          <li><a href="../Thread/Promise.html">Thread::Promise</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../RecursiveMutex.html">RecursiveMutex</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Thread::Every</h1>
+
+    <div id="description" class="description">
+      
+<p>An every runs the given block every given seconds, you can then get the
+value, check if the value is old and you can check how many seconds until
+the next run.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="Cancel">Cancel</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="Restart">Restart</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="finalizer-method" class="method-detail ">
+          <a name="method-c-finalizer"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">finalizer</span><span
+              class="method-args">(thread)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>@private</p>
+            
+
+            
+            <div class="method-source-code" id="finalizer-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">finalizer</span>(<span class="ruby-identifier">thread</span>)
+        <span class="ruby-identifier">proc</span> {
+                <span class="ruby-identifier">thread</span>.<span class="ruby-identifier">raise</span> <span class="ruby-constant">Cancel</span>.<span class="ruby-identifier">new</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- finalizer-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- finalizer-method -->
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(every, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Create an every with the given seconds and block.</p>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">every</span>, &amp;<span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">'no block given'</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>
+
+        <span class="ruby-ivar">@every</span>  = <span class="ruby-identifier">every</span>
+        <span class="ruby-ivar">@old</span>    = <span class="ruby-keyword">true</span>
+        <span class="ruby-ivar">@mutex</span>  = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-ivar">@thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+                <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-keyword">begin</span>
+                                <span class="ruby-identifier">value</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>
+
+                                <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                                        <span class="ruby-ivar">@at</span>        = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+                                        <span class="ruby-ivar">@value</span>     = <span class="ruby-identifier">value</span>
+                                        <span class="ruby-ivar">@old</span>       = <span class="ruby-keyword">false</span>
+                                        <span class="ruby-ivar">@exception</span> = <span class="ruby-keyword">nil</span>
+                                }
+                        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Restart</span>
+                                <span class="ruby-keyword">next</span>
+                        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                                <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                                        <span class="ruby-ivar">@at</span>        = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+                                        <span class="ruby-ivar">@exception</span> = <span class="ruby-identifier">e</span>
+                                }
+
+                                <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Cancel</span>
+                        <span class="ruby-keyword">end</span>
+
+                        <span class="ruby-identifier">cond</span>.<span class="ruby-identifier">broadcast</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cond?</span>
+
+                        <span class="ruby-keyword">begin</span>
+                                <span class="ruby-identifier">sleep</span> <span class="ruby-ivar">@every</span>
+                        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Restart</span>
+                                <span class="ruby-keyword">next</span>
+                        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Cancel</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                                <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                                        <span class="ruby-ivar">@at</span>        = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+                                        <span class="ruby-ivar">@exception</span> = <span class="ruby-identifier">e</span>
+                                }
+
+                                <span class="ruby-keyword">break</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+        }
+
+        <span class="ruby-constant">ObjectSpace</span>.<span class="ruby-identifier">define_finalizer</span> <span class="ruby-keyword">self</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">finalizer</span>(<span class="ruby-ivar">@thread</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="called_at-method" class="method-detail ">
+          <a name="method-i-called_at"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">called_at</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Gets the Time when the block was called.</p>
+            
+
+            
+            <div class="method-source-code" id="called_at-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">called_at</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-ivar">@at</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- called_at-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- called_at-method -->
+
+      
+        <div id="cancel-method" class="method-detail ">
+          <a name="method-i-cancel"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">cancel</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="Every.html#Cancel">Cancel</a> the every, {<a
+href="Every.html#method-i-value">value</a>} will yield a <a
+href="Every.html#Cancel">Cancel</a> exception.</p>
+            
+
+            
+            <div class="method-source-code" id="cancel-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cancel</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">raise</span> <span class="ruby-constant">Cancel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'every cancelled'</span>)
+        }
+
+        <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- cancel-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- cancel-method -->
+
+      
+        <div id="cancelled-3F-method" class="method-detail ">
+          <a name="method-i-cancelled-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">cancelled?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Check if the every has been cancelled.</p>
+            
+
+            
+            <div class="method-source-code" id="cancelled-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cancelled?</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-ivar">@exception</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Cancel</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- cancelled-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- cancelled-3F-method -->
+
+      
+        <div id="cancelled_at-method" class="method-detail ">
+          <a name="method-i-cancelled_at"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">cancelled_at</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Checks when the every was cancelled.</p>
+            
+
+            
+            <div class="method-source-code" id="cancelled_at-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cancelled_at</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">cancelled?</span>
+                <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                        <span class="ruby-ivar">@at</span>
+                }
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- cancelled_at-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- cancelled_at-method -->
+
+      
+        <div id="every-method" class="method-detail ">
+          <a name="method-i-every"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">every</span><span
+              class="method-args">(seconds)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Change the number of seconds between each call.</p>
+            
+
+            
+            <div class="method-source-code" id="every-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">every</span>(<span class="ruby-identifier">seconds</span>)
+        <span class="ruby-ivar">@every</span> = <span class="ruby-identifier">seconds</span>
+
+        <span class="ruby-identifier">restart</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- every-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- every-method -->
+
+      
+        <div id="next_in-method" class="method-detail ">
+          <a name="method-i-next_in"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">next_in</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Gets how many seconds are missing before another call.</p>
+            
+
+            
+            <div class="method-source-code" id="next_in-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">next_in</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cancelled?</span>
+
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-ivar">@every</span> <span class="ruby-operator">-</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@at</span>)
+        }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- next_in-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- next_in-method -->
+
+      
+        <div id="old-3F-method" class="method-detail ">
+          <a name="method-i-old-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">old?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Check if the every is old, after the first <a
+href="Every.html#method-i-value">value</a> call it becomes old, until
+another run of the block is gone)</p>
+            
+
+            
+            <div class="method-source-code" id="old-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">old?</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-ivar">@old</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- old-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- old-3F-method -->
+
+      
+        <div id="restart-method" class="method-detail ">
+          <a name="method-i-restart"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">restart</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="Every.html#Restart">Restart</a> the every.</p>
+            
+
+            
+            <div class="method-source-code" id="restart-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">restart</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">raise</span> <span class="ruby-constant">Restart</span>.<span class="ruby-identifier">new</span>
+        }
+
+        <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- restart-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- restart-method -->
+
+      
+        <div id="running-3F-method" class="method-detail ">
+          <a name="method-i-running-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">running?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Check if the every is running.</p>
+            
+
+            
+            <div class="method-source-code" id="running-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running?</span>
+        <span class="ruby-operator">!</span><span class="ruby-identifier">cancelled?</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- running-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- running-3F-method -->
+
+      
+        <div id="value-method" class="method-detail ">
+          <a name="method-i-value"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">value</span><span
+              class="method-args">(timeout = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Gets the current every value.</p>
+            
+
+            
+            <div class="method-source-code" id="value-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">value</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>)
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@old</span>
+                        <span class="ruby-identifier">cond</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-ivar">@mutex</span>, *<span class="ruby-identifier">timeout</span>)
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-ivar">@old</span> = <span class="ruby-keyword">true</span>
+
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@exception</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-ivar">@exception</span>
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-ivar">@value</span>
+                <span class="ruby-keyword">end</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- value-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="Every.html#method-i-7E">~</a>
+          </div>
+          
+
+          
+        </div><!-- value-method -->
+
+      
+        <div id="value-21-method" class="method-detail ">
+          <a name="method-i-value-21"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">value!</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Gets the current every value, without blocking and waiting for the next
+call.</p>
+            
+
+            
+            <div class="method-source-code" id="value-21-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">value!</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-ivar">@old</span> = <span class="ruby-keyword">true</span>
+
+                <span class="ruby-ivar">@value</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@exception</span>
+        }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- value-21-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- value-21-method -->
+
+      
+        <div id="7E-method" class="method-detail method-alias">
+          <a name="method-i-7E"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">~</span><span
+              class="method-args">(timeout = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="Every.html#method-i-value">value</a>
+          </div>
+          
+        </div><!-- 7E-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Thread::Pipe</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../lib/thread/pipe_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/pipe.rb">lib/thread/pipe.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">CLASS</span> <a href="Pipe/Task.html">Thread::Pipe::Task</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-finalizer">::finalizer</a></li>
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-3C-3C">#<<</a></li>
+          
+          <li><a href="#method-i-deq">#deq</a></li>
+          
+          <li><a href="#method-i-empty-3F">#empty?</a></li>
+          
+          <li><a href="#method-i-enq">#enq</a></li>
+          
+          <li><a href="#method-i-pop">#pop</a></li>
+          
+          <li><a href="#method-i-push">#push</a></li>
+          
+          <li><a href="#method-i-7C">#|</a></li>
+          
+          <li><a href="#method-i-7E">#~</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          <li><a href="../Thread/Channel.html">Thread::Channel</a></li>
+        
+          <li><a href="../Thread/Delay.html">Thread::Delay</a></li>
+        
+          <li><a href="../Thread/Every.html">Thread::Every</a></li>
+        
+          <li><a href="../Thread/Future.html">Thread::Future</a></li>
+        
+          <li><a href="../Thread/Pipe.html">Thread::Pipe</a></li>
+        
+          <li><a href="../Thread/Pipe/Task.html">Thread::Pipe::Task</a></li>
+        
+          <li><a href="../Thread/Pool.html">Thread::Pool</a></li>
+        
+          <li><a href="../Thread/Pool/Task.html">Thread::Pool::Task</a></li>
+        
+          <li><a href="../Thread/Process.html">Thread::Process</a></li>
+        
+          <li><a href="../Thread/Promise.html">Thread::Promise</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../RecursiveMutex.html">RecursiveMutex</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Thread::Pipe</h1>
+
+    <div id="description" class="description">
+      
+<p>A pipe lets you execute various tasks on a set of data in parallel, each
+datum inserted in the pipe is passed along through queues to the various
+functions composing the pipe, the final result is inserted in the final
+queue.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="finalizer-method" class="method-detail ">
+          <a name="method-c-finalizer"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">finalizer</span><span
+              class="method-args">(tasks)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>@private</p>
+            
+
+            
+            <div class="method-source-code" id="finalizer-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/pipe.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">finalizer</span>(<span class="ruby-identifier">tasks</span>)
+        <span class="ruby-identifier">proc</span> {
+                <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">each</span>(&amp;<span class="ruby-value">:kill</span>)
+        }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- finalizer-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- finalizer-method -->
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(input = Queue.new, output = Queue.new)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Create a pipe using the optionally passed objects as input and output
+queue.</p>
+
+<p>The objects must respond to <a href="Pipe.html#method-i-enq">enq</a> and <a
+href="Pipe.html#method-i-deq">deq</a>, and block on <a
+href="Pipe.html#method-i-deq">deq</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/pipe.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">input</span> = <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">output</span> = <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">new</span>)
+        <span class="ruby-ivar">@tasks</span> = []
+
+        <span class="ruby-ivar">@input</span>  = <span class="ruby-identifier">input</span>
+        <span class="ruby-ivar">@output</span> = <span class="ruby-identifier">output</span>
+
+        <span class="ruby-constant">ObjectSpace</span>.<span class="ruby-identifier">define_finalizer</span> <span class="ruby-keyword">self</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">finalizer</span>(<span class="ruby-ivar">@tasks</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="3C-3C-method" class="method-detail method-alias">
+          <a name="method-i-3C-3C"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">&lt;&lt;</span><span
+              class="method-args">(data)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="Pipe.html#method-i-enq">enq</a>
+          </div>
+          
+        </div><!-- 3C-3C-method -->
+
+      
+        <div id="deq-method" class="method-detail ">
+          <a name="method-i-deq"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">deq</span><span
+              class="method-args">(non_block = false)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Get an element from the output queue.</p>
+            
+
+            
+            <div class="method-source-code" id="deq-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/pipe.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deq</span>(<span class="ruby-identifier">non_block</span> = <span class="ruby-keyword">false</span>)
+        <span class="ruby-ivar">@output</span>.<span class="ruby-identifier">deq</span>(<span class="ruby-identifier">non_block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- deq-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="Pipe.html#method-i-pop">pop</a>, <a href="Pipe.html#method-i-7E">~</a>
+          </div>
+          
+
+          
+        </div><!-- deq-method -->
+
+      
+        <div id="empty-3F-method" class="method-detail ">
+          <a name="method-i-empty-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">empty?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Check if the pipe is empty.</p>
+            
+
+            
+            <div class="method-source-code" id="empty-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/pipe.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
+        <span class="ruby-ivar">@input</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@output</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">all?</span>(&amp;<span class="ruby-value">:empty?</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- empty-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- empty-3F-method -->
+
+      
+        <div id="enq-method" class="method-detail ">
+          <a name="method-i-enq"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">enq</span><span
+              class="method-args">(data)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Insert data in the pipe.</p>
+            
+
+            
+            <div class="method-source-code" id="enq-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/pipe.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enq</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">empty?</span>
+
+        <span class="ruby-ivar">@input</span>.<span class="ruby-identifier">enq</span> <span class="ruby-identifier">data</span>
+
+        <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- enq-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="Pipe.html#method-i-push">push</a>, <a href="Pipe.html#method-i-3C-3C">&lt;&lt;</a>
+          </div>
+          
+
+          
+        </div><!-- enq-method -->
+
+      
+        <div id="pop-method" class="method-detail method-alias">
+          <a name="method-i-pop"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">pop</span><span
+              class="method-args">(non_block = false)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="Pipe.html#method-i-deq">deq</a>
+          </div>
+          
+        </div><!-- pop-method -->
+
+      
+        <div id="push-method" class="method-detail method-alias">
+          <a name="method-i-push"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">push</span><span
+              class="method-args">(data)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="Pipe.html#method-i-enq">enq</a>
+          </div>
+          
+        </div><!-- push-method -->
+
+      
+        <div id="7C-method" class="method-detail ">
+          <a name="method-i-7C"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">|</span><span
+              class="method-args">(func)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Add a task to the pipe, it must respond to call and arity, and arity must
+return 1.</p>
+            
+
+            
+            <div class="method-source-code" id="7C-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/pipe.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">func</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">func</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">'wrong arity'</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-constant">Task</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">func</span>, (<span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@input</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">new</span>), <span class="ruby-ivar">@output</span>).<span class="ruby-identifier">tap</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+                <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">output</span> = <span class="ruby-identifier">t</span>.<span class="ruby-identifier">input</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-ivar">@tasks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>
+        }
+
+        <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- 7C-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 7C-method -->
+
+      
+        <div id="7E-method" class="method-detail method-alias">
+          <a name="method-i-7E"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">~</span><span
+              class="method-args">(non_block = false)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="Pipe.html#method-i-deq">deq</a>
+          </div>
+          
+        </div><!-- 7E-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

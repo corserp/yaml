@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	next:EFI"5Bundler::Molinillo::DependencyGraph::Action#next;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I")@return [Action,Nil] The next action;T:
+@file0FI"Jlib/bundler/vendor/molinillo/lib/molinillo/dependency_graph/action.rb;T

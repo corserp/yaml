@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Brake</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./lib/brake_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/brake.rb">lib/brake.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-debug">#debug</a></li>
+          
+          <li><a href="#method-i-genesis">#genesis</a></li>
+          
+          <li><a href="#method-i-parse_command_line_options">#parse_command_line_options</a></li>
+          
+          <li><a href="#method-i-run_rake_task">#run_rake_task</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Brake.html">Brake</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Brake</h1>
+
+    <div id="description" class="description">
+      
+<p>@author Ben Slaughter class brake the heart and soul of brake simply this
+is a wrapper disigned to give the end user some control by being able to
+pass command line options but still having the conviniance of rake tasks
+The tool has now evolved and if used cleverly could be used by anyone</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="debug-method" class="method-detail ">
+          <a name="method-i-debug"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">debug</span><span
+              class="method-args">( message )</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>prints out the passed message if debug/untangle is on</p>
+            
+
+            
+            <div class="method-source-code" id="debug-source">
+<pre>
+<span class="ruby-comment"># File lib/brake.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">debug</span>( <span class="ruby-identifier">message</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@untangle</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- debug-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- debug-method -->
+
+      
+        <div id="genesis-method" class="method-detail ">
+          <a name="method-i-genesis"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">genesis</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Starts the <a href="Brake.html">Brake</a> Class If there is no information
+given to brake it will rin the ‘default task’</p>
+            
+
+            
+            <div class="method-source-code" id="genesis-source">
+<pre>
+<span class="ruby-comment"># File lib/brake.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">genesis</span>
+  <span class="ruby-comment"># creates the default arguments</span>
+  <span class="ruby-comment"># -P Disables profiles, we no longer need it as all data is given at command line</span>
+  <span class="ruby-comment"># -s removes the extra source code line no note displayed in the command line</span>
+  <span class="ruby-ivar">@arguments</span> = { <span class="ruby-value">:req</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;-P -s&quot;</span> }
+  <span class="ruby-comment"># Untangle is false untill the options parser has run</span>
+  <span class="ruby-ivar">@untangle</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-comment"># Brake can run Its task several times</span>
+  <span class="ruby-ivar">@taskIterations</span> = <span class="ruby-value">1</span>
+  <span class="ruby-comment"># This is the code that is returned by brake</span>
+  <span class="ruby-comment"># If any of the tests return a 1 it will return 1</span>
+  <span class="ruby-ivar">@returnCode</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-comment"># Runs the options parser, Arguments and Untangle are now inst variables</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_command_line_options</span>
+
+  <span class="ruby-comment"># Outputs the brake version at runtime</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@brakeVersion</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Brake Version:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">loaded_specs</span>[<span class="ruby-string">&quot;brake&quot;</span>].<span class="ruby-identifier">version</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">debug</span>( <span class="ruby-constant">ARGV</span> )
+  <span class="ruby-comment"># Default is assigned to the ARGV if there is no task given</span>
+  <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">'default'</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">ARGV</span> <span class="ruby-operator">==</span> []
+  <span class="ruby-comment"># Brake only runs one task at a time</span>
+  <span class="ruby-ivar">@taskIterations</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run_rake_task</span>( <span class="ruby-constant">ARGV</span>[<span class="ruby-value">0</span>] )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># This code is commented out to keep things simple</span>
+  <span class="ruby-comment"># Brake will execute the first task and then drop everything else</span>
+  <span class="ruby-comment"># This stops incorrect options causing problems</span>
+  <span class="ruby-comment"># ARGV.each do | task |</span>
+  <span class="ruby-comment">#   self.debug( task )</span>
+  <span class="ruby-comment">#   self.run_rake_task( task )</span>
+  <span class="ruby-comment"># end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@returnCode</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- genesis-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- genesis-method -->
+
+      
+        <div id="parse_command_line_options-method" class="method-detail ">
+          <a name="method-i-parse_command_line_options"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">parse_command_line_options</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Parses the options from the command line Converts the parsed information
+into a Hash The Hash is then returned @return [hash] arguments a hash
+containg the parsed and  data</p>
+            
+
+            
+            <div class="method-source-code" id="parse_command_line_options-source">
+<pre>
+<span class="ruby-comment"># File lib/brake.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_command_line_options</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># parses the options from the command line</span>
+    <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-string">&quot;\nBrake, A Cucumber options parser wrapper for Rake, because, cake was already taken!, Give Rake a Brake.\nUsage: brake &lt;task&gt; [options]&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;Cucumber options:&quot;</span>
+       <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-t&quot;</span>, <span class="ruby-string">&quot;--tags @high,@login&quot;</span>, <span class="ruby-constant">Array</span>, <span class="ruby-string">&quot;Array:  A list of all tagged test to be run&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:tags</span>] <span class="ruby-operator">||=</span> []
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:tags</span>].<span class="ruby-identifier">push</span>( <span class="ruby-node">&quot;--tags #{opt.join(',')}&quot;</span> )
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-d&quot;</span>, <span class="ruby-string">&quot;--dry-run&quot;</span>, <span class="ruby-string">&quot;Bool: Invokes the formatters without executing steps&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:dry_run</span>] = <span class="ruby-string">&quot;--dry-run&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-v&quot;</span>, <span class="ruby-string">&quot;--verbose&quot;</span>, <span class="ruby-string">&quot;Bool: Show the files and features loaded&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:verbose</span>] = <span class="ruby-string">&quot;--verbose&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-f&quot;</span>, <span class="ruby-string">&quot;--format pretty&quot;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&quot;String: How to format the output (Default: pretty)&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:format</span>] = <span class="ruby-node">&quot;--format #{opt}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-S&quot;</span>, <span class="ruby-string">&quot;--strict&quot;</span>, <span class="ruby-string">&quot;Bool: Fail if there are and undefined or pending steps&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:strict</span>] = <span class="ruby-string">&quot;--strict&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-n&quot;</span>, <span class="ruby-string">&quot;--name featureName&quot;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&quot;String: Only execute features with a partial match to the given name&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:name</span>] = <span class="ruby-node">&quot;--name #{opt}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-g&quot;</span>, <span class="ruby-string">&quot;--guess&quot;</span>, <span class="ruby-string">&quot;Bool: Guess best match for ambiguous steps&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:guess</span>] = <span class="ruby-string">&quot;--guess&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-x&quot;</span>, <span class="ruby-string">&quot;--expand&quot;</span>, <span class="ruby-string">&quot;Bool: Expand scenario outline tables in output&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:expand</span>] = <span class="ruby-string">&quot;--expand&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;Global options:&quot;</span> 
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-e&quot;</span>, <span class="ruby-string">&quot;--enviroment release&quot;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&quot;String: The enviroment to run the tests against eg Release&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:env</span>] = <span class="ruby-node">&quot;ENVIRONMENT=#{opt.downcase}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-l&quot;</span>, <span class="ruby-string">&quot;--log_level debug&quot;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&quot;String: The log output level debug|info&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:log_level</span>] = <span class="ruby-node">&quot;LOGLEVEL=#{opt.downcase}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-c&quot;</span>, <span class="ruby-string">&quot;--controller chrome&quot;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&quot;String: The type of controller to run (API, Chrome, Safari)&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:controller</span>] = <span class="ruby-node">&quot;CONTROLLER=#{opt.downcase}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]headless&quot;</span>, <span class="ruby-string">&quot;Bool: To turn on/off headless mode (only works on Linux!)&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:headless</span>] = <span class="ruby-node">&quot;HEADLESS=#{opt.to_s}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]cleanup&quot;</span>, <span class="ruby-string">&quot;Bool: To turn on/off setup cleanup&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:cleanup</span>] = <span class="ruby-node">&quot;CLEANUP=#{opt.to_s}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]database&quot;</span>, <span class="ruby-string">&quot;Bool: Defines whether to log out to the database&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:database</span>] = <span class="ruby-node">&quot;DATABASE=#{opt}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]jenkins&quot;</span>, <span class="ruby-string">&quot;Bool: Defines whether to log out to the jenkins specific database&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:database</span>] = <span class="ruby-node">&quot;DATABASE=#{opt}&quot;</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:jenkins</span>] = <span class="ruby-node">&quot;JENKINS=#{opt}&quot;</span>
+      <span class="ruby-keyword">end</span>      
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--retries 3&quot;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&quot;String: The number of retries to perform on element methods&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:retries</span>] = <span class="ruby-node">&quot;RETRIES=#{opt.downcase}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--timeouts 10&quot;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&quot;String: The length of the timeouts on element methods&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:timeouts</span>] = <span class="ruby-node">&quot;TIMEOUTS=#{opt.downcase}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;Web options:&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-s&quot;</span>, <span class="ruby-string">&quot;--screen 1280,1024&quot;</span>, <span class="ruby-constant">Array</span>, <span class="ruby-string">&quot;Array:  The width,hight of the browser window&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-value">2</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Incorrect number of args for screen: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">to_s</span>
+          <span class="ruby-identifier">exit</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:screen</span>] = <span class="ruby-node">&quot;SCREENWIDTH=#{opt[0].downcase} SCREENHEIGHT=#{opt[1].downcase}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-p&quot;</span>, <span class="ruby-string">&quot;--position 0,0&quot;</span>, <span class="ruby-constant">Array</span>, <span class="ruby-string">&quot;Array:  The x,y coords of the browser 0,0 top left&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Incorrect number of args for position: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">to_s</span>
+          <span class="ruby-identifier">exit</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:position</span>] = <span class="ruby-node">&quot;XPOSITION=#{opt[0].downcase} YPOSITION=#{opt[1].downcase}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;Browser options:&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-H&quot;</span>, <span class="ruby-string">&quot;--[no-]highlight&quot;</span>, <span class="ruby-string">&quot;Bool: To turn on/off the highlight of elements&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@arguments</span>[<span class="ruby-value">:highlight</span>] = <span class="ruby-node">&quot;HIGHLIGHT=#{opt.to_s}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;Brake options:&quot;</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-V&quot;</span>, <span class="ruby-string">&quot;--version&quot;</span>, <span class="ruby-string">&quot;Bool: Output the current version of brake&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@brakeVersion</span> = <span class="ruby-identifier">opt</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-I&quot;</span>, <span class="ruby-string">&quot;--iterate 5&quot;</span>, <span class="ruby-constant">String</span>, <span class="ruby-string">&quot;Int: Number of times to run the task&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@taskIterations</span> = <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-U&quot;</span>, <span class="ruby-string">&quot;--[no-]untangle&quot;</span>, <span class="ruby-string">&quot;Bool: Turns Debug on/off&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@untangle</span> = <span class="ruby-identifier">opt</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-string">&quot;-h&quot;</span>, <span class="ruby-string">&quot;--help&quot;</span>, <span class="ruby-string">&quot;You're Looking at it&quot;</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">opts</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nFor further assistance please contact Ben Slaughter or Jonathan Chrisp&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;bens@brandwatch.com or jonathan@brandwatch.com&quot;</span>
+        <span class="ruby-identifier">exit</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">parse!</span> <span class="ruby-comment"># options parser</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidOption</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">debug</span>( <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">to_s</span> )
+    <span class="ruby-identifier">exit</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-comment"># begin</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- parse_command_line_options-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- parse_command_line_options-method -->
+
+      
+        <div id="run_rake_task-method" class="method-detail ">
+          <a name="method-i-run_rake_task"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">run_rake_task</span><span
+              class="method-args">( task )</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Runs the given rake task with the given arguments @param [string] task This
+is the name of the rake task to be invoked</p>
+            
+
+            
+            <div class="method-source-code" id="run_rake_task-source">
+<pre>
+<span class="ruby-comment"># File lib/brake.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_rake_task</span>( <span class="ruby-identifier">task</span> )
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;running task: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">task</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">debug</span>( <span class="ruby-ivar">@arguments</span> )
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">'default'</span>
+      <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">'default'</span>].<span class="ruby-identifier">execute</span>( <span class="ruby-ivar">@arguments</span> )
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-identifier">task</span>].<span class="ruby-identifier">execute</span>( <span class="ruby-ivar">@arguments</span> )
+    <span class="ruby-keyword">end</span> <span class="ruby-comment"># if</span>
+    
+  <span class="ruby-comment"># This caused me some problems while running tasks</span>
+  <span class="ruby-comment"># There is no raise as several tasks may be run</span>
+  <span class="ruby-comment"># and due to the design requierments of the wrapper I do not want the code to quit</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">RuntimeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-ivar">@returnCode</span> = <span class="ruby-value">1</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Brake Aborted!&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@untangle</span>
+      <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">|</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">debug</span>( <span class="ruby-identifier">line</span> )
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;( For full backtrace run again with --untangle )&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-comment"># begin</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- run_rake_task-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- run_rake_task-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

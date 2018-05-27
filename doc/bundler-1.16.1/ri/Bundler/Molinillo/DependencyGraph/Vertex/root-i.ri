@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	root:EFI"5Bundler::Molinillo::DependencyGraph::Vertex#root;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"E@return [Boolean] whether the vertex is considered a root vertex;T:
+@file0FI"Jlib/bundler/vendor/molinillo/lib/molinillo/dependency_graph/vertex.rb;T

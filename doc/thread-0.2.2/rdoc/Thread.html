@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: Thread</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./lib/thread/channel_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/channel.rb">lib/thread/channel.rb</a></li>
+          
+            <li><a href="./lib/thread/every_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/every.rb">lib/thread/every.rb</a></li>
+          
+            <li><a href="./lib/thread/pool_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/pool.rb">lib/thread/pool.rb</a></li>
+          
+            <li><a href="./lib/thread/process_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/process.rb">lib/thread/process.rb</a></li>
+          
+            <li><a href="./lib/thread/future_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/future.rb">lib/thread/future.rb</a></li>
+          
+            <li><a href="./lib/thread/delay_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/delay.rb">lib/thread/delay.rb</a></li>
+          
+            <li><a href="./lib/thread/promise_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/promise.rb">lib/thread/promise.rb</a></li>
+          
+            <li><a href="./lib/thread/pipe_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/thread/pipe.rb">lib/thread/pipe.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">CLASS</span> <a href="Thread/Channel.html">Thread::Channel</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="Thread/Delay.html">Thread::Delay</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="Thread/Every.html">Thread::Every</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="Thread/Future.html">Thread::Future</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="Thread/Pipe.html">Thread::Pipe</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="Thread/Pool.html">Thread::Pool</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="Thread/Process.html">Thread::Process</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="Thread/Promise.html">Thread::Promise</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-channel">::channel</a></li>
+          
+          <li><a href="#method-c-delay">::delay</a></li>
+          
+          <li><a href="#method-c-every">::every</a></li>
+          
+          <li><a href="#method-c-future">::future</a></li>
+          
+          <li><a href="#method-c-pool">::pool</a></li>
+          
+          <li><a href="#method-c-process">::process</a></li>
+          
+          <li><a href="#method-c-promise">::promise</a></li>
+          
+          <li><a href="#method-c-7C">::|</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          <li><a href="./Thread/Channel.html">Thread::Channel</a></li>
+        
+          <li><a href="./Thread/Delay.html">Thread::Delay</a></li>
+        
+          <li><a href="./Thread/Every.html">Thread::Every</a></li>
+        
+          <li><a href="./Thread/Future.html">Thread::Future</a></li>
+        
+          <li><a href="./Thread/Pipe.html">Thread::Pipe</a></li>
+        
+          <li><a href="./Thread/Pipe/Task.html">Thread::Pipe::Task</a></li>
+        
+          <li><a href="./Thread/Pool.html">Thread::Pool</a></li>
+        
+          <li><a href="./Thread/Pool/Task.html">Thread::Pool::Task</a></li>
+        
+          <li><a href="./Thread/Process.html">Thread::Process</a></li>
+        
+          <li><a href="./Thread/Promise.html">Thread::Promise</a></li>
+        
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          <li><a href="./RecursiveMutex.html">RecursiveMutex</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Thread</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="channel-method" class="method-detail ">
+          <a name="method-c-channel"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">channel</span><span
+              class="method-args">(*args, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Helper to create a channel.</p>
+            
+
+            
+            <div class="method-source-code" id="channel-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/channel.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">channel</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+        <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Channel</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- channel-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- channel-method -->
+
+      
+        <div id="delay-method" class="method-detail ">
+          <a name="method-c-delay"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">delay</span><span
+              class="method-args">(&block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Helper to create <a href="Thread/Delay.html">Thread::Delay</a></p>
+            
+
+            
+            <div class="method-source-code" id="delay-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/delay.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">delay</span> (&amp;<span class="ruby-identifier">block</span>)
+        <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Delay</span>.<span class="ruby-identifier">new</span>(&amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- delay-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- delay-method -->
+
+      
+        <div id="every-method" class="method-detail ">
+          <a name="method-c-every"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">every</span><span
+              class="method-args">(every, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Helper to create an every</p>
+            
+
+            
+            <div class="method-source-code" id="every-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/every.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">every</span>(<span class="ruby-identifier">every</span>, &amp;<span class="ruby-identifier">block</span>)
+        <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Every</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">every</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- every-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- every-method -->
+
+      
+        <div id="future-method" class="method-detail ">
+          <a name="method-c-future"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">future</span><span
+              class="method-args">(pool = nil, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Helper to create a future</p>
+            
+
+            
+            <div class="method-source-code" id="future-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/future.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">future</span>(<span class="ruby-identifier">pool</span> = <span class="ruby-keyword">nil</span>, &amp;<span class="ruby-identifier">block</span>)
+        <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Future</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pool</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- future-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- future-method -->
+
+      
+        <div id="pool-method" class="method-detail ">
+          <a name="method-c-pool"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">pool</span><span
+              class="method-args">(*args, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Helper to create a pool.</p>
+            
+
+            
+            <div class="method-source-code" id="pool-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/pool.rb, line 475</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">pool</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+        <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Pool</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- pool-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pool-method -->
+
+      
+        <div id="process-method" class="method-detail ">
+          <a name="method-c-process"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">process</span><span
+              class="method-args">(&block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Helper to create a process.</p>
+            
+
+            
+            <div class="method-source-code" id="process-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/process.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">process</span>(&amp;<span class="ruby-identifier">block</span>)
+        <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Process</span>.<span class="ruby-identifier">new</span>(&amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- process-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- process-method -->
+
+      
+        <div id="promise-method" class="method-detail ">
+          <a name="method-c-promise"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">promise</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Helper method to create a promise.</p>
+            
+
+            
+            <div class="method-source-code" id="promise-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/promise.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">promise</span>
+        <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Promise</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- promise-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- promise-method -->
+
+      
+        <div id="7C-method" class="method-detail ">
+          <a name="method-c-7C"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">|</span><span
+              class="method-args">(func)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Helper to create a pipe.</p>
+            
+
+            
+            <div class="method-source-code" id="7C-source">
+<pre>
+<span class="ruby-comment"># File lib/thread/pipe.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-operator">|</span>(<span class="ruby-identifier">func</span>)
+        <span class="ruby-constant">Pipe</span>.<span class="ruby-identifier">new</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">func</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- 7C-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 7C-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

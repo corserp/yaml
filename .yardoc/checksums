@@ -1,0 +1,4 @@
+Rake/lib/Rake.rb 29babc0a8ad44027df944ac35a6c60caeb3a4722
+Rake/test/Rake_test.rb cf633d9b8a04900a207750bc4defc03e12aef4a6
+Rake/lib/Rake/version.rb a0989dad0465840c9a7d9dc9fd96464fbfe9f086
+Rake/test/test_helper.rb 280ae952151bcc3c63ddb7e242f4a6e4701c203b

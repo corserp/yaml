@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Module: Kinda::Core::ModuleExtension</title>
+
+  <link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../../lib/core/module_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/core/module.rb">lib/core/module.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-included">::included</a></li>
+          
+          <li><a href="#method-i-alias_method_chain">#alias_method_chain</a></li>
+          
+          <li><a href="#method-i-ancestor">#ancestor</a></li>
+          
+          <li><a href="#method-i-ancestors_without_self">#ancestors_without_self</a></li>
+          
+          <li><a href="#method-i-append_features_with_inheritable_extensions">#append_features_with_inheritable_extensions</a></li>
+          
+          <li><a href="#method-i-container">#container</a></li>
+          
+          <li><a href="#method-i-delegate_to_class">#delegate_to_class</a></li>
+          
+          <li><a href="#method-i-extensions">#extensions</a></li>
+          
+          <li><a href="#method-i-inheritable_extend">#inheritable_extend</a></li>
+          
+          <li><a href="#method-i-self_and_ancestors">#self_and_ancestors</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="../../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../../Kinda.html">Kinda</a></li>
+        
+          <li><a href="../../Kinda/Core.html">Kinda::Core</a></li>
+        
+          <li><a href="../../Kinda/Core/Accessor.html">Kinda::Core::Accessor</a></li>
+        
+          <li><a href="../../Kinda/Core/Forwardable.html">Kinda::Core::Forwardable</a></li>
+        
+          <li><a href="../../Kinda/Core/Functor.html">Kinda::Core::Functor</a></li>
+        
+          <li><a href="../../Kinda/Core/HashExtension.html">Kinda::Core::HashExtension</a></li>
+        
+          <li><a href="../../Kinda/Core/ModuleExtension.html">Kinda::Core::ModuleExtension</a></li>
+        
+          <li><a href="../../Kinda/Core/ObjectExtension.html">Kinda::Core::ObjectExtension</a></li>
+        
+          <li><a href="../../Kinda/Core/This.html">Kinda::Core::This</a></li>
+        
+          <li><a href="../../Kinda/Core/This/ProcExtension.html">Kinda::Core::This::ProcExtension</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">Kinda::Core::ModuleExtension</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="included-method" class="method-detail ">
+          <a name="method-c-included"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">included</span><span
+              class="method-args">(klass)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="included-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">alias_method_chain</span> <span class="ruby-value">:append_features</span>, <span class="ruby-value">:inheritable_extensions</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- included-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- included-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="alias_method_chain-method" class="method-detail ">
+          <a name="method-i-alias_method_chain"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">alias_method_chain</span><span
+              class="method-args">(target, feature)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="alias_method_chain-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">alias_method_chain</span>(<span class="ruby-identifier">target</span>, <span class="ruby-identifier">feature</span>)
+  <span class="ruby-comment"># Strip out punctuation on predicates or bang methods since</span>
+  <span class="ruby-comment"># e.g. target?_without_feature is not a valid method name.</span>
+  <span class="ruby-identifier">aliased_target</span>, <span class="ruby-identifier">punctuation</span> = <span class="ruby-identifier">target</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/([?!=])$/</span>, <span class="ruby-string">''</span>), <span class="ruby-node">$1</span>
+  <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">aliased_target</span>, <span class="ruby-identifier">punctuation</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">with_method</span>, <span class="ruby-identifier">without_method</span> =
+    <span class="ruby-node">&quot;#{aliased_target}_with_#{feature}#{punctuation}&quot;</span>,
+    <span class="ruby-node">&quot;#{aliased_target}_without_#{feature}#{punctuation}&quot;</span>
+
+  <span class="ruby-identifier">alias_method</span> <span class="ruby-identifier">without_method</span>, <span class="ruby-identifier">target</span>
+  <span class="ruby-identifier">alias_method</span> <span class="ruby-identifier">target</span>, <span class="ruby-identifier">with_method</span>
+
+  <span class="ruby-keyword">case</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">public_method_defined?</span>(<span class="ruby-identifier">without_method</span>)
+      <span class="ruby-identifier">public</span> <span class="ruby-identifier">target</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">protected_method_defined?</span>(<span class="ruby-identifier">without_method</span>)
+      <span class="ruby-identifier">protected</span> <span class="ruby-identifier">target</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">private_method_defined?</span>(<span class="ruby-identifier">without_method</span>)
+      <span class="ruby-identifier">private</span> <span class="ruby-identifier">target</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- alias_method_chain-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- alias_method_chain-method -->
+
+      
+        <div id="ancestor-method" class="method-detail ">
+          <a name="method-i-ancestor"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">ancestor</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="ancestor-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ancestor</span>
+  <span class="ruby-identifier">ancestors_without_self</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- ancestor-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ancestor-method -->
+
+      
+        <div id="ancestors_without_self-method" class="method-detail ">
+          <a name="method-i-ancestors_without_self"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">ancestors_without_self</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="ancestors_without_self-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ancestors_without_self</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">ancestors</span>
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">drop</span>(<span class="ruby-value">1</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- ancestors_without_self-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ancestors_without_self-method -->
+
+      
+        <div id="append_features_with_inheritable_extensions-method" class="method-detail ">
+          <a name="method-i-append_features_with_inheritable_extensions"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">append_features_with_inheritable_extensions</span><span
+              class="method-args">(target)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="append_features_with_inheritable_extensions-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_features_with_inheritable_extensions</span>(<span class="ruby-identifier">target</span>)
+  <span class="ruby-identifier">append_features_without_inheritable_extensions</span>(<span class="ruby-identifier">target</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@inheritable_extensions</span>
+    <span class="ruby-identifier">target</span>.<span class="ruby-identifier">extend</span> *<span class="ruby-ivar">@inheritable_extensions</span>
+    <span class="ruby-identifier">target</span>.<span class="ruby-identifier">inheritable_extend</span> *<span class="ruby-ivar">@inheritable_extensions</span>.<span class="ruby-identifier">reverse</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- append_features_with_inheritable_extensions-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- append_features_with_inheritable_extensions-method -->
+
+      
+        <div id="container-method" class="method-detail ">
+          <a name="method-i-container"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">container</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="container-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">container</span>
+  <span class="ruby-identifier">space</span> = <span class="ruby-identifier">name</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">rindex</span>( <span class="ruby-string">'::'</span> ) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>)]
+  <span class="ruby-identifier">space</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Object</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">space</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- container-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- container-method -->
+
+      
+        <div id="delegate_to_class-method" class="method-detail ">
+          <a name="method-i-delegate_to_class"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">delegate_to_class</span><span
+              class="method-args">(*sources)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a
+href="ModuleExtension.html#method-i-delegate_to_class">delegate_to_class</a>
+:singleton_method_added =&gt; :method_added <a
+href="ModuleExtension.html#method-i-delegate_to_class">delegate_to_class</a>
+[:attr_reader, :attr_writer] <a
+href="ModuleExtension.html#method-i-delegate_to_class">delegate_to_class</a>
+ClassMethods.instance_methods</p>
+            
+
+            
+            <div class="method-source-code" id="delegate_to_class-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegate_to_class</span>(*<span class="ruby-identifier">sources</span>)
+  <span class="ruby-identifier">sources</span>, <span class="ruby-identifier">target</span> = <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+  [*<span class="ruby-identifier">sources</span>].<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">source</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">source</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">singleton_class_send</span>(<span class="ruby-identifier">target</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">source</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- delegate_to_class-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- delegate_to_class-method -->
+
+      
+        <div id="extensions-method" class="method-detail ">
+          <a name="method-i-extensions"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">extensions</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="extensions-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extensions</span>
+  <span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">take_while</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">mod</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">mod</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Class</span>) }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- extensions-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- extensions-method -->
+
+      
+        <div id="inheritable_extend-method" class="method-detail ">
+          <a name="method-i-inheritable_extend"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">inheritable_extend</span><span
+              class="method-args">(*mods, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="inheritable_extend-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inheritable_extend</span>(*<span class="ruby-identifier">mods</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+    <span class="ruby-identifier">mod</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">extend</span> <span class="ruby-identifier">extensions</span>
+    <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">module_eval</span>(&amp;<span class="ruby-identifier">block</span>)
+    <span class="ruby-identifier">mods</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">mod</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">extend</span> *<span class="ruby-identifier">mods</span>
+  (<span class="ruby-ivar">@inheritable_extensions</span> <span class="ruby-operator">||=</span> []).<span class="ruby-identifier">unshift</span>(*<span class="ruby-identifier">mods</span>.<span class="ruby-identifier">reverse</span>).<span class="ruby-identifier">uniq!</span>
+  <span class="ruby-identifier">mod</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- inheritable_extend-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- inheritable_extend-method -->
+
+      
+        <div id="self_and_ancestors-method" class="method-detail ">
+          <a name="method-i-self_and_ancestors"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">self_and_ancestors</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="self_and_ancestors-source">
+<pre>
+<span class="ruby-comment"># File lib/core/module.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">self_and_ancestors</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">ancestors</span>
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- self_and_ancestors-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- self_and_ancestors-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

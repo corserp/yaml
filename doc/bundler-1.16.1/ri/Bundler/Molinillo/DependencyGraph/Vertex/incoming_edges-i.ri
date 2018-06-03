@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"incoming_edges:EFI"?Bundler::Molinillo::DependencyGraph::Vertex#incoming_edges;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"J@return [Array<Edge>] the edges of {#graph} that have `self` as their;To:RDoc::Markup::Verbatim;	[I"{Edge#destination};F:
+@file0FI"Jlib/bundler/vendor/molinillo/lib/molinillo/dependency_graph/vertex.rb;T

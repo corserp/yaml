@@ -1,0 +1,94 @@
+=== 1.2.0 / 2015-04-15
+
+* 1 major enhancements
+
+  * new boolean flags ignore_{empty,blank} to tailor minimum margin calculation
+    * new functionality is disabled by default for backwards compatibility
+
+=== 1.1.2 / 2011-02-07
+
+* 1 minor bugfixes
+
+  * Temporary file is now being deleted after tests
+
+* 1 minor enhancements
+
+  * Minor improvements in README
+
+=== 1.1.1 / 2011-01-29
+
+* 1 bugfix
+
+  * Replaced <tt>\s</tt>, which is equivalent to <tt>[ \t\r\n\f]</tt>,
+    by <tt>[ \t]</tt> in regular expression
+    * empty lines could lead to wrong behaviour
+  * Added tests to prevent the just-fixed bug to ever come back
+
+=== 1.1.0 / 2011-01-29
+
+* 3 minor enhancements
+
+  * Added a new #unindent_base implementation
+    * 50--62% faster on ruby-1.9.2-p136, jruby-1.5.6 and rbx-1.2.0
+    * 10--20% slower in ruby-1.8.7-p330 and ree-1.8.7-2010.02
+    * so the old one is kept and the fastest for your VM is automatically chosen on load-time
+  * Created a couple scripts to benchmark unindenting implementations
+    * available on the GitHub repository, but not included in the gem
+  * Improved ALTERNATIVES section of README with performance results extracted from benchmarking
+
+=== 1.0.6 / 2011-01-27
+
+* 1 minor enhancement
+
+  * Return of #unindent (out-of-place) should never be the original object
+    * bug fixed
+    * added test to ensure it will not return
+
+=== 1.0.5 / 2011-01-27
+
+* 1 minor enhancement
+
+  * Refactoring and minor optimization
+  * Improved documentation with YARD tags
+  * New examples in README
+
+=== 1.0.4 / 2011-01-27
+
+* 1 minor enhancement
+
+  * Added _features_ section to README with compatibility and coverage info
+
+=== 1.0.3 / 2011-01-27
+
+* 1 minor enhancement
+
+  * Slightly improved _description_ section of README
+
+=== 1.0.2 / 2011-01-26
+
+* 2 minor enhancements
+
+  * Changed example in README and other minor editions
+  * Added new rake task: clean_all
+
+=== 1.0.1 / 2011-01-26
+
+* 7 minor enhancements
+
+  * One test added for 100% code coverage
+  * Changed extension of History and Wishlist from _txt_ to _rdoc_ so
+    that GitHub parses them accordingly
+  * Added History and Wishlist to the RDoc documentation (extra_rdoc_files)
+  * Minor additions/editions to README
+  * Refactored HeredocUnindent module into CoreExt::String::HeredocUnindent
+  * Moved version information from VERSION constant in HeredocUnindent module
+    to <tt>self.version = 'x.x.x'</tt> in Rakefile
+  * Removed irrelevant Rakefile comments
+  
+
+=== 1.0.0 / 2011-01-16
+
+* 1 major enhancement
+
+  * Birthday!
+

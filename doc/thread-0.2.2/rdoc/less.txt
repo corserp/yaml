@@ -1,0 +1,162 @@
+= ..ffiillee
+
+(from gem psych-3.0.2)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  PPssyycchh::::SSyynnttaaxxEErrrroorr
+------------------------------------------------------------------------
+
+
+(from gem rdoc-6.0.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  RRDDoocc::::CCooddeeOObbjjeecctt
+------------------------------------------------------------------------
+
+Which file this code object was defined in
+
+
+(from gem rdoc-6.0.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  RRDDoocc::::CCoommmmeenntt
+------------------------------------------------------------------------
+
+The RDoc::TopLevel this comment was found in
+
+
+(from gem rdoc-6.0.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  RRDDoocc::::MMaarrkkuupp::::DDooccuummeenntt
+------------------------------------------------------------------------
+
+The file this document was created from.  See also
+RDoc::ClassModule#add_comment
+
+
+(from gem rdoc-6.0.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  RRDDoocc::::MMaarrkkuupp::::IInncclluuddee
+------------------------------------------------------------------------
+
+The filename to be included, without extension
+
+
+(from gem rdoc-6.0.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  RRDDoocc::::SSttoorree::::MMiissssiinnggFFiilleeEErrrroorr
+------------------------------------------------------------------------
+
+The file the #name should be saved as
+
+
+(from gem rake-12.3.1)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  DDSSLL
+------------------------------------------------------------------------
+  file(*args, &block)
+
+------------------------------------------------------------------------
+
+Declare a file task.
+
+Example:
+   file "config.cfg" => ["config.template"] do
+     open("config.cfg", "w") do |outfile|
+       open("config.template") do |infile|
+         while line = infile.gets
+           outfile.puts line
+         end
+       end
+     end
+  end
+
+
+(from gem rest-client-2.0.2)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  RReessttCClliieenntt::::RRaawwRReessppoonnssee
+------------------------------------------------------------------------
+
+
+(from gem rubocop-0.56.0)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  RReemmootteeCCoonnffiigg
+------------------------------------------------------------------------
+  file()
+
+------------------------------------------------------------------------
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  YYAARRDD::::CCLLII::::YYaarrddooccOOppttiioonnss
+------------------------------------------------------------------------
+
+@return [CodeObjects::ExtraFileObject] the file object being rendered.
+  The +object+ key is not used so that a file may be rendered in the context
+  of an object's namespace (for generating links).
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  BBaassee
+------------------------------------------------------------------------
+  file()
+
+------------------------------------------------------------------------
+
+Returns the filename the object was first parsed at, taking definitions
+with docstrings first.
+
+@return [String] a filename
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  YYAARRDD::::HHaannddlleerrss::::PPrroocceessssoorr
+------------------------------------------------------------------------
+
+@return [String] the filename
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  YYAARRDD::::PPaarrsseerr::::CC::::SSttaatteemmeenntt
+------------------------------------------------------------------------
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  YYAARRDD::::PPaarrsseerr::::RRuubbyy::::AAssttNNooddee
+------------------------------------------------------------------------
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  YYAARRDD::::PPaarrsseerr::::RRuubbyy::::RRiippppeerrPPaarrsseerr
+------------------------------------------------------------------------
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  YYAARRDD::::PPaarrsseerr::::SSoouurrcceePPaarrsseerr
+------------------------------------------------------------------------
+
+@return [String] the filename being parsed by the parser.
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  YYAARRDD::::RReeggiissttrryySSttoorree
+------------------------------------------------------------------------
+
+
+(from gem yard-0.9.12)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  TTeemmppllaattee
+------------------------------------------------------------------------
+  file(basename, allow_inherited = false)
+
+------------------------------------------------------------------------
+
+Returns the contents of a file. If allow_inherited is set to true, use
++{{{__super__}}}+ inside the file contents to insert the contents of the
+file from an inherited template. For instance, if templates/b inherits
+from templates/a and file "test.css" exists in both directories, both
+file contents can be retrieved by having templates/b/test.css look like:
+
+  {{{__super__}}}
+  ...
+  body { css styles here }
+  p.class { other styles }
+
+@param [String] basename the name of the file @param [Boolean]
+allow_inherited whether inherited templates can
+  be inserted with +{{{__super__}}}+
+
+@return [String] the contents of a file identified by basename. All
+  template paths (including any mixed in templates) are searched for
+  the file
+
+@see ClassMethods#find_file @see ClassMethods#find_nth_file
+
+

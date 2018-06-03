@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"log:EFI",Bundler::Molinillo::DependencyGraph#log;FI"R;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I",@return [Log] the op log for this graph;T:
+@file0FI"Clib/bundler/vendor/molinillo/lib/molinillo/dependency_graph.rb;T

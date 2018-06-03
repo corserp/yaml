@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"requirement:EFI"@Bundler::Molinillo::DependencyGraph::DeleteEdge#requirement;FI"R;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I">@return [Object] the requirement that the edge represents;T:
+@file0FI"Olib/bundler/vendor/molinillo/lib/molinillo/dependency_graph/delete_edge.rb;T

@@ -1,0 +1,6 @@
+History.rdoc
+Manifest.txt
+README.rdoc
+Rakefile
+lib/heredoc_unindent.rb
+test/test_heredoc_unindent.rb

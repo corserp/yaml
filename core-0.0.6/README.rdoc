@@ -1,0 +1,11 @@
+= Core
+
+Basic helpers used by other kinda projects.
+
+== Installation
+
+  $ sudo gem install core --source http://gemcutter.org
+
+== Usage
+
+Still very alpha, documentation will come later.

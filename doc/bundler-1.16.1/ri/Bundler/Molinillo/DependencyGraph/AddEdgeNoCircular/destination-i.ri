@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"destination:EFI"GBundler::Molinillo::DependencyGraph::AddEdgeNoCircular#destination;FI"R;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"=@return [String] the name of the destination of the edge;T:
+@file0FI"Xlib/bundler/vendor/molinillo/lib/molinillo/dependency_graph/add_edge_no_circular.rb;T

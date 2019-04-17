@@ -27,6 +27,12 @@ import shutil
 
 from molecule import util
 
+from ..conftest import (
+    change_dir_to,
+    needs_inspec,
+    needs_rubocop,
+)
+
 
 @pytest.fixture
 def scenario_to_test(request):
@@ -64,6 +70,26 @@ def test_command_side_effect(scenario_to_test, with_scenario, scenario_name):
     pytest.helpers.run_command(cmd)
 
 
+@pytest.mark.parametrize(
+    'scenario_to_test, driver_name, scenario_name', [
+        ('cleanup', 'docker', 'default'),
+    ],
+    indirect=[
+        'scenario_to_test',
+        'driver_name',
+        'scenario_name',
+    ])
+def test_command_cleanup(scenario_to_test, with_scenario, scenario_name):
+    options = {
+        'driver_name': 'docker',
+        'all': True,
+    }
+    cmd = sh.molecule.bake('test', **options)
+    pytest.helpers.run_command(cmd)
+
+
+@needs_inspec
+@needs_rubocop
 def test_command_init_role_inspec(temp_dir):
     role_directory = os.path.join(temp_dir.strpath, 'test-init')
     options = {
@@ -72,33 +98,33 @@ def test_command_init_role_inspec(temp_dir):
     }
     cmd = sh.molecule.bake('init', 'role', **options)
     pytest.helpers.run_command(cmd)
+    pytest.helpers.metadata_lint_update(role_directory)
 
-    os.chdir(role_directory)
-
-    sh.molecule('test')
+    with change_dir_to(role_directory):
+        sh.molecule('test')
 
 
 def test_command_init_scenario_inspec(temp_dir):
+    role_directory = os.path.join(temp_dir.strpath, 'test-init')
     options = {
         'role_name': 'test-init',
     }
     cmd = sh.molecule.bake('init', 'role', **options)
     pytest.helpers.run_command(cmd)
+    pytest.helpers.metadata_lint_update(role_directory)
 
-    role_directory = os.path.join(temp_dir.strpath, 'test-init')
-    os.chdir(role_directory)
+    with change_dir_to(role_directory):
+        molecule_directory = pytest.helpers.molecule_directory()
+        scenario_directory = os.path.join(molecule_directory, 'test-scenario')
+        options = {
+            'scenario_name': 'test-scenario',
+            'role_name': 'test-init',
+            'verifier_name': 'inspec',
+        }
+        cmd = sh.molecule.bake('init', 'scenario', **options)
+        pytest.helpers.run_command(cmd)
 
-    molecule_directory = pytest.helpers.molecule_directory()
-    scenario_directory = os.path.join(molecule_directory, 'test-scenario')
-    options = {
-        'scenario_name': 'test-scenario',
-        'role_name': 'test-init',
-        'verifier_name': 'inspec',
-    }
-    cmd = sh.molecule.bake('init', 'scenario', **options)
-    pytest.helpers.run_command(cmd)
-
-    assert os.path.isdir(scenario_directory)
+        assert os.path.isdir(scenario_directory)
 
 
 def test_command_init_role_goss(temp_dir):
@@ -109,109 +135,109 @@ def test_command_init_role_goss(temp_dir):
     }
     cmd = sh.molecule.bake('init', 'role', **options)
     pytest.helpers.run_command(cmd)
+    pytest.helpers.metadata_lint_update(role_directory)
 
-    os.chdir(role_directory)
-
-    sh.molecule('test')
+    with change_dir_to(role_directory):
+        sh.molecule('test')
 
 
 def test_command_init_scenario_goss(temp_dir):
+    role_directory = os.path.join(temp_dir.strpath, 'test-init')
     options = {
         'role_name': 'test-init',
     }
     cmd = sh.molecule.bake('init', 'role', **options)
     pytest.helpers.run_command(cmd)
+    pytest.helpers.metadata_lint_update(role_directory)
 
-    role_directory = os.path.join(temp_dir.strpath, 'test-init')
-    os.chdir(role_directory)
+    with change_dir_to(role_directory):
+        molecule_directory = pytest.helpers.molecule_directory()
+        scenario_directory = os.path.join(molecule_directory, 'test-scenario')
+        options = {
+            'scenario_name': 'test-scenario',
+            'role_name': 'test-init',
+            'verifier_name': 'goss',
+        }
+        cmd = sh.molecule.bake('init', 'scenario', **options)
+        pytest.helpers.run_command(cmd)
 
-    molecule_directory = pytest.helpers.molecule_directory()
-    scenario_directory = os.path.join(molecule_directory, 'test-scenario')
-    options = {
-        'scenario_name': 'test-scenario',
-        'role_name': 'test-init',
-        'verifier_name': 'goss',
-    }
-    cmd = sh.molecule.bake('init', 'scenario', **options)
-    pytest.helpers.run_command(cmd)
-
-    assert os.path.isdir(scenario_directory)
+        assert os.path.isdir(scenario_directory)
 
 
 def test_command_init_scenario_with_invalid_role_raises(temp_dir):
+    role_directory = os.path.join(temp_dir.strpath, 'test-role')
     options = {
         'role_name': 'test-role',
     }
     cmd = sh.molecule.bake('init', 'role', **options)
     pytest.helpers.run_command(cmd)
+    pytest.helpers.metadata_lint_update(role_directory)
 
-    role_directory = os.path.join(temp_dir.strpath, 'test-role')
-    os.chdir(role_directory)
+    with change_dir_to(role_directory):
+        options = {
+            'scenario_name': 'default',
+            'role_name': 'invalid-role-name',
+        }
+        with pytest.raises(sh.ErrorReturnCode) as e:
+            cmd = sh.molecule.bake('init', 'scenario', **options)
+            pytest.helpers.run_command(cmd, log=False)
 
-    options = {
-        'scenario_name': 'default',
-        'role_name': 'invalid-role-name',
-    }
-    with pytest.raises(sh.ErrorReturnCode) as e:
-        cmd = sh.molecule.bake('init', 'scenario', **options)
-        pytest.helpers.run_command(cmd, log=False)
-
-    msg = ("ERROR: The role 'invalid-role-name' not found. "
-           'Please choose the proper role name.')
-    assert msg in str(e.value.stderr)
+        msg = ("ERROR: The role 'invalid-role-name' not found. "
+               'Please choose the proper role name.')
+        assert msg in str(e.value.stderr)
 
 
 def test_command_init_scenario_as_default_without_default_scenario(temp_dir):
+    role_directory = os.path.join(temp_dir.strpath, 'test-role')
     options = {
         'role_name': 'test-role',
     }
     cmd = sh.molecule.bake('init', 'role', **options)
     pytest.helpers.run_command(cmd)
+    pytest.helpers.metadata_lint_update(role_directory)
 
-    role_directory = os.path.join(temp_dir.strpath, 'test-role')
-    os.chdir(role_directory)
+    with change_dir_to(role_directory):
+        molecule_directory = pytest.helpers.molecule_directory()
+        scenario_directory = os.path.join(molecule_directory, 'default')
+        shutil.rmtree(scenario_directory)
 
-    molecule_directory = pytest.helpers.molecule_directory()
-    scenario_directory = os.path.join(molecule_directory, 'default')
-    shutil.rmtree(scenario_directory)
+        options = {
+            'scenario_name': 'default',
+            'role_name': 'test-role',
+        }
+        cmd = sh.molecule.bake('init', 'scenario', **options)
+        pytest.helpers.run_command(cmd)
 
-    options = {
-        'scenario_name': 'default',
-        'role_name': 'test-role',
-    }
-    cmd = sh.molecule.bake('init', 'scenario', **options)
-    pytest.helpers.run_command(cmd)
-
-    assert os.path.isdir(scenario_directory)
+        assert os.path.isdir(scenario_directory)
 
 
 # NOTE(retr0h): Molecule does not allow the creation of a role without
 # a default scenario.  This tests roles not created by a newer Molecule.
 def test_command_init_scenario_without_default_scenario_raises(temp_dir):
+    role_directory = os.path.join(temp_dir.strpath, 'test-role')
     options = {
         'role_name': 'test-role',
     }
     cmd = sh.molecule.bake('init', 'role', **options)
     pytest.helpers.run_command(cmd)
+    pytest.helpers.metadata_lint_update(role_directory)
 
-    role_directory = os.path.join(temp_dir.strpath, 'test-role')
-    os.chdir(role_directory)
+    with change_dir_to(role_directory):
+        molecule_directory = pytest.helpers.molecule_directory()
+        scenario_directory = os.path.join(molecule_directory, 'default')
+        shutil.rmtree(scenario_directory)
 
-    molecule_directory = pytest.helpers.molecule_directory()
-    scenario_directory = os.path.join(molecule_directory, 'default')
-    shutil.rmtree(scenario_directory)
+        options = {
+            'scenario_name': 'invalid-role-name',
+            'role_name': 'test-role',
+        }
+        with pytest.raises(sh.ErrorReturnCode) as e:
+            cmd = sh.molecule.bake('init', 'scenario', **options)
+            pytest.helpers.run_command(cmd, log=False)
 
-    options = {
-        'scenario_name': 'invalid-role-name',
-        'role_name': 'test-role',
-    }
-    with pytest.raises(sh.ErrorReturnCode) as e:
-        cmd = sh.molecule.bake('init', 'scenario', **options)
-        pytest.helpers.run_command(cmd, log=False)
-
-    msg = ('The default scenario not found.  Please create a scenario '
-           "named 'default' first.")
-    assert msg in str(e.value.stderr)
+        msg = ('The default scenario not found.  Please create a scenario '
+               "named 'default' first.")
+        assert msg in str(e.value.stderr)
 
 
 def test_command_init_role_with_template(temp_dir):
@@ -219,16 +245,16 @@ def test_command_init_role_with_template(temp_dir):
     role_directory = os.path.join(temp_dir.strpath, role_name)
 
     options = {
-        'url': 'https://github.com/retr0h/cookiecutter-molecule.git',
+        'url': 'https://github.com/ansible/molecule-cookiecutter.git',
         'no_input': True,
         'role_name': role_name,
     }
     cmd = sh.molecule.bake('init', 'template', **options)
     pytest.helpers.run_command(cmd)
+    pytest.helpers.metadata_lint_update(role_directory)
 
-    os.chdir(role_directory)
-
-    sh.molecule('test')
+    with change_dir_to(role_directory):
+        sh.molecule('test')
 
 
 @pytest.mark.parametrize(
@@ -288,9 +314,11 @@ def test_command_test_destroy_strategy_always(scenario_to_test, with_scenario,
         cmd = sh.molecule.bake('test', **options)
         pytest.helpers.run_command(cmd, log=False)
 
-    msg = 'An error occured during the test sequence.  Cleaning up.'
+    msg = ("An error occurred during the test sequence action: 'lint'. "
+           'Cleaning up.')
     assert msg in str(e.value.stdout)
 
+    assert 'Action: \'cleanup\'' in str(e.value.stdout)
     assert 'PLAY [Destroy]' in str(e.value.stdout)
     assert 0 != e.value.exit_code
 
@@ -313,7 +341,8 @@ def test_command_test_destroy_strategy_never(scenario_to_test, with_scenario,
         cmd = sh.molecule.bake('test', **options)
         pytest.helpers.run_command(cmd, log=False)
 
-    msg = 'An error occured during the test sequence.  Cleaning up.'
+    msg = ("An error occurred during the test sequence action: 'lint'. "
+           'Cleaning up.')
     assert msg not in str(e.value.stdout)
 
     assert 0 != e.value.exit_code
@@ -336,9 +365,9 @@ def test_host_group_vars(scenario_to_test, with_scenario, scenario_name):
     out = pytest.helpers.run_command(cmd, log=False)
     out = util.strip_ansi_escape(out.stdout.decode('utf-8'))
 
-    assert re.search('\[all\].*?ok: \[instance\]', out, re.DOTALL)
-    assert re.search('\[example\].*?ok: \[instance\]', out, re.DOTALL)
-    assert re.search('\[example_1\].*?ok: \[instance\]', out, re.DOTALL)
+    assert re.search(r'\[instance\].*?ok: \[instance\]', out, re.DOTALL)
+    assert re.search(r'\[example\].*?ok: \[instance\]', out, re.DOTALL)
+    assert re.search(r'\[example_1\].*?ok: \[instance\]', out, re.DOTALL)
 
 
 @pytest.mark.parametrize(
@@ -427,6 +456,35 @@ def test_command_verify_testinfra(scenario_to_test, with_scenario,
         'scenario_name',
     ])
 def test_command_verify_goss(scenario_to_test, with_scenario, scenario_name):
+    options = {
+        'scenario_name': scenario_name,
+    }
+    cmd = sh.molecule.bake('create', **options)
+    pytest.helpers.run_command(cmd)
+
+    options = {
+        'scenario_name': scenario_name,
+    }
+    cmd = sh.molecule.bake('converge', **options)
+    pytest.helpers.run_command(cmd)
+
+    options = {
+        'scenario_name': scenario_name,
+    }
+    cmd = sh.molecule.bake('verify', **options)
+    pytest.helpers.run_command(cmd)
+
+
+@pytest.mark.parametrize(
+    'scenario_to_test, driver_name, scenario_name', [
+        ('verifier', 'docker', 'inspec'),
+    ],
+    indirect=[
+        'scenario_to_test',
+        'driver_name',
+        'scenario_name',
+    ])
+def test_command_verify_inspec(scenario_to_test, with_scenario, scenario_name):
     options = {
         'scenario_name': scenario_name,
     }

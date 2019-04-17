@@ -16,6 +16,9 @@ platforms:
       - auto_config: true
         network_name: private_network
         type: dhcp
+      - virtualbox__intnet: test_network
+        network_name: private_network
+        ip: 192.168.0.1
     groups:
       - foo
       - bar
@@ -29,6 +32,9 @@ platforms:
       - auto_config: true
         network_name: private_network
         type: dhcp
+      - virtualbox__intnet: test_network
+        network_name: private_network
+        ip: 192.168.0.2
     groups:
       - foo
       - baz
@@ -36,6 +42,9 @@ platforms:
     cpus: 2
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      callback_whitelist: profile_roles,profile_tasks,timer
   playbooks:
     create: ../../../../../resources/playbooks/vagrant/create.yml
     destroy: ../../../../../resources/playbooks/vagrant/destroy.yml

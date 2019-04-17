@@ -2,10 +2,25 @@
 FAQ
 ***
 
+Why is my idempotence action failing?
+=====================================
+
+It is important to understand that Molecule does not do anything further than
+the default functionality of Ansible when determining if your tasks are
+idempotent or not. Molecule will simply run the converge action twice and check
+against Ansible's standard output.
+
+Therefore, if you are seeing idempotence failures, it is typically related to
+the underlying Ansible report and not Molecule.
+
+If you are facing idempotence failures and intend to raise a bug on our issue
+tracker, please first manually run ``molecule converge`` twice and confirm that
+Ansible itself is reporting task idempotence (changed=0).
+
 Why does Molecule make so many shell calls?
 ===========================================
 
-Ansible provides a python API.  However, it is not intended for
+Ansible provides a Python API.  However, it is not intended for
 `direct consumption`_.  We wanted to focus on making Molecule useful, so our
 efforts were spent consuming Ansible's CLI.
 
@@ -16,7 +31,7 @@ through their respective CLI.
 
     This decision may be reevaluated later.
 
-.. _`direct consumption`: http://docs.ansible.com/ansible/dev_guide/developing_api.html
+.. _`direct consumption`: https://docs.ansible.com/ansible/latest/dev_guide/developing_api.html
 
 Why does Molecule only support Ansible versions 2.2 and later?
 ==============================================================
@@ -59,7 +74,7 @@ Are there similar tools to Molecule?
 * `ansible-test`_ (`abandoned`_?)
 * `RoleSpec`_
 
-.. _`Testing Strategies`: http://docs.ansible.com/ansible/test_strategies.html
+.. _`Testing Strategies`: https://docs.ansible.com/ansible/latest/reference_appendices/test_strategies.html
 .. _`ansible-test`: https://github.com/nylas/ansible-test
 .. _`abandoned`: https://github.com/nylas/ansible-test/issues/14
 .. _`RoleSpec`: https://github.com/nickjj/rolespec

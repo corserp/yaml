@@ -39,10 +39,11 @@ class Ansible(base.Base):
 
     Molecule's provisioner manages the instances lifecycle.  However, the user
     must provide the create, destroy, and converge playbooks.  Molecule's
-    `init` subcommand will provide the necessary files for convenience.
+    ``init`` subcommand will provide the necessary files for convenience.
 
-    Molecule will skip tasks which are taged with either `molecule-notest` or
-    `notest`.
+    Molecule will skip tasks which are tagged with either `molecule-notest` or
+    `notest`. With the tag `molecule-idempotence-notest` tasks are only
+    skipped during the idempotence action step.
 
     .. important::
 
@@ -50,13 +51,13 @@ class Ansible(base.Base):
         attempt to gather facts or perform operations on the provisioned nodes
         inside these playbooks.  Due to the gymnastics necessary to sync state
         between Ansible and Molecule, it is best to perform these tasks in the
-        converge playbook.
+        prepare or converge playbooks.
 
         It is the developers responsiblity to properly map the modules's fact
         data into the instance_conf_dict fact in the create playbook.  This
         allows Molecule to properly configure Ansible inventory.
 
-    Additional options can be passed to `ansible-playbook` through the options
+    Additional options can be passed to ``ansible-playbook`` through the options
     dict.  Any option set in this section will override the defaults.
 
     .. important::
@@ -65,9 +66,19 @@ class Ansible(base.Base):
 
     .. note::
 
-        Molecule will remove any options matching '^[v]+$', and pass `-vvv`
-        to the underlying `ansible-playbook` command when executing
+        Molecule will remove any options matching '^[v]+$', and pass ``-vvv``
+        to the underlying ``ansible-playbook`` command when executing
         `molecule --debug`.
+
+    Molecule will silence log output, unless invoked with the ``--debug`` flag.
+    However, this results in quite a bit of output.  To enable Ansible log
+    output, add the following to the ``provisioner`` section of ``molecule.yml``.
+
+    .. code-block:: yaml
+
+        provisioner:
+          name: ansible
+          log: True
 
     The create/destroy playbooks for Docker and Vagrant are bundled with
     Molecule.  These playbooks have a clean API from `molecule.yml`, and
@@ -130,7 +141,7 @@ class Ansible(base.Base):
 
     The side effect playbook executes actions which produce side effects to the
     instances(s).  Intended to test HA failover scenarios or the like.  It is
-    not enabled by default.  Add the following to the provisioner's `playbooks`
+    not enabled by default.  Add the following to the provisioner's ``playbooks``
     section to enable.
 
     .. code-block:: yaml
@@ -158,17 +169,44 @@ class Ansible(base.Base):
           playbooks:
             prepare: prepare.yml
 
+    The cleanup playbook is for cleaning up test infrastructure that may not
+    be present on the instance that will be destroyed. The primary use-case
+    is for "cleaning up" changes that were made outside of Molecule's test
+    environment. For example, remote database connections or user accounts.
+    Intended to be used in conjunction with `prepare` to modify external
+    resources when required.
+
+    The cleanup step is executed directly before every destroy step. Just like
+    the destroy step, it will be run twice. An initial clean before converge
+    and then a clean before the last destroy step. This means that the cleanup
+    playbook must handle failures to cleanup resources which have not
+    been created yet.
+
+    Add the following to the provisioner's `playbooks` section
+    to enable.
+
+    .. code-block:: yaml
+
+        provisioner:
+          name: ansible
+          playbooks:
+            cleanup: cleanup.yml
+
+    .. important::
+
+        This feature should be considered experimental.
+
     Environment variables.  Molecule does its best to handle common Ansible
     paths.  The defaults are as follows.
 
     ::
 
         ANSIBLE_ROLES_PATH:
-          $ephemeral_directory/roles/:$project_root/../
+          $ephemeral_directory/roles/:$project_directory/../
         ANSIBLE_LIBRARY:
-          $ephemeral_directory/library/:$project_root/library/
+          $ephemeral_directory/library/:$project_directory/library/
         ANSIBLE_FILTER_PLUGINS:
-          $ephemeral_directory/plugins/filters/:$project_root/filter/plugins/
+          $ephemeral_directory/plugins/filters/:$project_directory/filter/plugins/
 
     Environment variables can be passed to the provisioner.  Variables in this
     section which match the names above will be appened to the above defaults,
@@ -236,17 +274,59 @@ class Ansible(base.Base):
               foo1-01:
                 foo: bar
 
+    Molecule automatically generates the inventory based on the hosts defined
+    under `Platforms`_. Using the ``hosts`` key allows to add extra hosts to
+    the inventory that are not managed by Molecule.
+
+    A typical use case is if you want to access some variables from another
+    host in the inventory (using hostvars) without creating it.
+
+    .. note::
+
+        The content of ``hosts`` should follow the YAML based inventory syntax:
+        start with the ``all`` group and have hosts/vars/children entries.
+
+    .. code-block:: yaml
+
+        provisioner:
+          name: ansible
+          inventory:
+            hosts:
+              all:
+                extra_host:
+                  foo: hello
+
+    .. important::
+
+        The extra hosts added to the inventory using this key won't be
+        created/destroyed by Molecule. It is the developers responsibility
+        to target the proper hosts in the playbook. Only the hosts defined
+        under `Platforms`_ should be targetted instead of ``all``.
+
+
     An alternative to the above is symlinking.  Molecule creates symlinks to
-    the specified directory in the inventory directory.  This allows ansible to
-    converge utilzing its built in host/group_vars resolution.  These two
+    the specified directory in the inventory directory. This allows ansible to
+    converge utilizing its built in host/group_vars resolution. These two
     forms of inventory management are mutually exclusive.
+
+    Like above, it is possible to pass an additional inventory file
+    (or even dynamic inventory script), using the ``hosts`` key. `Ansible`_ will
+    automatically merge this inventory with the one generated by molecule.
+    This can be useful if you want to define extra hosts that are not managed
+    by Molecule.
+
+    .. important::
+
+        Again, it is the developers responsibility to target the proper hosts
+        in the playbook. Only the hosts defined under
+        `Platforms`_ should be targetted instead of ``all``.
 
     .. note::
 
         The source directory linking is relative to the scenario's
         directory.
 
-        The only valid keys are `group_vars` and `host_vars`.  Molecule's
+        The only valid keys are ``hosts``, ``group_vars`` and ``host_vars``.  Molecule's
         schema validator will enforce this.
 
     .. code-block:: yaml
@@ -255,6 +335,7 @@ class Ansible(base.Base):
           name: ansible
           inventory:
             links:
+              hosts: ../../../inventory/hosts
               group_vars: ../../../inventory/group_vars/
               host_vars: ../../../inventory/host_vars/
 
@@ -268,7 +349,18 @@ class Ansible(base.Base):
             ansible_ssh_user: foo
             ansible_ssh_common_args: -o IdentitiesOnly=no
 
-    .. _`variables defined in a playbook`: http://docs.ansible.com/ansible/playbooks_variables.html#variables-defined-in-a-playbook
+    .. _`variables defined in a playbook`: https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#defining-variables-in-a-playbook
+
+    Add arguments to ansible-playbook when running converge:
+
+    .. code-block:: yaml
+
+        provisioner:
+          name: ansible
+          ansible_args:
+            - --inventory=mygroups.yml
+            - --limit=host1,host2
+
     """  # noqa
 
     def __init__(self, config):
@@ -291,12 +383,9 @@ class Ansible(base.Base):
             'defaults': {
                 'ansible_managed':
                 'Ansible managed: Do NOT edit this file manually!',
-                'retry_files_enabled':
-                False,
-                'host_key_checking':
-                False,
-                'nocows':
-                1,
+                'retry_files_enabled': False,
+                'host_key_checking': False,
+                'nocows': 1,
             },
             'ssh_connection': {
                 'scp_if_ssh': True,
@@ -309,6 +398,10 @@ class Ansible(base.Base):
         d = {
             'skip-tags': 'molecule-notest,notest',
         }
+
+        if self._config.action == 'idempotence':
+            d['skip-tags'] += ',molecule-idempotence-notest'
+
         if self._config.debug:
             d['vvv'] = True
             d['diff'] = True
@@ -361,6 +454,10 @@ class Ansible(base.Base):
         return self._config.config['provisioner']['name']
 
     @property
+    def ansible_args(self):
+        return self._config.config['provisioner']['ansible_args']
+
+    @property
     def config_options(self):
         return util.merge_dicts(
             self.default_config_options,
@@ -411,6 +508,10 @@ class Ansible(base.Base):
         env['ANSIBLE_FILTER_PLUGINS'] = filter_plugins_path
 
         return util.merge_dicts(default_env, env)
+
+    @property
+    def hosts(self):
+        return self._config.config['provisioner']['inventory']['hosts']
 
     @property
     def host_vars(self):
@@ -466,6 +567,9 @@ class Ansible(base.Base):
                     "{{ lookup('file', molecule_file) | molecule_from_yaml }}",
                     'molecule_instance_config':
                     "{{ lookup('env', 'MOLECULE_INSTANCE_CONFIG') }}",
+                    'molecule_no_log':
+                    "{{ lookup('env', 'MOLECULE_NO_LOG') or not "
+                    "molecule_yml.provisioner.log|default(False) | bool }}"
                 }
 
                 # All group
@@ -484,9 +588,12 @@ class Ansible(base.Base):
         return self._default_to_regular(dd)
 
     @property
+    def inventory_directory(self):
+        return self._config.scenario.inventory_directory
+
+    @property
     def inventory_file(self):
-        return os.path.join(self._config.scenario.ephemeral_directory,
-                            'ansible_inventory.yml')
+        return os.path.join(self.inventory_directory, 'ansible_inventory.yml')
 
     @property
     def config_file(self):
@@ -504,6 +611,16 @@ class Ansible(base.Base):
             os.path.dirname(__file__), os.path.pardir, os.path.pardir,
             'molecule', 'provisioner', 'ansible')
 
+    def cleanup(self):
+        """
+        Executes `ansible-playbook` against the cleanup playbook and returns
+        None.
+
+        :return: None
+        """
+        pb = self._get_ansible_playbook(self.playbooks.cleanup)
+        pb.execute()
+
     def connection_options(self, instance_name):
         d = self._config.driver.ansible_connection_options(instance_name)
 
@@ -512,7 +629,7 @@ class Ansible(base.Base):
 
     def check(self):
         """
-        Executes `ansible-playbook` against the converge playbook with the
+        Executes ``ansible-playbook`` against the converge playbook with the
         ``--check`` flag and returns None.
 
         :return: None
@@ -523,7 +640,7 @@ class Ansible(base.Base):
 
     def converge(self, playbook=None, **kwargs):
         """
-        Executes `ansible-playbook` against the converge playbook unless
+        Executes ``ansible-playbook`` against the converge playbook unless
         specified otherwise and returns a string.
 
         :param playbook: An optional string containing an absolute path to a
@@ -540,7 +657,7 @@ class Ansible(base.Base):
 
     def destroy(self):
         """
-        Executes `ansible-playbook` against the destroy playbook and returns
+        Executes ``ansible-playbook`` against the destroy playbook and returns
         None.
 
         :return: None
@@ -550,7 +667,7 @@ class Ansible(base.Base):
 
     def side_effect(self):
         """
-        Executes `ansible-playbook` against the side_effect playbook and
+        Executes ``ansible-playbook`` against the side_effect playbook and
         returns None.
 
         :return: None
@@ -560,7 +677,7 @@ class Ansible(base.Base):
 
     def create(self):
         """
-        Executes `ansible-playbook` against the create playbook and returns
+        Executes ``ansible-playbook`` against the create playbook and returns
         None.
 
         :return: None
@@ -570,7 +687,7 @@ class Ansible(base.Base):
 
     def prepare(self):
         """
-        Executes `ansible-playbook` against the prepare playbook and returns
+        Executes ``ansible-playbook`` against the prepare playbook and returns
         None.
 
         :return: None
@@ -580,7 +697,7 @@ class Ansible(base.Base):
 
     def syntax(self):
         """
-        Executes `ansible-playbook` against the converge playbook with the
+        Executes ``ansible-playbook`` against the converge playbook with the
         ``-syntax-check`` flag and returns None.
 
         :return: None
@@ -591,7 +708,7 @@ class Ansible(base.Base):
 
     def verify(self):
         """
-        Executes `ansible-playbook` against the verify playbook and returns
+        Executes ``ansible-playbook`` against the verify playbook and returns
         None.
 
         :return: None
@@ -632,6 +749,11 @@ class Ansible(base.Base):
 
         :returns: None
         """
+        # Create the hosts extra inventory source (only if not empty)
+        hosts_file = os.path.join(self.inventory_directory, 'hosts')
+        if self.hosts:
+            util.write_file(hosts_file, util.safe_dump(self.hosts))
+        # Create the host_vars and group_vars directories
         for target in ['host_vars', 'group_vars']:
             if target == 'host_vars':
                 vars_target = copy.deepcopy(self.host_vars)
@@ -647,8 +769,7 @@ class Ansible(base.Base):
                 vars_target = self.group_vars
 
             if vars_target:
-                ephemeral_directory = self._config.scenario.ephemeral_directory
-                target_vars_directory = os.path.join(ephemeral_directory,
+                target_vars_directory = os.path.join(self.inventory_directory,
                                                      target)
 
                 if not os.path.isdir(util.abs_path(target_vars_directory)):
@@ -672,23 +793,16 @@ class Ansible(base.Base):
 
     def _remove_vars(self):
         """
-        Remove host and/or group vars and returns None.
+        Remove hosts/host_vars/group_vars and returns None.
 
         :returns: None
         """
-        dirs = [
-            os.path.join(self._config.scenario.ephemeral_directory,
-                         'group_vars'),
-            os.path.join(self._config.scenario.ephemeral_directory,
-                         'host_vars'),
-        ]
-
-        for d in dirs:
-            if os.path.islink(d):
+        for name in ("hosts", "group_vars", "host_vars"):
+            d = os.path.join(self.inventory_directory, name)
+            if os.path.islink(d) or os.path.isfile(d):
                 os.unlink(d)
-            else:
-                if os.path.exists(d):
-                    shutil.rmtree(d)
+            elif os.path.isdir(d):
+                shutil.rmtree(d)
 
     def _link_or_update_vars(self):
         """
@@ -697,7 +811,7 @@ class Ansible(base.Base):
         :returns: None
         """
         for d, source in self.links.items():
-            target = os.path.join(self._config.scenario.ephemeral_directory, d)
+            target = os.path.join(self.inventory_directory, d)
             source = os.path.join(self._config.scenario.directory, source)
 
             if not os.path.exists(source):

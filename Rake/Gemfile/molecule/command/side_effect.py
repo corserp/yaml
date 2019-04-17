@@ -21,7 +21,6 @@
 import click
 
 from molecule import logger
-from molecule import scenarios
 from molecule.command import base
 
 LOG = logger.get_logger(__name__)
@@ -32,21 +31,36 @@ class SideEffect(base.Base):
     This action has side effects and not enabled by default.   See the
     provisioners documentation for further details.
 
-    Target the default scenario:
+    .. program:: molecule side-effect
 
-    $ molecule side-effect
+    .. option:: molecule side-effect
 
-    Targeting a specific scenario:
+        Target the default scenario.
 
-    $ molecule side-effect --scenario-name foo
+    .. program:: molecule side-effect --scenario-name foo
 
-    Executing with `debug`:
+    .. option:: molecule side-effect --scenario-name foo
 
-    $ molecule --debug side-effect
+        Targeting a specific scenario.
 
-    Executing with a `base-config`:
+    .. program:: molecule --debug side-effect
 
-    $ molecule --base-config base.yml side-effect
+    .. option:: molecule --debug side-effect
+
+        Executing with `debug`.
+
+    .. program:: molecule --base-config base.yml side-effect
+
+    .. option:: molecule --base-config base.yml side-effect
+
+        Executing with a `base-config`.
+
+    .. program:: molecule --env-file foo.yml side-effect
+
+    .. option:: molecule --env-file foo.yml side-effect
+
+        Load an env file to read variables from when rendering
+        molecule.yml.
     """
 
     def execute(self):
@@ -70,8 +84,9 @@ class SideEffect(base.Base):
 @click.option(
     '--scenario-name',
     '-s',
-    default='default',
-    help='Name of the scenario to target. (default)')
+    default=base.MOLECULE_DEFAULT_SCENARIO_NAME,
+    help='Name of the scenario to target. ({})'.format(
+        base.MOLECULE_DEFAULT_SCENARIO_NAME))
 def side_effect(ctx, scenario_name):  # pragma: no cover
     """ Use the provisioner to perform side-effects to the instances. """
     args = ctx.obj.get('args')
@@ -80,10 +95,4 @@ def side_effect(ctx, scenario_name):  # pragma: no cover
         'subcommand': subcommand,
     }
 
-    s = scenarios.Scenarios(
-        base.get_configs(args, command_args), scenario_name)
-    s.print_matrix()
-    for scenario in s:
-        for action in scenario.sequence:
-            scenario.config.action = action
-            base.execute_subcommand(scenario.config, action)
+    base.execute_cmdline_scenarios(scenario_name, args, command_args)

@@ -30,12 +30,10 @@ import anyconfig
 import colorama
 import yaml
 
-from molecule import logger
+from molecule.logger import get_logger
 
-LOG = logger.get_logger(__name__)
+LOG = get_logger(__name__)
 MERGE_STRATEGY = anyconfig.MS_DICTS
-
-colorama.init(autoreset=True)
 
 
 class SafeDumper(yaml.SafeDumper):
@@ -73,8 +71,9 @@ def print_environment_vars(env):
 
     combined_env = ansible_env.copy()
     combined_env.update(molecule_env)
-    print_debug('SHELL REPLAY', " ".join(
-        ["{}={}".format(k, v) for (k, v) in sorted(combined_env.items())]))
+    print_debug(
+        'SHELL REPLAY', " ".join(
+            ["{}={}".format(k, v) for (k, v) in sorted(combined_env.items())]))
     print()
 
 
@@ -91,7 +90,7 @@ def run_command(cmd, debug=False):
     """
     Execute the given command and returns None.
 
-    :param cmd: A `sh.Command` object to execute.
+    :param cmd: A ``sh.Command`` object to execute.
     :param debug: An optional bool to toggle debug output.
     :return: ``sh`` object
     """
@@ -101,7 +100,7 @@ def run_command(cmd, debug=False):
         print_environment_vars(cmd._partial_call_args.get('env', {}))
         print_debug('COMMAND', str(cmd))
         print()
-    return cmd()
+    return cmd(_truncate_exc=False)
 
 
 def os_walk(directory, pattern, excludes=[]):
@@ -174,7 +173,10 @@ def safe_load(string):
     :param string: A string to be parsed.
     :return: dict
     """
-    return yaml.safe_load(string) or {}
+    try:
+        return yaml.safe_load(string) or {}
+    except yaml.scanner.ScannerError as e:
+        sysexit_with_message(str(e))
 
 
 def safe_load_file(filename):
@@ -240,7 +242,8 @@ def title(word):
 
 
 def abs_path(path):
-    return os.path.abspath(path)
+    if path:
+        return os.path.abspath(path)
 
 
 def camelize(string):

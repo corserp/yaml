@@ -29,12 +29,12 @@ LOG = logger.get_logger(__name__)
 class Azure(base.Base):
     """
     The class responsible for managing `Azure`_ instances.  `Azure`_
-    is `not` the default driver used in Molecule.
+    is ``not`` the default driver used in Molecule.
 
     Molecule leverages Ansible's `azure_module`_, by mapping variables
-    from `molecule.yml` into `create.yml` and `destroy.yml`.
+    from ``molecule.yml`` into ``create.yml`` and ``destroy.yml``.
 
-    .. _`azure_module`: http://docs.ansible.com/ansible/latest/guide_azure.html
+    .. _`azure_module`: https://docs.ansible.com/ansible/latest/guide_azure.html
 
     .. code-block:: yaml
 
@@ -45,7 +45,7 @@ class Azure(base.Base):
 
     .. code-block:: bash
 
-        $ sudo pip install 'ansible[azure]'
+        $ pip install 'ansible[azure]'
 
     Change the options passed to the ssh client.
 
@@ -61,7 +61,8 @@ class Azure(base.Base):
         Molecule does not merge lists, when overriding the developer must
         provide all options.
 
-    Provide the files Molecule will preserve upon each subcommand execution.
+    Provide a list of files Molecule will preserve, relative to the scenario
+    ephemeral directory, after any ``destroy`` subcommand execution.
 
     .. code-block:: yaml
 
@@ -136,3 +137,7 @@ class Azure(base.Base):
 
         return next(item for item in instance_config_dict
                     if item['instance'] == instance_name)
+
+    def sanity_checks(self):
+        # FIXME(decentral1se): Implement sanity checks
+        pass

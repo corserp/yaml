@@ -47,9 +47,11 @@ def driver_name(request):
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/ec2', 'ec2', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),
@@ -69,6 +71,37 @@ def driver_name(request):
 def test_command_check(scenario_to_test, with_scenario, scenario_name):
     options = {'scenario_name': scenario_name}
     cmd = sh.molecule.bake('check', **options)
+    pytest.helpers.run_command(cmd)
+
+
+@pytest.mark.parametrize(
+    'scenario_to_test, driver_name, scenario_name',
+    [
+        ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
+        ('driver/docker', 'docker', 'default'),
+        ('driver/ec2', 'ec2', 'default'),
+        ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
+        ('driver/lxc', 'lxc', 'default'),
+        ('driver/lxd', 'lxd', 'default'),
+        ('driver/openstack', 'openstack', 'default'),
+        #  ('driver/delegated', 'delegated', 'azure'),
+        ('driver/delegated', 'delegated', 'docker'),
+        ('driver/delegated', 'delegated', 'ec2'),
+        ('driver/delegated', 'delegated', 'gce'),
+        ('driver/delegated', 'delegated', 'openstack'),
+        #  ('driver/delegated', 'delegated', 'vagrant'),
+        ('driver/vagrant', 'vagrant', 'default'),
+    ],
+    indirect=[
+        'scenario_to_test',
+        'driver_name',
+        'scenario_name',
+    ])
+def test_command_cleanup(scenario_to_test, with_scenario, scenario_name):
+    options = {'scenario_name': scenario_name}
+    cmd = sh.molecule.bake('cleanup', **options)
     pytest.helpers.run_command(cmd)
 
 
@@ -105,9 +138,11 @@ def test_command_converge(scenario_to_test, with_scenario, scenario_name):
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/ec2', 'ec2', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),
@@ -133,9 +168,11 @@ def test_command_create(scenario_to_test, with_scenario, scenario_name):
 @pytest.mark.parametrize(
     'scenario_to_test, driver_name, scenario_name', [
         ('dependency', 'azure', 'ansible-galaxy'),
+        ('dependency', 'digitalocean', 'ansible-galaxy'),
         ('dependency', 'docker', 'ansible-galaxy'),
         ('dependency', 'ec2', 'ansible-galaxy'),
         ('dependency', 'gce', 'ansible-galaxy'),
+        ('dependency', 'linode', 'ansible-galaxy'),
         ('dependency', 'lxc', 'ansible-galaxy'),
         ('dependency', 'lxd', 'ansible-galaxy'),
         ('dependency', 'openstack', 'ansible-galaxy'),
@@ -146,8 +183,12 @@ def test_command_create(scenario_to_test, with_scenario, scenario_name):
         'driver_name',
         'scenario_name',
     ])
-def test_command_dependency_ansible_galaxy(scenario_to_test, with_scenario,
-                                           scenario_name):
+def test_command_dependency_ansible_galaxy(request, scenario_to_test,
+                                           with_scenario, scenario_name):
+    # FIXME(decentral1se): skipped due to failures on network access
+    if request.getfixturevalue('driver_name') != 'docker':
+        pytest.skip('Skipped to avoid network access failures')
+
     options = {'scenario_name': scenario_name}
     cmd = sh.molecule.bake('dependency', **options)
     pytest.helpers.run_command(cmd)
@@ -161,9 +202,11 @@ def test_command_dependency_ansible_galaxy(scenario_to_test, with_scenario,
 @pytest.mark.parametrize(
     'scenario_to_test, driver_name, scenario_name', [
         ('dependency', 'azure', 'gilt'),
+        ('dependency', 'digitalocean', 'gilt'),
         ('dependency', 'docker', 'gilt'),
         ('dependency', 'ec2', 'gilt'),
         ('dependency', 'gce', 'gilt'),
+        ('dependency', 'linode', 'gilt'),
         ('dependency', 'lxc', 'gilt'),
         ('dependency', 'lxd', 'gilt'),
         ('dependency', 'openstack', 'gilt'),
@@ -174,8 +217,12 @@ def test_command_dependency_ansible_galaxy(scenario_to_test, with_scenario,
         'driver_name',
         'scenario_name',
     ])
-def test_command_dependency_gilt(scenario_to_test, with_scenario,
+def test_command_dependency_gilt(request, scenario_to_test, with_scenario,
                                  scenario_name):
+    # FIXME(decentral1se): skipped due to failures on network access
+    if request.getfixturevalue('driver_name') != 'docker':
+        pytest.skip('Skipped to avoid network access failures')
+
     options = {'scenario_name': scenario_name}
     cmd = sh.molecule.bake('dependency', **options)
     pytest.helpers.run_command(cmd)
@@ -188,9 +235,11 @@ def test_command_dependency_gilt(scenario_to_test, with_scenario,
 @pytest.mark.parametrize(
     'scenario_to_test, driver_name, scenario_name', [
         ('dependency', 'azure', 'shell'),
+        ('dependency', 'digitalocean', 'shell'),
         ('dependency', 'docker', 'shell'),
         ('dependency', 'ec2', 'shell'),
         ('dependency', 'gce', 'shell'),
+        ('dependency', 'linode', 'shell'),
         ('dependency', 'lxc', 'shell'),
         ('dependency', 'lxd', 'shell'),
         ('dependency', 'openstack', 'shell'),
@@ -201,8 +250,12 @@ def test_command_dependency_gilt(scenario_to_test, with_scenario,
         'driver_name',
         'scenario_name',
     ])
-def test_command_dependency_shell(scenario_to_test, with_scenario,
+def test_command_dependency_shell(request, scenario_to_test, with_scenario,
                                   scenario_name):
+    # FIXME(decentral1se): skipped due to failures on network access
+    if request.getfixturevalue('driver_name') != 'docker':
+        pytest.skip('Skipped to avoid network access failures')
+
     options = {'scenario_name': scenario_name}
     cmd = sh.molecule.bake('dependency', **options)
     pytest.helpers.run_command(cmd)
@@ -216,9 +269,11 @@ def test_command_dependency_shell(scenario_to_test, with_scenario,
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/ec2', 'ec2', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),
@@ -245,9 +300,11 @@ def test_command_destroy(scenario_to_test, with_scenario, scenario_name):
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/ec2', 'ec2', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),
@@ -271,9 +328,11 @@ def test_command_idempotence(scenario_to_test, with_scenario, scenario_name):
 @pytest.mark.parametrize(
     'driver_name', [
         ('azure'),
+        ('digitalocean'),
         ('docker'),
         ('ec2'),
         ('gce'),
+        ('linode'),
         ('lxc'),
         ('lxd'),
         ('openstack'),
@@ -289,9 +348,11 @@ def test_command_init_role(temp_dir, driver_name, skip_test):
 @pytest.mark.parametrize(
     'driver_name', [
         ('azure'),
+        ('digitalocean'),
         ('docker'),
         ('ec2'),
         ('gce'),
+        ('linode'),
         ('lxc'),
         ('lxd'),
         ('openstack'),
@@ -308,9 +369,11 @@ def test_command_init_scenario(temp_dir, driver_name, skip_test):
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/ec2', 'ec2', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),
@@ -344,6 +407,13 @@ instance         azure          ansible             default          false      
 instance-1       azure          ansible             multi-node       false      false
 instance-2       azure          ansible             multi-node       false      false
 """.strip()),  # noqa
+        ('driver/digitalocean', 'digitalocean', """
+Instance Name    Driver Name    Provisioner Name    Scenario Name    Created    Converged
+---------------  -------------  ------------------  ---------------  ---------  -----------
+instance         digitalocean   ansible             default          false      false
+instance-1       digitalocean   ansible             multi-node       false      false
+instance-2       digitalocean   ansible             multi-node       false      false
+""".strip()),  # noqa
         ('driver/docker', 'docker', """
 Instance Name    Driver Name    Provisioner Name    Scenario Name    Created    Converged
 ---------------  -------------  ------------------  ---------------  ---------  -----------
@@ -364,6 +434,13 @@ Instance Name    Driver Name    Provisioner Name    Scenario Name    Created    
 instance         gce            ansible             default          false      false
 instance-1       gce            ansible             multi-node       false      false
 instance-2       gce            ansible             multi-node       false      false
+""".strip()),  # noqa
+        ('driver/linode', 'linode', """
+Instance Name    Driver Name    Provisioner Name    Scenario Name    Created    Converged
+---------------  -------------  ------------------  ---------------  ---------  -----------
+instance         linode          ansible             default          false      false
+instance-1       linode          ansible             multi-node       false      false
+instance-2       linode          ansible             multi-node       false      false
 """.strip()),  # noqa
         ('driver/lxc', 'lxc', """
 Instance Name    Driver Name    Provisioner Name    Scenario Name    Created    Converged
@@ -418,6 +495,11 @@ instance    azure  ansible  default     false  false
 instance-1  azure  ansible  multi-node  false  false
 instance-2  azure  ansible  multi-node  false  false
 """.strip()),
+        ('driver/digitalocean', 'digitalocean', """
+instance    digitalocean  ansible  default     false  false
+instance-1  digitalocean  ansible  multi-node  false  false
+instance-2  digitalocean  ansible  multi-node  false  false
+""".strip()),
         ('driver/docker', 'docker', """
 instance    docker  ansible  default     false  false
 instance-1  docker  ansible  multi-node  false  false
@@ -432,6 +514,11 @@ instance-2  ec2  ansible  multi-node  false  false
 instance    gce  ansible  default     false  false
 instance-1  gce  ansible  multi-node  false  false
 instance-2  gce  ansible  multi-node  false  false
+""".strip()),
+        ('driver/linode', 'linode', """
+instance    linode  ansible  default     false  false
+instance-1  linode  ansible  multi-node  false  false
+instance-2  linode  ansible  multi-node  false  false
 """.strip()),
         ('driver/lxc', 'lxc', """
 instance    lxc  ansible  default     false  false
@@ -484,6 +571,17 @@ def test_command_list_with_format_plain(scenario_to_test, with_scenario,
             'instance-2',
             '.*instance-2.*',
         ]], 'multi-node'),
+        ('driver/digitalocean', 'digitalocean', [[
+            'instance',
+            '.*instance.*',
+        ]], 'default'),
+        ('driver/digitalocean', 'digitalocean', [[
+            'instance-1',
+            '.*instance-1.*',
+        ], [
+            'instance-2',
+            '.*instance-2.*',
+        ]], 'multi-node'),
         ('driver/docker', 'docker', [[
             'instance',
             '.*instance.*',
@@ -503,6 +601,17 @@ def test_command_list_with_format_plain(scenario_to_test, with_scenario,
             '.*ip-.*',
         ]], 'multi-node'),
         ('driver/gce', 'gce', [[
+            'instance-1',
+            '.*instance-1.*',
+        ], [
+            'instance-2',
+            '.*instance-2.*',
+        ]], 'multi-node'),
+        ('driver/linode', 'linode', [[
+            'instance',
+            '.*instance.*',
+        ]], 'default'),
+        ('driver/linode', 'linode', [[
             'instance-1',
             '.*instance-1.*',
         ], [
@@ -576,9 +685,11 @@ def test_command_login(scenario_to_test, with_scenario, login_args,
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/ec2', 'ec2', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),
@@ -609,9 +720,11 @@ def test_command_prepare(scenario_to_test, with_scenario, scenario_name):
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/ec2', 'ec2', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),
@@ -638,9 +751,11 @@ def test_command_side_effect(scenario_to_test, with_scenario, scenario_name):
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/ec2', 'ec2', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),
@@ -667,9 +782,11 @@ def test_command_syntax(scenario_to_test, with_scenario, scenario_name):
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', None),
         ('driver/docker', 'docker', None),
         ('driver/ec2', 'ec2', None),
         ('driver/gce', 'gce', None),
+        ('driver/linode', 'linode', None),
         ('driver/lxc', 'lxc', None),
         ('driver/lxd', 'lxd', None),
         ('driver/openstack', 'openstack', None),
@@ -695,8 +812,10 @@ def test_command_test(scenario_to_test, with_scenario, scenario_name,
     'scenario_to_test, driver_name, scenario_name',
     [
         ('driver/azure', 'azure', 'default'),
+        ('driver/digitalocean', 'digitalocean', 'default'),
         ('driver/docker', 'docker', 'default'),
         ('driver/gce', 'gce', 'default'),
+        ('driver/linode', 'linode', 'default'),
         ('driver/lxc', 'lxc', 'default'),
         ('driver/lxd', 'lxd', 'default'),
         ('driver/openstack', 'openstack', 'default'),

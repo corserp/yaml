@@ -23,7 +23,6 @@ import re
 import click
 
 from molecule import logger
-from molecule import scenarios
 from molecule import util
 from molecule.command import base
 
@@ -35,21 +34,36 @@ class Idempotence(base.Base):
     Runs the converge step a second time. If no tasks will be marked as changed
     the scenario will be considered idempotent.
 
-    Target the default scenario:
+    .. program:: molecule idempotence
 
-    $ molecule idempotence
+    .. option:: molecule idempotence
 
-    Targeting a specific scenario:
+        Target the default scenario.
 
-    $ molecule idempotence --scenario-name foo
+    .. program:: molecule idempotence --scenario-name foo
 
-    Executing with `debug`:
+    .. option:: molecule idempotence --scenario-name foo
 
-    $ molecule --debug idempotence
+        Targeting a specific scenario.
 
-    Executing with a `base-config`:
+    .. program:: molecule --debug idempotence
 
-    $ molecule --base-config base.yml idempotence
+    .. option:: molecule --debug idempotence
+
+        Executing with `debug`.
+
+    .. program:: molecule --base-config base.yml idempotence
+
+    .. option:: molecule --base-config base.yml idempotence
+
+        Executing with a `base-config`.
+
+    .. program:: molecule --env-file foo.yml idempotence
+
+    .. option:: molecule --env-file foo.yml idempotence
+
+        Load an env file to read variables from when rendering
+        molecule.yml.
     """
 
     def execute(self):
@@ -128,8 +142,9 @@ class Idempotence(base.Base):
 @click.option(
     '--scenario-name',
     '-s',
-    default='default',
-    help='Name of the scenario to target. (default)')
+    default=base.MOLECULE_DEFAULT_SCENARIO_NAME,
+    help='Name of the scenario to target. ({})'.format(
+        base.MOLECULE_DEFAULT_SCENARIO_NAME))
 def idempotence(ctx, scenario_name):  # pragma: no cover
     """
     Use the provisioner to configure the instances and parse the output to
@@ -141,10 +156,4 @@ def idempotence(ctx, scenario_name):  # pragma: no cover
         'subcommand': subcommand,
     }
 
-    s = scenarios.Scenarios(
-        base.get_configs(args, command_args), scenario_name)
-    s.print_matrix()
-    for scenario in s:
-        for action in scenario.sequence:
-            scenario.config.action = action
-            base.execute_subcommand(scenario.config, action)
+    base.execute_cmdline_scenarios(scenario_name, args, command_args)

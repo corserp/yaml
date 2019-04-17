@@ -28,6 +28,7 @@ def _model_provisioner_section_data():
     return {
         'provisioner': {
             'name': 'ansible',
+            'log': True,
             'config_options': {
                 'foo': 'bar',
             },
@@ -42,6 +43,9 @@ def _model_provisioner_section_data():
                 'FOO_BAR': 'foo_bar',
             },
             'inventory': {
+                'hosts': {
+                    'foo': 'bar',
+                },
                 'host_vars': {
                     'foo': 'bar',
                 },
@@ -91,6 +95,7 @@ def _model_provisioner_errors_section_data():
     return {
         'provisioner': {
             'name': int(),
+            'log': int,
             'config_options': [],
             'connection_options': [],
             'options': [],
@@ -100,6 +105,7 @@ def _model_provisioner_errors_section_data():
                 'foo-bar-baz': None,
             },
             'inventory': {
+                'hosts': [],
                 'host_vars': [],
                 'group_vars': [],
                 'links': [],
@@ -150,6 +156,7 @@ def test_provisioner_has_errors(_config):
             }],
             'children': ['must be of dict type'],
             'inventory': [{
+                'hosts': ['must be of dict type'],
                 'group_vars': ['must be of dict type'],
                 'host_vars': ['must be of dict type'],
                 'links': ['must be of dict type'],
@@ -164,6 +171,7 @@ def test_provisioner_has_errors(_config):
             }],
             'options': ['must be of dict type'],
             'name': ['must be of string type'],
+            'log': ['must be of boolean type'],
         }]
     }
 
@@ -265,31 +273,3 @@ def _model_provisioner_allows_ansible_section_data():
     indirect=True)
 def test_provisioner_allows_name(_config):
     assert {} == schema_v2.validate(_config)
-
-
-@pytest.fixture
-def _model_provisioner_errors_invalid_section_data():
-    return {
-        'provisioner': {
-            'name': str(),
-            'lint': {
-                'name': str(),
-            },
-        }
-    }
-
-
-@pytest.mark.parametrize(
-    '_config', ['_model_provisioner_errors_invalid_section_data'],
-    indirect=True)
-def test_provisioner_invalid_provisioner_name_has_errors(_config):
-    x = {
-        'provisioner': [{
-            'lint': [{
-                'name': ['unallowed value ']
-            }],
-            'name': ['unallowed value ']
-        }]
-    }
-
-    assert x == schema_v2.validate(_config)

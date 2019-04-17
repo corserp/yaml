@@ -18,12 +18,165 @@
 #  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 #  DEALINGS IN THE SOFTWARE.
 
+import collections
 import copy
+import functools
+import re
 
 import cerberus
 import cerberus.errors
 
-from molecule import util
+from molecule import interpolation, util
+
+
+def coerce_env(env, keep_string, v):
+    i = interpolation.Interpolator(interpolation.TemplateWithDefaults, env)
+
+    return i.interpolate(v, keep_string)
+
+
+def pre_validate_base_schema(env, keep_string):
+    return {
+        'dependency': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type': 'string',
+                    'molecule_env_var': True,
+                    'allowed': [
+                        'galaxy',
+                        'gilt',
+                        'shell',
+                    ],
+                },
+            }
+        },
+        'driver': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type':
+                    'string',
+                    'molecule_env_var':
+                    True,
+                    'allowed': [
+                        'azure',
+                        'delegated',
+                        'digitalocean',
+                        'docker',
+                        'ec2',
+                        'gce',
+                        'linode',
+                        'lxc',
+                        'lxd',
+                        'openstack',
+                        'vagrant',
+                    ],
+                    # NOTE(retr0h): Some users use an environment variable to
+                    # change the driver name.  May add this coercion to rest of
+                    # config using allowed validation.
+                    'coerce': (str,
+                               functools.partial(coerce_env, env, keep_string))
+                },
+            }
+        },
+        'lint': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type': 'string',
+                    'molecule_env_var': True,
+                    'allowed': [
+                        'yamllint',
+                    ],
+                },
+            }
+        },
+        'platforms': {
+            'type': 'list',
+            'schema': {
+                'type': 'dict',
+                'schema': {
+                    'registry': {
+                        'type': 'dict',
+                        'schema': {
+                            'credentials': {
+                                'type': 'dict',
+                                'schema': {
+                                    'password': {
+                                        'type': 'string',
+                                        'regex': '^[{$]+[a-z0-9A-Z]+[}]*$',
+                                    },
+                                }
+                            },
+                        }
+                    },
+                }
+            }
+        },
+        'provisioner': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type': 'string',
+                    'molecule_env_var': True,
+                    'allowed': [
+                        'ansible',
+                    ],
+                },
+                'lint': {
+                    'type': 'dict',
+                    'schema': {
+                        'name': {
+                            'type': 'string',
+                            'molecule_env_var': True,
+                            'allowed': [
+                                'ansible-lint',
+                            ],
+                        },
+                    }
+                },
+            }
+        },
+        'scenario': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type': 'string',
+                    'molecule_env_var': True,
+                },
+            }
+        },
+        'verifier': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type': 'string',
+                    'molecule_env_var': True,
+                    'allowed': [
+                        'testinfra',
+                        'inspec',
+                        'goss',
+                    ],
+                },
+                'lint': {
+                    'type': 'dict',
+                    'schema': {
+                        'name': {
+                            'type': 'string',
+                            'molecule_env_var': True,
+                            'allowed': [
+                                'flake8',
+                                'rubocop',
+                                'yamllint',
+                            ],
+                        },
+                    }
+                },
+            }
+        },
+    }
+
 
 base_schema = {
     'dependency': {
@@ -31,11 +184,6 @@ base_schema = {
         'schema': {
             'name': {
                 'type': 'string',
-                'allowed': [
-                    'galaxy',
-                    'gilt',
-                    'shell',
-                ],
             },
             'enabled': {
                 'type': 'boolean',
@@ -52,6 +200,7 @@ base_schema = {
             },
             'command': {
                 'type': 'string',
+                'nullable': True,
             },
         }
     },
@@ -59,19 +208,7 @@ base_schema = {
         'type': 'dict',
         'schema': {
             'name': {
-                'type':
-                'string',
-                'allowed': [
-                    'azure',
-                    'delegated',
-                    'docker',
-                    'ec2',
-                    'gce',
-                    'lxc',
-                    'lxd',
-                    'openstack',
-                    'vagrant',
-                ],
+                'type': 'string',
             },
             'provider': {
                 'type': 'dict',
@@ -109,9 +246,6 @@ base_schema = {
         'schema': {
             'name': {
                 'type': 'string',
-                'allowed': [
-                    'yamllint',
-                ],
             },
             'enabled': {
                 'type': 'boolean',
@@ -128,15 +262,40 @@ base_schema = {
             },
         }
     },
-    'platforms': {},
+    'platforms': {
+        'type': 'list',
+        'schema': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type': 'string',
+                    'required': True,
+                    'unique':  # https://github.com/pyeve/cerberus/issues/467
+                    True,
+                },
+                'groups': {
+                    'type': 'list',
+                    'schema': {
+                        'type': 'string',
+                    }
+                },
+                'children': {
+                    'type': 'list',
+                    'schema': {
+                        'type': 'string',
+                    }
+                },
+            }
+        }
+    },
     'provisioner': {
         'type': 'dict',
         'schema': {
             'name': {
                 'type': 'string',
-                'allowed': [
-                    'ansible',
-                ],
+            },
+            'log': {
+                'type': 'boolean',
             },
             'config_options': {
                 'type': 'dict',
@@ -197,6 +356,9 @@ base_schema = {
             'inventory': {
                 'type': 'dict',
                 'schema': {
+                    'hosts': {
+                        'type': 'dict',
+                    },
                     'host_vars': {
                         'type': 'dict',
                     },
@@ -214,6 +376,9 @@ base_schema = {
             'playbooks': {
                 'type': 'dict',
                 'schema': {
+                    'cleanup': {
+                        'type': 'string',
+                    },
                     'create': {
                         'type': 'string',
                     },
@@ -239,9 +404,6 @@ base_schema = {
                 'schema': {
                     'name': {
                         'type': 'string',
-                        'allowed': [
-                            'ansible-lint',
-                        ],
                     },
                     'enabled': {
                         'type': 'boolean',
@@ -303,11 +465,6 @@ base_schema = {
         'schema': {
             'name': {
                 'type': 'string',
-                'allowed': [
-                    'testinfra',
-                    'inspec',
-                    'goss',
-                ],
             },
             'enabled': {
                 'type': 'boolean',
@@ -336,11 +493,6 @@ base_schema = {
                 'schema': {
                     'name': {
                         'type': 'string',
-                        'allowed': [
-                            'flake8',
-                            'rubocop',
-                            'yamllint',
-                        ],
                     },
                     'enabled': {
                         'type': 'boolean',
@@ -387,33 +539,6 @@ driver_vagrant_provider_section_schema = {
                     },
                 }
             },
-        }
-    },
-}
-
-platforms_base_schema = {
-    'platforms': {
-        'type': 'list',
-        'schema': {
-            'type': 'dict',
-            'schema': {
-                'name': {
-                    'type': 'string',
-                    'required': True,
-                },
-                'groups': {
-                    'type': 'list',
-                    'schema': {
-                        'type': 'string',
-                    }
-                },
-                'children': {
-                    'type': 'list',
-                    'schema': {
-                        'type': 'string',
-                    }
-                },
-            }
         }
     },
 }
@@ -489,6 +614,15 @@ platforms_docker_schema = {
                 'image': {
                     'type': 'string',
                 },
+                'dockerfile': {
+                    'type': 'string',
+                },
+                'pull': {
+                    'type': 'boolean',
+                },
+                'pre_build_image': {
+                    'type': 'boolean',
+                },
                 'registry': {
                     'type': 'dict',
                     'schema': {
@@ -500,11 +634,9 @@ platforms_docker_schema = {
                             'schema': {
                                 'username': {
                                     'type': 'string',
-                                    'regex': '^[{$]+[a-z0-9A-z]+[}]*$',
                                 },
                                 'password': {
                                     'type': 'string',
-                                    'regex': '^[{$]+[a-z0-9A-z]+[}]*$',
                                 },
                                 'email': {
                                     'type': 'string',
@@ -513,13 +645,33 @@ platforms_docker_schema = {
                         },
                     }
                 },
+                'override_command': {
+                    'type': 'boolean',
+                    'nullable': True,
+                },
                 'command': {
+                    'type': 'string',
+                    'nullable': True,
+                },
+                'pid_mode': {
                     'type': 'string',
                 },
                 'privileged': {
                     'type': 'boolean',
                 },
+                'security_opts': {
+                    'type': 'list',
+                    'schema': {
+                        'type': 'string',
+                    }
+                },
                 'volumes': {
+                    'type': 'list',
+                    'schema': {
+                        'type': 'string',
+                    }
+                },
+                'tmpfs': {
                     'type': 'list',
                     'schema': {
                         'type': 'string',
@@ -535,6 +687,7 @@ platforms_docker_schema = {
                     'type': 'list',
                     'schema': {
                         'type': 'string',
+                        'coerce': 'exposed_ports'
                     }
                 },
                 'published_ports': {
@@ -555,6 +708,19 @@ platforms_docker_schema = {
                         'type': 'string',
                     }
                 },
+                'env': {
+                    'type': 'dict',
+                    'keyschema': {
+                        'type': 'string',
+                        'regex': '^[a-zA-Z0-9_-]+$',
+                    }
+                },
+                'restart_policy': {
+                    'type': 'string',
+                },
+                'restart_retries': {
+                    'type': 'integer',
+                },
                 'networks': {
                     'type': 'list',
                     'schema': {
@@ -566,7 +732,129 @@ platforms_docker_schema = {
                         }
                     }
                 },
+                'network_mode': {
+                    'type': 'string',
+                },
+                'purge_networks': {
+                    'type': 'boolean',
+                }
             }
+        }
+    },
+}
+
+platforms_lxd_schema = {
+    'platforms': {
+        'type': 'list',
+        'schema': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type': 'string',
+                },
+                'url': {
+                    'type': 'string',
+                },
+                'cert_file': {
+                    'type': 'string',
+                },
+                'key_file': {
+                    'type': 'string',
+                },
+                'trust_password': {
+                    'type': 'string',
+                },
+                'source': {
+                    'type': 'dict',
+                    'schema': {
+                        'type': {
+                            'type': 'string',
+                        },
+                        'mode': {
+                            'type': 'string',
+                            'allowed': [
+                                'pull',
+                                'local',
+                            ],
+                        },
+                        'server': {
+                            'type': 'string',
+                        },
+                        'protocol': {
+                            'type': 'string',
+                            'allowed': [
+                                'lxd',
+                                'simplestreams',
+                            ],
+                        },
+                        'alias': {
+                            'type': 'string',
+                        },
+                    },
+                },
+                'architecture': {
+                    'type': 'string',
+                    'allowed': [
+                        'x86_64',
+                        'i686',
+                    ],
+                },
+                'config': {
+                    'type': 'dict',
+                    'allow_unknown': True,
+                },
+                'devices': {
+                    'type': 'dict',
+                    'allow_unknown': True,
+                },
+                'profiles': {
+                    'type': 'list',
+                    'schema': {
+                        'type': 'string'
+                    }
+                },
+                'force_stop': {
+                    'type': 'boolean',
+                },
+            }
+        }
+    },
+}
+
+platforms_linode_schema = {
+    'platforms': {
+        'type': 'list',
+        'schema': {
+            'type': 'dict',
+            'schema': {
+                'name': {
+                    'type': 'string',
+                },
+                'plan': {
+                    'type': 'integer',
+                    'required': True,
+                },
+                'datacenter': {
+                    'type': 'integer',
+                    'required': True,
+                },
+                'distribution': {
+                    'type': 'integer',
+                    'required': True,
+                },
+            },
+        },
+    },
+}
+
+dependency_command_nullable_schema = {
+    'dependency': {
+        'type': 'dict',
+        'schema': {
+            'command': {
+                'type': 'string',
+                'nullable': False,
+            },
         }
     },
 }
@@ -663,6 +951,20 @@ class Validator(cerberus.Validator):
     def __init__(self, *args, **kwargs):
         super(Validator, self).__init__(*args, **kwargs)
 
+    def _validate_unique(self, unique, field, value):
+        """Ensure value uniqueness.
+
+        The rule's arguments are validated against this schema:
+        {'type': 'boolean'}
+        """
+        if unique:
+            root_key = self.schema_path[0]
+            data = (doc[field] for doc in self.root_document[root_key])
+            for key, count in collections.Counter(data).items():
+                if count > 1:
+                    msg = "'{}' is not unique".format(key)
+                    self._error(field, msg)
+
     def _validate_disallowed(self, disallowed, field, value):
         """ Readonly but with a custom error.
 
@@ -673,19 +975,61 @@ class Validator(cerberus.Validator):
             msg = 'disallowed user provided config option'
             self._error(field, msg)
 
+    def _normalize_coerce_exposed_ports(self, value):
+        """Coerce ``exposed_ports`` values to string.
+
+        Not all types that can be specified by the user are acceptable and
+        therefore we cannot simply pass a ``'coerce': 'string'`` to the schema
+        definition.
+        """
+        if type(value) == int:
+            return str(value)
+        return value
+
+    def _validate_molecule_env_var(self, molecule_env_var, field, value):
+        """ Readonly but with a custom error.
+
+        The rule's arguments are validated against this schema:
+        {'type': 'boolean'}
+        """
+        # TODO(retr0h): This needs to be better handled.
+        pattern = r'^[{$]+MOLECULE[_a-z0-9A-Z]+[}]*$'
+
+        if molecule_env_var:
+            if re.match(pattern, value):
+                msg = ('cannot reference $MOLECULE special variables '
+                       'in this section')
+                self._error(field, msg)
+
+
+def pre_validate(stream, env, keep_string):
+    data = util.safe_load(stream)
+
+    v = Validator(allow_unknown=True)
+    v.validate(data, pre_validate_base_schema(env, keep_string))
+
+    return v.errors
+
 
 def validate(c):
     schema = copy.deepcopy(base_schema)
 
+    util.merge_dicts(schema, base_schema)
+
+    # Dependency
+    if c['dependency']['name'] == 'shell':
+        util.merge_dicts(schema, dependency_command_nullable_schema)
+
     # Driver
-    util.merge_dicts(schema, platforms_base_schema)
     if c['driver']['name'] == 'docker':
         util.merge_dicts(schema, platforms_docker_schema)
     elif c['driver']['name'] == 'vagrant':
         util.merge_dicts(schema, driver_vagrant_provider_section_schema)
         util.merge_dicts(schema, platforms_vagrant_schema)
-    else:
-        util.merge_dicts(schema, platforms_base_schema)
+    elif c['driver']['name'] == 'lxd':
+        util.merge_dicts(schema, platforms_lxd_schema)
+    elif c['driver']['name'] == 'linode':
+        util.merge_dicts(schema, platforms_linode_schema)
 
     # Verifier
     if c['verifier']['name'] == 'goss':

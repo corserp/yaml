@@ -32,9 +32,9 @@ class Openstack(base.Base):
     is `not` the default driver used in Molecule.
 
     Molecule leverages Ansible's `openstack_module`_, by mapping variables
-    from `molecule.yml` into `create.yml` and `destroy.yml`.
+    from ``molecule.yml`` into ``create.yml`` and ``destroy.yml``.
 
-    .. _`openstack_module`: http://docs.ansible.com/ansible/latest/os_server_module.html
+    .. _`openstack_module`: https://docs.ansible.com/ansible/latest/os_server_module.html
 
     .. code-block:: yaml
 
@@ -45,7 +45,7 @@ class Openstack(base.Base):
 
     .. code-block:: bash
 
-        $ sudo pip install shade
+        $ pip install molecule[openstack]
 
     Change the options passed to the ssh client.
 
@@ -54,14 +54,15 @@ class Openstack(base.Base):
         driver:
           name: openstack
           ssh_connection_options:
-            -o ControlPath=~/.ansible/cp/%r@%h-%p
+            - -o ControlPath=~/.ansible/cp/%r@%h-%p
 
     .. important::
 
         Molecule does not merge lists, when overriding the developer must
         provide all options.
 
-    Provide the files Molecule will preserve upon each subcommand execution.
+    Provide a list of files Molecule will preserve, relative to the scenario
+    ephemeral directory, after any ``destroy`` subcommand execution.
 
     .. code-block:: yaml
 
@@ -136,3 +137,7 @@ class Openstack(base.Base):
 
         return next(item for item in instance_config_dict
                     if item['instance'] == instance_name)
+
+    def sanity_checks(self):
+        # FIXME(decentral1se): Implement sanity checks
+        pass

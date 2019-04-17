@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /.bundle/
 /.yardoc
 /_yardoc/
@@ -6,3 +7,25 @@
 /pkg/
 /spec/reports/
 /tmp/
+=======
+*.egg-info/
+*.py[cod]
+*.retry
+.bundle/
+.cache/
+.coverage
+.coverage.*
+.eggs/
+.tox/
+.vagrant/
+.pytest_cache/
+build/
+dist/
+doc/build/
+htmlcov/
+pytestdebug.log
+ubuntu-xenial-16.04-cloudimg-console.log
+.python-version
+coverage.xml
+pip-wheel-metadata
+>>>>>>> 0bcce3509ee0740f20724d18369f4c7eb6751b3d

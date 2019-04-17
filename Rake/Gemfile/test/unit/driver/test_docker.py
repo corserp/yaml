@@ -57,6 +57,7 @@ def test_login_cmd_template_property(_instance):
          '-e COLUMNS={columns} '
          '-e LINES={lines} '
          '-e TERM=bash '
+         '-e TERM=xterm '
          '-ti {instance} bash')
 
     assert x == _instance.login_cmd_template
@@ -113,7 +114,7 @@ def test_ssh_connection_options_property(_instance):
     assert [] == _instance.ssh_connection_options
 
 
-def test_status(mocker, _instance):
+def test_status(_instance):
     result = _instance.status()
 
     assert 2 == len(result)
@@ -139,3 +140,11 @@ def test_created(_instance):
 
 def test_converged(_instance):
     assert 'false' == _instance._converged()
+
+
+def test_sanity_checks_missing_docker_dependency(mocker, _instance):
+    target = 'ansible.module_utils.docker_common.HAS_DOCKER_PY'
+    mocker.patch(target, False)
+
+    with pytest.raises(SystemExit):
+        _instance.sanity_checks()

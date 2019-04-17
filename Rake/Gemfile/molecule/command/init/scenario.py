@@ -25,6 +25,7 @@ import click
 from molecule import config
 from molecule import logger
 from molecule import util
+from molecule.command import base as command_base
 from molecule.command.init import base
 
 LOG = logger.get_logger(__name__)
@@ -32,15 +33,19 @@ LOG = logger.get_logger(__name__)
 
 class Scenario(base.Base):
     """
-    Initialize a new scenario:
+    .. program:: molecule init scenario --scenario-name bar --role-name foo
 
-    $ molecule init scenario --scenario-name default --role-name foo
+    .. option:: molecule init scenario --scenario-name bar --role-name foo
 
-    Initialize an existing role with Molecule:
+        Initialize a new scenario using a local _cookiecutter_ template. In
+        order to customise the role, please refer to the `init role` command.
 
-    $ cd foo
-    $ molecule init scenario --scenario-name default --role-name foo
-    """
+    .. program:: cd foo; molecule init scenario --scenario-name bar --role-name foo
+
+    .. option:: cd foo; molecule init scenario --scenario-name bar --role-name foo
+
+        Initialize an existing role with Molecule:
+    """  # noqa
 
     def __init__(self, command_args):
         self._command_args = command_args
@@ -85,6 +90,11 @@ class Scenario(base.Base):
 
 
 def _role_exists(ctx, param, value):  # pragma: no cover
+    # if role name was not mentioned we assume that current directory is the
+    # one hosting the role and determining the role name.
+    if not value:
+        value = os.path.basename(os.getcwd())
+
     role_directory = os.path.join(os.pardir, value)
     if not os.path.exists(role_directory):
         msg = ("The role '{}' not found. "
@@ -94,13 +104,15 @@ def _role_exists(ctx, param, value):  # pragma: no cover
 
 
 def _default_scenario_exists(ctx, param, value):  # pragma: no cover
-    if value == 'default':
+    if value == command_base.MOLECULE_DEFAULT_SCENARIO_NAME:
         return value
 
-    default_scenario_directory = os.path.join('molecule', 'default')
+    default_scenario_directory = os.path.join(
+        'molecule', command_base.MOLECULE_DEFAULT_SCENARIO_NAME)
     if not os.path.exists(default_scenario_directory):
         msg = ('The default scenario not found.  Please create a scenario '
-               "named 'default' first.")
+               "named '{}' first.").format(
+                   command_base.MOLECULE_DEFAULT_SCENARIO_NAME)
         util.sysexit_with_message(msg)
     return value
 
@@ -131,16 +143,17 @@ def _default_scenario_exists(ctx, param, value):  # pragma: no cover
 @click.option(
     '--role-name',
     '-r',
-    required=True,
+    required=False,
     callback=_role_exists,
     help='Name of the role to create.')
 @click.option(
     '--scenario-name',
     '-s',
-    default='default',
+    default=command_base.MOLECULE_DEFAULT_SCENARIO_NAME,
     required=True,
     callback=_default_scenario_exists,
-    help='Name of the scenario to create.')
+    help='Name of the scenario to create. ({})'.format(
+        command_base.MOLECULE_DEFAULT_SCENARIO_NAME))
 @click.option(
     '--verifier-name',
     type=click.Choice(config.molecule_verifiers()),

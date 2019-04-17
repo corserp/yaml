@@ -251,6 +251,18 @@ def test_safe_load_returns_empty_dict_on_empty_string():
     assert {} == util.safe_load('')
 
 
+def test_safe_load_exits_when_cannot_parse():
+    data = """
+---
+%foo:
+""".strip()
+
+    with pytest.raises(SystemExit) as e:
+        util.safe_load(data)
+
+    assert 1 == e.value.code
+
+
 def test_safe_load_file(temp_dir):
     path = os.path.join(temp_dir.strpath, 'foo')
     util.write_file(path, 'foo: bar')
@@ -336,6 +348,10 @@ def test_abs_path(temp_dir):
         os.path.join(os.getcwd(), os.path.pardir, 'foo', 'bar'))
 
     assert x == util.abs_path(os.path.join(os.path.pardir, 'foo', 'bar'))
+
+
+def test_abs_path_with_none_path():
+    assert util.abs_path(None) is None
 
 
 def test_camelize():

@@ -33,10 +33,12 @@ LOG = logger.get_logger(__name__)
 
 class Template(base.Base):
     """
-    Initialize a new role from a Cookiecutter URL:
+    .. program:: molecule init template --url https://example.com/user/cookiecutter-repo
 
-    $ molecule init template --url https://example.com/user/cookiecutter-repo
-    """
+    .. option:: molecule init template --url https://example.com/user/cookiecutter-repo
+
+        Initialize a new role from a Cookiecutter URL.
+    """  # noqa
 
     def __init__(self, command_args):
         self._command_args = command_args

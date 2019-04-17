@@ -10,6 +10,8 @@ Variable Substitution
 .. autoclass:: molecule.interpolation.Interpolator()
    :undoc-members:
 
+.. _dependency:
+
 Dependency
 ----------
 
@@ -34,6 +36,8 @@ Shell
 .. autoclass:: molecule.dependency.shell.Shell()
    :undoc-members:
 
+.. _driver:
+
 Driver
 ------
 
@@ -42,6 +46,7 @@ any provider `Ansible`_ supports.  This work is offloaded to the `provisioner`.
 
 The driver's name is specified in `molecule.yml`, and can be overriden on the
 command line.  Molecule will remember the last successful driver used, and
+
 continue to use the driver for all subsequent subcommands, or until the
 instances are destroyed by Molecule.
 
@@ -53,6 +58,9 @@ instances are destroyed by Molecule.
     The driver's python package requires installation.
 
 .. _`Ansible`: https://docs.ansible.com
+
+
+.. _azure-driver:
 
 Azure
 ^^^^^
@@ -66,11 +74,21 @@ Delegated
 .. autoclass:: molecule.driver.delegated.Delegated()
    :undoc-members:
 
+
+DigitalOcean
+^^^^^^^^^^^^
+
+.. autoclass:: molecule.driver.digitalocean.DigitalOcean()
+   :undoc-members:
+
+
 Docker
 ^^^^^^
 
 .. autoclass:: molecule.driver.docker.Docker()
    :undoc-members:
+
+.. _ec2-driver:
 
 EC2
 ^^^
@@ -78,10 +96,20 @@ EC2
 .. autoclass:: molecule.driver.ec2.EC2()
    :undoc-members:
 
+.. _gce-driver:
+
 GCE
 ^^^
 
 .. autoclass:: molecule.driver.gce.GCE()
+   :undoc-members:
+
+.. _linode-driver:
+
+Linode
+^^^^^^
+
+.. autoclass:: molecule.driver.linode.Linode()
    :undoc-members:
 
 LXC
@@ -193,7 +221,7 @@ Create instances with interfaces.
                 network_name: private_network
                 type: static
             platform_box: ubuntu/trusty64
-            state: destroy
+            state: up
 
 Create instances with additional provider options.
 
@@ -260,6 +288,8 @@ templates.
             - instance-1
             - instance-2
 
+.. _linters:
+
 Lint
 ----
 
@@ -271,11 +301,15 @@ Yaml Lint
 .. autoclass:: molecule.lint.yamllint.Yamllint()
    :undoc-members:
 
+.. _platforms:
+
 Platforms
 ---------
 
 .. autoclass:: molecule.platforms.Platforms()
    :undoc-members:
+
+.. _provisioner:
 
 Provisioner
 -----------
@@ -306,6 +340,16 @@ configuration syntax.
 
 .. autoclass:: molecule.scenario.Scenario()
    :undoc-members:
+
+State
+-----
+
+An internal bookkeeping mechanism.
+
+.. autoclass:: molecule.state.State()
+  :undoc-members:
+
+.. _verifier:
 
 Verifier
 --------

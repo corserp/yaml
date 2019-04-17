@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  no_log: "{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
+  no_log: "{{ molecule_no_log }}"
   tasks:
     - name: Create molecule instance(s)
       molecule_vagrant:
@@ -22,6 +22,7 @@
         provider_cpus: "{{ item.cpus | default(omit) }}"
         provider_options: "{{ item.provider_options | default(omit) }}"
         provider_raw_config_args: "{{ item.provider_raw_config_args | default(omit) }}"
+        provider_override_args: "{{ item.provider_override_args | default(omit) }}"
 
         provision: "{{ item.provision | default(omit) }}"
 
@@ -53,8 +54,6 @@
 
     - name: Dump instance config
       copy:
-        # NOTE(retr0h): Workaround for Ansible 2.2.
-        #               https://github.com/ansible/ansible/issues/20885
         content: "{{ instance_conf | to_json | from_json | molecule_to_yaml | molecule_header }}"
         dest: "{{ molecule_instance_config }}"
       when: server.changed | bool

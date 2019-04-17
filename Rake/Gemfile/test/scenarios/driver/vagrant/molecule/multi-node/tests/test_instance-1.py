@@ -19,8 +19,8 @@ def test_cpus(host):
 
 
 def test_memory(host):
-    total_memory = host.ansible("setup")['ansible_facts'][
-        'ansible_memtotal_mb']
+    total_memory = host.ansible(
+        "setup")['ansible_facts']['ansible_memtotal_mb']
 
     assert (1024 / 2) <= int(total_memory) <= 1024
 
@@ -29,3 +29,7 @@ def test_has_shared_directory(host):
     f = host.file('/vagrant')
 
     assert f.is_directory
+
+
+def test_internal_interface(host):
+    assert '192.168.0.1' in host.interface('eth2').addresses

@@ -4,6 +4,8 @@ dependency:
 driver:
   # NOTE(retr0h): Functional test overrides this on command line.
   name: vagrant
+  provider:
+    name: virtualbox
 lint:
   name: yamllint
   options:
@@ -13,6 +15,9 @@ platforms:
     image: centos:latest
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      callback_whitelist: profile_roles,profile_tasks,timer
   playbooks:
     docker:
       create: ../../../../resources/playbooks/docker/create.yml

@@ -32,6 +32,7 @@ from molecule.dependency import gilt
 from molecule.dependency import shell
 from molecule.driver import azure
 from molecule.driver import delegated
+from molecule.driver import digitalocean
 from molecule.driver import docker
 from molecule.driver import ec2
 from molecule.driver import gce
@@ -62,6 +63,13 @@ def test_command_args_member(config_instance):
 
 def test_debug_property(config_instance):
     assert not config_instance.debug
+
+
+def test_env_file_property(config_instance):
+    config_instance.args = {'env_file': '.env'}
+    result = config_instance.env_file
+
+    assert util.abs_path(config_instance.args.get('env_file')) == result
 
 
 def test_subcommand_property(config_instance):
@@ -167,6 +175,22 @@ def test_driver_property_is_delegated(config_instance):
 
 
 @pytest.fixture
+def _config_driver_digitalocean_section_data():
+    return {
+        'driver': {
+            'name': 'digitalocean'
+        },
+    }
+
+
+@pytest.mark.parametrize(
+    'config_instance', ['_config_driver_digitalocean_section_data'],
+    indirect=True)
+def test_driver_property_is_digitalocean(config_instance):
+    assert isinstance(config_instance.driver, digitalocean.DigitalOcean)
+
+
+@pytest.fixture
 def _config_driver_ec2_section_data():
     return {
         'driver': {
@@ -264,9 +288,11 @@ def test_drivers_property(config_instance):
     x = [
         'azure',
         'delegated',
+        'digitalocean',
         'docker',
         'ec2',
         'gce',
+        'linode',
         'lxc',
         'lxd',
         'openstack',
@@ -277,33 +303,27 @@ def test_drivers_property(config_instance):
 
 
 def test_env(config_instance):
+    config_instance.args = {'env_file': '.env'}
     x = {
-        'MOLECULE_DEBUG':
-        'False',
-        'MOLECULE_FILE':
-        config_instance.molecule_file,
-        'MOLECULE_INVENTORY_FILE':
-        config_instance.provisioner.inventory_file,
+        'MOLECULE_DEBUG': 'False',
+        'MOLECULE_FILE': config_instance.molecule_file,
+        'MOLECULE_ENV_FILE': util.abs_path(
+            config_instance.args.get('env_file')),
+        'MOLECULE_INVENTORY_FILE': config_instance.provisioner.inventory_file,
         'MOLECULE_EPHEMERAL_DIRECTORY':
         config_instance.scenario.ephemeral_directory,
-        'MOLECULE_SCENARIO_DIRECTORY':
-        config_instance.scenario.directory,
-        'MOLECULE_INSTANCE_CONFIG':
-        config_instance.driver.instance_config,
-        'MOLECULE_DEPENDENCY_NAME':
-        'galaxy',
-        'MOLECULE_DRIVER_NAME':
-        'docker',
-        'MOLECULE_LINT_NAME':
-        'yamllint',
-        'MOLECULE_PROVISIONER_NAME':
-        'ansible',
-        'MOLECULE_SCENARIO_NAME':
-        'default',
-        'MOLECULE_VERIFIER_NAME':
-        'testinfra',
-        'MOLECULE_VERIFIER_TEST_DIRECTORY':
-        config_instance.verifier.directory,
+        'MOLECULE_SCENARIO_DIRECTORY': config_instance.scenario.directory,
+        'MOLECULE_PROJECT_DIRECTORY': config_instance.project_directory,
+        'MOLECULE_INSTANCE_CONFIG': config_instance.driver.instance_config,
+        'MOLECULE_DEPENDENCY_NAME': 'galaxy',
+        'MOLECULE_DRIVER_NAME': 'docker',
+        'MOLECULE_LINT_NAME': 'yamllint',
+        'MOLECULE_PROVISIONER_NAME': 'ansible',
+        'MOLECULE_PROVISIONER_LINT_NAME': 'ansible-lint',
+        'MOLECULE_SCENARIO_NAME': 'default',
+        'MOLECULE_VERIFIER_NAME': 'testinfra',
+        'MOLECULE_VERIFIER_LINT_NAME': 'flake8',
+        'MOLECULE_VERIFIER_TEST_DIRECTORY': config_instance.verifier.directory,
     }
 
     assert x == config_instance.env
@@ -406,25 +426,29 @@ def test_get_driver_name_raises_when_different_driver_used(
     patched_logger_critical.assert_called_once_with(msg)
 
 
-def test_combine(config_instance):
-    assert isinstance(config_instance._combine(), dict)
+def test_get_config(config_instance):
+    assert isinstance(config_instance._get_config(), dict)
 
 
-def test_combine_with_base_config(config_instance):
+def test_get_config_with_base_config(config_instance):
     config_instance.args = {'base_config': './foo.yml'}
     contents = {'foo': 'bar'}
     util.write_file(config_instance.args['base_config'],
                     util.safe_dump(contents))
-    result = config_instance._combine()
+    result = config_instance._get_config()
 
     assert result['foo'] == 'bar'
+
+
+def test_reget_config(config_instance):
+    assert isinstance(config_instance._reget_config(), dict)
 
 
 def test_interpolate(patched_logger_critical, config_instance):
     string = 'foo: $HOME'
     x = 'foo: {}'.format(os.environ['HOME'])
 
-    assert x == config_instance._interpolate(string)
+    assert x == config_instance._interpolate(string, os.environ, None)
 
 
 def test_interpolate_raises_on_failed_interpolation(patched_logger_critical,
@@ -432,13 +456,43 @@ def test_interpolate_raises_on_failed_interpolation(patched_logger_critical,
     string = '$6$8I5Cfmpr$kGZB'
 
     with pytest.raises(SystemExit) as e:
-        config_instance._interpolate(string)
+        config_instance._interpolate(string, os.environ, None)
 
     assert 1 == e.value.code
 
     msg = ("parsing config file '{}'.\n\n"
            'Invalid placeholder in string: line 1, col 1\n'
            '$6$8I5Cfmpr$kGZB').format(config_instance.molecule_file)
+    patched_logger_critical.assert_called_once_with(msg)
+
+
+def test_get_defaults(config_instance, mocker):
+    mocker.patch.object(config_instance, 'molecule_file',
+                        '/path/to/test_scenario_name/molecule.yml')
+    defaults = config_instance._get_defaults()
+    assert defaults['scenario']['name'] == 'test_scenario_name'
+
+
+def test_preflight(mocker, config_instance, patched_logger_info):
+    m = mocker.patch('molecule.model.schema_v2.pre_validate')
+    m.return_value = None
+
+    config_instance._preflight('foo')
+
+    m.assert_called_once_with('foo', os.environ, config.MOLECULE_KEEP_STRING)
+
+
+def test_preflight_exists_when_validation_fails(
+        mocker, patched_logger_critical, config_instance):
+    m = mocker.patch('molecule.model.schema_v2.pre_validate')
+    m.return_value = 'validation errors'
+
+    with pytest.raises(SystemExit) as e:
+        config_instance._preflight('invalid stream')
+
+    assert 1 == e.value.code
+
+    msg = 'Failed to validate.\n\nvalidation errors'
     patched_logger_critical.assert_called_once_with(msg)
 
 
@@ -453,8 +507,6 @@ def test_validate(mocker, config_instance, patched_logger_info,
     patched_logger_info.assert_called_once_with(msg)
 
     m.assert_called_once_with(config_instance.config)
-    assert 'ansible-galaxy' == config_instance.config['dependency']['command']
-    assert 'docker' == config_instance.config['driver']['name']
 
     msg = 'Validation completed successfully.'
     patched_logger_success.assert_called_once_with(msg)
@@ -486,9 +538,11 @@ def test_molecule_drivers():
     x = [
         'azure',
         'delegated',
+        'digitalocean',
         'docker',
         'ec2',
         'gce',
+        'linode',
         'lxc',
         'lxd',
         'openstack',
@@ -502,3 +556,23 @@ def test_molecule_verifiers():
     x = ['goss', 'inspec', 'testinfra']
 
     assert x == config.molecule_verifiers()
+
+
+def test_set_env_from_file(config_instance):
+    config_instance.args = {'env_file': '.env'}
+    contents = {
+        'foo': 'bar',
+        'BAZ': 'zzyzx',
+    }
+    env_file = config_instance.args.get('env_file')
+    util.write_file(env_file, util.safe_dump(contents))
+    env = config.set_env_from_file({}, env_file)
+
+    assert contents == env
+
+
+def test_set_env_from_file_returns_original_env_when_env_file_not_found(
+        config_instance):
+    env = config.set_env_from_file({}, 'file-not-found')
+
+    assert {} == env

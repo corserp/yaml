@@ -36,9 +36,9 @@ class GCE(base.Base):
     has deployed project wide ssh key.
 
     Molecule leverages Ansible's `gce_module`_, by mapping variables from
-    `molecule.yml` into `create.yml` and `destroy.yml`.
+    ``molecule.yml`` into ``create.yml`` and ``destroy.yml``.
 
-    .. _`gce_module`: http://docs.ansible.com/ansible/latest/gce_module.html
+    .. _`gce_module`: https://docs.ansible.com/ansible/latest/gce_module.html
 
     .. code-block:: yaml
 
@@ -49,7 +49,7 @@ class GCE(base.Base):
 
     .. code-block:: bash
 
-        $ sudo pip install apache-libcloud
+        $ pip install molecule[gce]
 
     Change the options passed to the ssh client.
 
@@ -65,7 +65,8 @@ class GCE(base.Base):
         Molecule does not merge lists, when overriding the developer must
         provide all options.
 
-    Provide the files Molecule will preserve upon each subcommand execution.
+    Provide a list of files Molecule will preserve, relative to the scenario
+    ephemeral directory, after any ``destroy`` subcommand execution.
 
     .. code-block:: yaml
 
@@ -140,3 +141,7 @@ class GCE(base.Base):
 
         return next(item for item in instance_config_dict
                     if item['instance'] == instance_name)
+
+    def sanity_checks(self):
+        # FIXME(decentral1se): Implement sanity checks
+        pass

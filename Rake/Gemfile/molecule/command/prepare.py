@@ -22,7 +22,6 @@ import click
 
 from molecule import config
 from molecule import logger
-from molecule import scenarios
 from molecule.command import base
 
 LOG = logger.get_logger(__name__)
@@ -30,29 +29,54 @@ LOG = logger.get_logger(__name__)
 
 class Prepare(base.Base):
     """
-    Target the default scenario:
+    This action is for the purpose of preparing a molecule managed instance
+    before the :py:class:`molecule.command.converge.Converge` action is run.
+    Tasks contained within the ``prepare.yml`` playbook in the scenario
+    directory will be run remotely on the managed instance. This action is run
+    only once per test sequence.
 
-    $ molecule prepare
+    .. program:: molecule prepare
 
-    Targeting a specific scenario:
+    .. option:: molecule prepare
 
-    $ molecule prepare --scenario-name foo
+        Target the default scenario.
 
-    Targeting a specific driver:
+    .. program:: molecule prepare --scenario-name foo
 
-    $ molecule prepare --driver-name foo
+    .. option:: molecule prepare --scenario-name foo
 
-    Force the execution fo the prepare playbook:
+        Targeting a specific scenario.
 
-    $ molecule prepare --force
+    .. program:: molecule prepare --driver-name foo
 
-    Executing with `debug`:
+    .. option:: molecule prepare --driver-name foo
 
-    $ molecule --debug prepare
+        Targeting a specific driver.
 
-    Executing with a `base-config`:
+    .. program:: molecule prepare --force
 
-    $ molecule --base-config base.yml prepare
+    .. option:: molecule prepare --force
+
+        Force the execution fo the prepare playbook.
+
+    .. program:: molecule --debug prepare
+
+    .. option:: molecule --debug prepare
+
+        Executing with `debug`.
+
+    .. program:: molecule --base-config base.yml prepare
+
+    .. option:: molecule --base-config base.yml prepare
+
+        Executing with a `base-config`.
+
+    .. program:: molecule --env-file foo.yml prepare
+
+    .. option:: molecule --env-file foo.yml prepare
+
+        Load an env file to read variables from when rendering
+        molecule.yml.
     """
 
     def execute(self):
@@ -84,8 +108,9 @@ class Prepare(base.Base):
 @click.option(
     '--scenario-name',
     '-s',
-    default='default',
-    help='Name of the scenario to target. (default)')
+    default=base.MOLECULE_DEFAULT_SCENARIO_NAME,
+    help='Name of the scenario to target. ({})'.format(
+        base.MOLECULE_DEFAULT_SCENARIO_NAME))
 @click.option(
     '--driver-name',
     '-d',
@@ -108,10 +133,4 @@ def prepare(ctx, scenario_name, driver_name, force):  # pragma: no cover
         'force': force,
     }
 
-    s = scenarios.Scenarios(
-        base.get_configs(args, command_args), scenario_name)
-    s.print_matrix()
-    for scenario in s:
-        for action in scenario.sequence:
-            scenario.config.action = action
-            base.execute_subcommand(scenario.config, action)
+    base.execute_cmdline_scenarios(scenario_name, args, command_args)

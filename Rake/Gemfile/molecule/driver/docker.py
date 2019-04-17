@@ -24,8 +24,9 @@ import os
 
 from molecule import logger
 from molecule.driver import base
+from molecule.util import sysexit_with_message
 
-LOG = logger.get_logger(__name__)
+log = logger.get_logger(__name__)
 
 
 class Docker(base.Base):
@@ -34,9 +35,10 @@ class Docker(base.Base):
     the default driver used in Molecule.
 
     Molecule leverages Ansible's `docker_container`_ module, by mapping
-    variables from `molecule.yml` into `create.yml` and `destroy.yml`.
+    variables from ``molecule.yml`` into ``create.yml`` and ``destroy.yml``.
 
-    .. _`docker_container`: http://docs.ansible.com/ansible/latest/docker_container_module.html
+    .. _`docker_container`: https://docs.ansible.com/ansible/latest/docker_container_module.html
+    .. _`Docker Security Configuration`: https://docs.docker.com/engine/reference/run/#security-configuration
 
     .. code-block:: yaml
 
@@ -46,16 +48,26 @@ class Docker(base.Base):
           - name: instance
             hostname: instance
             image: image_name:tag
+            dockerfile: Dockerfile.j2
+            pull: True|False
+            pre_build_image: True|False
             registry:
               url: registry.example.com
               credentials:
                 username: $USERNAME
                 password: $PASSWORD
                 email: user@example.com
+            override_command: True|False
             command: sleep infinity
+            pid_mode: host
             privileged: True|False
+            security_opts:
+              - seccomp=unconfined
             volumes:
               - /sys/fs/cgroup:/sys/fs/cgroup:ro
+            tmpfs:
+              - /tmp
+              - /run
             capabilities:
               - SYS_ADMIN
             exposed_ports:
@@ -71,13 +83,58 @@ class Docker(base.Base):
             networks:
               - name: foo
               - name: bar
+            network_mode: host
+            purge_networks: true
             docker_host: tcp://localhost:12376
+            env:
+              FOO: bar
+            restart_policy: on-failure
+            restart_retries: 1
+            buildargs:
+                http_proxy: http://proxy.example.com:8080/
+
+    If specifying the `CMD`_ directive in your ``Dockerfile.j2`` or consuming a
+    built image which declares a ``CMD`` directive, then you must set
+    ``override_command: False``. Otherwise, Molecule takes care to honour the
+    value of the ``command`` key or uses the default of ``bash -c "while true;
+    do sleep 10000; done"`` to run the container until it is provisioned.
+
+    When attempting to utilize a container image with `systemd`_ as your init
+    system inside the container to simulate a real machine, make sure to set
+    the ``privileged``, ``volume_mounts``, ``command``, and ``environment``
+    values. An example using the ``centos:7`` image is below:
+
+    .. note:: Do note that running containers in privileged mode is considerably
+              less secure. For details, please reference `Docker Security
+              Configuration`_
+
+    .. code-block:: yaml
+
+        platforms:
+        - name: instance
+          image: centos:7
+          privileged: true
+          volume_mounts:
+            - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
+          command: "/usr/sbin/init"
+          environment:
+            container: docker
 
     .. code-block:: bash
 
-        $ sudo pip install docker-py
+        $ pip install molecule[docker]
 
-    Provide the files Molecule will preserve upon each subcommand execution.
+    When pulling from a private registry, the username and password must be
+    exported as environment variables in the current shell. The only supported
+    variables are $USERNAME and $PASSWORD.
+
+    .. code-block:: bash
+
+        $ export USERNAME=foo
+        $ export PASSWORD=bar
+
+    Provide a list of files Molecule will preserve, relative to the scenario
+    ephemeral directory, after any ``destroy`` subcommand execution.
 
     .. code-block:: yaml
 
@@ -87,6 +144,8 @@ class Docker(base.Base):
             - foo
 
     .. _`Docker`: https://www.docker.com
+    .. _`systemd`: https://www.freedesktop.org/wiki/Software/systemd/
+    .. _`CMD`: https://docs.docker.com/engine/reference/builder/#cmd
     """  # noqa
 
     def __init__(self, config):
@@ -107,6 +166,7 @@ class Docker(base.Base):
                 '-e COLUMNS={columns} '
                 '-e LINES={lines} '
                 '-e TERM=bash '
+                '-e TERM=xterm '
                 '-ti {instance} bash')
 
     @property
@@ -125,3 +185,36 @@ class Docker(base.Base):
 
     def ansible_connection_options(self, instance_name):
         return {'ansible_connection': 'docker'}
+
+    def sanity_checks(self):
+        """Implement Docker driver sanity checks."""
+
+        if self._config.state.sanity_checked:
+            return
+
+        log.info("Sanity checks: '{}'".format(self._name))
+
+        try:
+            from ansible.module_utils.docker_common import HAS_DOCKER_PY
+            if not HAS_DOCKER_PY:
+                msg = ('Missing Docker driver dependency. Please '
+                       "install via 'molecule[docker]' or refer to "
+                       'your INSTALL.rst driver documentation file')
+                sysexit_with_message(msg)
+        except ImportError:
+            msg = ('Unable to import Ansible. Please ensure '
+                   'that Ansible is installed')
+            sysexit_with_message(msg)
+
+        try:
+            import docker
+            import requests
+            docker_client = docker.from_env()
+            docker_client.ping()
+        except requests.exceptions.ConnectionError:
+            msg = ('Unable to contact the Docker daemon. '
+                   'Please refer to https://docs.docker.com/config/daemon/ '
+                   'for managing the daemon')
+            sysexit_with_message(msg)
+
+        self._config.state.change_state('sanity_checked', True)

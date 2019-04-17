@@ -27,7 +27,7 @@ class InvalidInterpolation(Exception):
 class Interpolator(object):
     """
     Configuration options may contain environment variables.  For example,
-    suppose the shell contains `VERIFIER_NAME=testinfra` and the following
+    suppose the shell contains ``VERIFIER_NAME=testinfra`` and the following
     molecule.yml is supplied.
 
     .. code-block:: yaml
@@ -35,29 +35,40 @@ class Interpolator(object):
         verifier:
           - name: ${VERIFIER_NAME}
 
-    Molecule will substitute `$VERIFIER_NAME` with the value of the
-    `VERIFIER_NAME` environment variable.
+    Molecule will substitute ``$VERIFIER_NAME`` with the value of the
+    ``VERIFIER_NAME`` environment variable.
 
     .. warning::
 
         If an environment variable is not set, Molecule substitutes with an
         empty string.
 
-    Both `$VARIABLE` and `${VARIABLE}` syntax are supported. Extended
-    shell-style features, such as `${VARIABLE-default}` and
-    `${VARIABLE:-default}` are also supported.
+    Both ``$VARIABLE`` and ``${VARIABLE}`` syntax are supported. Extended
+    shell-style features, such as ``${VARIABLE-default}`` and
+    ``${VARIABLE:-default}`` are also supported.
 
     If a literal dollar sign is needed in a configuration, use a double dollar
     sign (`$$`).
+
+    Molecule will substitute special ``MOLECULE_`` environment variables
+    defined in `molecule.yml`.
+
+    .. important::
+
+        Remember, the ``MOLECULE_`` namespace is reserved for Molecule.  Do not
+        prefix your own variables with `MOLECULE_`.
+
+    A file may be placed in the root of the project as `env.yml`, and Molecule
+    will read variables when rendering `molecule.yml`.  See command usage.
     """
 
     def __init__(self, templater, mapping):
         self.templater = templater
         self.mapping = mapping
 
-    def interpolate(self, string):
+    def interpolate(self, string, keep_string=None):
         try:
-            return self.templater(string).substitute(self.mapping)
+            return self.templater(string).substitute(self.mapping, keep_string)
         except ValueError as e:
             raise InvalidInterpolation(string, e)
 
@@ -66,12 +77,15 @@ class TemplateWithDefaults(string.Template):
     idpattern = r'[_a-z][_a-z0-9]*(?::?-[^}]+)?'
 
     # Modified from python2.7/string.py
-    def substitute(self, mapping):
+    def substitute(self, mapping, keep_string):
         # Helper function for .sub()
         def convert(mo):
             # Check the most common path first.
             named = mo.group('named') or mo.group('braced')
             if named is not None:
+                # TODO(retr0h): This needs to be better handled.
+                if keep_string and named.startswith(keep_string):
+                    return '$%s' % named
                 if ':-' in named:
                     var, _, default = named.partition(':-')
                     return mapping.get(var) or default

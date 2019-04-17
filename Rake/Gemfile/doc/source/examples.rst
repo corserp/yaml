@@ -4,7 +4,9 @@ Examples
 
 A good source of examples are the `scenario`_ functional tests.
 
-.. _`scenario`: https://github.com/metacloud/molecule/tree/master/test/scenarios/driver
+.. _`scenario`: https://github.com/ansible/molecule/tree/master/test/scenarios/driver
+
+.. _docker-usage-example:
 
 Docker
 ======
@@ -12,7 +14,7 @@ Docker
 Molecule can be executed via an Alpine Linux container by leveraging dind
 (Docker in Docker).  Currently, we only build images for the latest version
 of Ansible and Molecule.  In the future we may break this out into Molecule/
-Ansible versioned pairs.  The images are located on `Docker Hub`_.
+Ansible versioned pairs.  The images are located on `quay.io`_.
 
 To test a role, change directory into the role to test, and execute Molecule as
 follows.
@@ -20,13 +22,13 @@ follows.
 .. code-block:: bash
 
     docker run --rm -it \
-        -v '$(pwd)':/tmp/$(basename "${PWD}"):ro \
+        -v "$(pwd)":/tmp/$(basename "${PWD}"):ro \
         -v /var/run/docker.sock:/var/run/docker.sock \
         -w /tmp/$(basename "${PWD}") \
-        retr0h/molecule:latest \
-        sudo molecule test
+        quay.io/ansible/molecule:2.20 \
+        molecule test
 
-.. _`Docker Hub`: https://hub.docker.com/r/retr0h/molecule/
+.. _`quay.io`: https://quay.io/repository/ansible/molecule
 
 Monolith Repo
 =============
@@ -52,7 +54,7 @@ test roles from a monolith repo.
             └── README.md
 
 The role initialized with Molecule (baz in this case) would simply reference
-the dependant roles via it's `playbook.yml` or meta dependencies.
+the dependant roles via it's ``playbook.yml`` or meta dependencies.
 
 Molecule can test complex scenarios leveraging this technique.
 
@@ -61,7 +63,7 @@ Molecule can test complex scenarios leveraging this technique.
     $ cd monolith-repo/roles/baz
     $ molecule test
 
-Molecule is simply setting the `ANSIBLE_*` environment variables.  To view the
+Molecule is simply setting the ``ANSIBLE_*`` environment variables.  To view the
 environment variables set during a Molecule operation pass the ``--debug``
 flag.
 
@@ -77,7 +79,7 @@ flag.
     ANSIBLE_ROLES_PATH: /private/tmp/monolith-repo/roles:/private/tmp/monolith-repo/roles/baz/molecule/default/.molecule/roles
 
 Molecule can be customized any number of ways.  Updating the provisioner's env
-section in `molecule.yml` to suit the needs of the developer and layout of the
+section in ``molecule.yml`` to suit the needs of the developer and layout of the
 project.
 
 .. code-block:: yaml
@@ -90,42 +92,78 @@ project.
 Systemd Container
 =================
 
-The docker daemon was designed to provide a simple means of starting, stopping
-and managing containers. It was not originally designed to bring up an entire
-Linux system or manage services for such things as start-up order, dependency
-checking, and failed service recovery. [1]_
-
-To start a service which requires systemd, configure `molecule.yml` with a
-systemd compliant image, capabilities, volumes, and command as follows.
+To start a service which requires systemd, `in a non-privileged container`_,
+configure ``molecule.yml`` with a systemd compliant image, tmpfs, volumes,
+and command as follows.
 
 .. code-block:: yaml
 
     platforms:
       - name: instance
-        image: solita/ubuntu-systemd:latest
+        image: centos:7
+        command: /sbin/init
+        tmpfs:
+          - /run
+          - /tmp
+        volumes:
+          - /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+Note that centos:7 image contains a `seccomp security profile for Docker`_ which enables the use of systemd.
+When needed, such security profiles can be reused (for example `the one available in Fedora`_):
+
+.. code-block:: yaml
+
+    platforms:
+      - name: instance
+        image: debian:stretch
+        command: /sbin/init
+        security_opts:
+          - seccomp=path/to/seccomp.json
+        tmpfs:
+          - /run
+          - /tmp
+        volumes:
+          - /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+The developer can also opt to `start the container with extended privileges`_,
+by either giving it ``SYS_ADMIN`` capabilites or running it in ``privileged`` mode.
+
+.. important::
+
+    Use caution when using ``privileged`` mode or ``SYS_ADMIN``
+    capabilities as it `grants the container elevated access`_ to the
+    underlying system.
+
+To limit the scope of the extended privileges, grant ``SYS_ADMIN``
+capabilities along with the same image, command, and volumes as shown in the ``non-privileged`` example.
+
+.. code-block:: yaml
+
+    platforms:
+      - name: instance
+        image: centos:7
         command: /sbin/init
         capabilities:
           - SYS_ADMIN
         volumes:
           - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
-The developer can also opt to start the container with extended privileges.
+To start the container in ``privileged`` mode, set the privileged flag along with the
+same image and command as shown in the ``non-privileged`` example.
 
-.. important::
-
-    Use caution when using `privileged` mode. [2]_ [3]_
-
-.. code-block:: bash
+.. code-block:: yaml
 
     platforms:
       - name: instance
-        image: solita/ubuntu-systemd:latest
-        privileged: True
+        image: centos:7
         command: /sbin/init
+        privileged: True
 
-.. [1] https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/using_systemd_with_containers
-.. [2] https://blog.docker.com/2013/09/docker-can-now-run-within-docker/
-.. [3] https://groups.google.com/forum/#!topic/docker-user/RWLHyzg6Z78
+.. _`seccomp security profile for Docker`: https://docs.docker.com/engine/security/seccomp/
+.. _`the one available in fedora`: https://src.fedoraproject.org/rpms/docker/raw/master/f/seccomp.json
+.. _`in a non-privileged container`: https://developers.redhat.com/blog/2016/09/13/running-systemd-in-a-non-privileged-container/
+.. _`start the container with extended privileges`: https://blog.docker.com/2013/09/docker-can-now-run-within-docker/
+.. _`grants the container elevated access`: https://groups.google.com/forum/#!topic/docker-user/RWLHyzg6Z78
 
 Vagrant Proxy Settings
 ======================
@@ -179,7 +217,7 @@ Playbooks and tests can be shared across scenarios.
     │       └── molecule.yml
 
 Tests can be shared across scenarios.  In this example the `tests` directory
-lives in a shared location and `molecule.yml` is points to the shared tests.
+lives in a shared location and ``molecule.yml`` is points to the shared tests.
 
 .. code-block:: yaml
 

@@ -29,12 +29,12 @@ LOG = logger.get_logger(__name__)
 class EC2(base.Base):
     """
     The class responsible for managing `EC2`_ instances.  `EC2`_
-    is `not` the default driver used in Molecule.
+    is ``not`` the default driver used in Molecule.
 
     Molecule leverages Ansible's `ec2_module`_, by mapping variables from
-    `molecule.yml` into `create.yml` and `destroy.yml`.
+    ``molecule.yml`` into ``create.yml`` and ``destroy.yml``.
 
-    .. _`ec2_module`: http://docs.ansible.com/ansible/latest/ec2_module.html
+    .. _`ec2_module`: https://docs.ansible.com/ansible/latest/ec2_module.html
 
     .. code-block:: yaml
 
@@ -43,10 +43,47 @@ class EC2(base.Base):
         platforms:
           - name: instance
 
+    Some configuration examples:
+
+    .. code-block:: yaml
+
+        driver:
+          name: ec2
+        platforms:
+          - name: instance
+            image: ami-0311dc90a352b25f4
+            instance_type: t2.micro
+            vpc_subnet_id: subnet-1cb17175
+
+    If you don't know the AMI code or want to avoid hardcoding it:
+
+    .. code-block:: yaml
+
+        driver:
+          name: ec2
+        platforms:
+          - name: instance
+            image_owner: 099720109477
+            image_name: ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20190320
+            instance_type: t2.micro
+            vpc_subnet_id: subnet-1cb17175
+
+    Use wildcards for getting the latest image. For example, the latest Ubuntu bionic image:
+
+    .. code-block:: yaml
+
+        driver:
+          name: ec2
+        platforms:
+          - name: instance
+            image_owner: 099720109477
+            image_name: ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*
+            instance_type: t2.micro
+            vpc_subnet_id: subnet-1cb17175
+
     .. code-block:: bash
 
-        $ sudo pip install boto
-        $ sudo pip install boto3
+        $ pip install 'molecule[ec2]'
 
     Change the options passed to the ssh client.
 
@@ -62,7 +99,8 @@ class EC2(base.Base):
         Molecule does not merge lists, when overriding the developer must
         provide all options.
 
-    Provide the files Molecule will preserve upon each subcommand execution.
+    Provide a list of files Molecule will preserve, relative to the scenario
+    ephemeral directory, after any ``destroy`` subcommand execution.
 
     .. code-block:: yaml
 
@@ -137,3 +175,7 @@ class EC2(base.Base):
 
         return next(item for item in instance_config_dict
                     if item['instance'] == instance_name)
+
+    def sanity_checks(self):
+        # FIXME(decentral1se): Implement sanity checks
+        pass

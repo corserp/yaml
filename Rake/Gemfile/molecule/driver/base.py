@@ -73,7 +73,7 @@ class Base(object):
     @abc.abstractproperty
     def login_cmd_template(self):  # pragma: no cover
         """
-        The login command template to be populated by `login_options` and
+        The login command template to be populated by ``login_options`` and
         returns a string.
 
         :returns: str
@@ -116,6 +116,19 @@ class Base(object):
 
         :param instance_name: A string containing the instance to login to.
         :returns: dict
+        """
+        pass
+
+    @abc.abstractmethod
+    def sanity_checks(self):
+        """
+        Sanity checks to ensure the driver can do work successfully. For
+        example, when using the Docker driver, we want to know that the Docker
+        daemon is running and we have the correct Docker Python dependency.
+        Each driver implementation can decide what is the most stable sanity
+        check for itself.
+
+        :returns: None
         """
         pass
 
@@ -165,7 +178,7 @@ class Base(object):
 
             Molecule assumes all instances were created successfully by
             Ansible, otherwise Ansible would return an error on create.  This
-            may prove to be a bad assumption.  However, configuring Moleule's
+            may prove to be a bad assumption.  However, configuring Molecule's
             driver to match the options passed to the playbook may prove
             difficult.  Especially in cases where the user is provisioning
             instances off localhost.

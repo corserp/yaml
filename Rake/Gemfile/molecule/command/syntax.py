@@ -21,7 +21,6 @@
 import click
 
 from molecule import logger
-from molecule import scenarios
 from molecule.command import base
 
 LOG = logger.get_logger(__name__)
@@ -29,21 +28,36 @@ LOG = logger.get_logger(__name__)
 
 class Syntax(base.Base):
     """
-    Target the default scenario:
+    .. program:: molecule syntax
 
-    $ molecule syntax
+    .. option:: molecule syntax
 
-    Targeting a specific scenario:
+        Target the default scenario.
 
-    $ molecule syntax --scenario-name foo
+    .. program:: molecule syntax --scenario-name foo
 
-    Executing with `debug`:
+    .. option:: molecule syntax --scenario-name foo
 
-    $ molecule --debug syntax
+        Targeting a specific scenario.
 
-    Executing with a `base-config`:
+    .. program:: molecule --debug syntax
 
-    $ molecule --base-config base.yml syntax
+    .. option:: molecule --debug syntax
+
+        Executing with `debug`.
+
+    .. program:: molecule --base-config base.yml syntax
+
+    .. option:: molecule --base-config base.yml syntax
+
+        Executing with a `base-config`.
+
+    .. program:: molecule --env-file foo.yml syntax
+
+    .. option:: molecule --env-file foo.yml syntax
+
+        Load an env file to read variables from when rendering
+        molecule.yml.
     """
 
     def execute(self):
@@ -62,8 +76,9 @@ class Syntax(base.Base):
 @click.option(
     '--scenario-name',
     '-s',
-    default='default',
-    help='Name of the scenario to target. (default)')
+    default=base.MOLECULE_DEFAULT_SCENARIO_NAME,
+    help='Name of the scenario to target. ({})'.format(
+        base.MOLECULE_DEFAULT_SCENARIO_NAME))
 def syntax(ctx, scenario_name):  # pragma: no cover
     """ Use the provisioner to syntax check the role. """
     args = ctx.obj.get('args')
@@ -72,10 +87,4 @@ def syntax(ctx, scenario_name):  # pragma: no cover
         'subcommand': subcommand,
     }
 
-    s = scenarios.Scenarios(
-        base.get_configs(args, command_args), scenario_name)
-    s.print_matrix()
-    for scenario in s:
-        for action in scenario.sequence:
-            scenario.config.action = action
-            base.execute_subcommand(scenario.config, action)
+    base.execute_cmdline_scenarios(scenario_name, args, command_args)

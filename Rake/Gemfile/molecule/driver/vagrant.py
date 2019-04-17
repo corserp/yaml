@@ -33,23 +33,23 @@ class Vagrant(base.Base):
     `not` the default driver used in Molecule.
 
     Molecule leverages Molecule's own :ref:`molecule_vagrant_module`, by
-    mapping variables from `molecule.yml` into `create.yml` and `destroy.yml`.
+    mapping variables from ``molecule.yml`` into ``create.yml`` and ``destroy.yml``.
 
     .. important::
 
         This driver is alpha quality software.  Do not perform any additonal
-        tasks inside the `create` playbook.  Molecule does not know about the
-        Vagrant instances' configuration until the `converge` playbook is
+        tasks inside the ``create`` playbook.  Molecule does not know about the
+        Vagrant instances' configuration until the ``converge`` playbook is
         executed.
 
-        The `create` playbook boots instances, then the instance data is
+        The ``create`` playbook boots instances, then the instance data is
         written to disk.  The instance data is then added to Molecule's Ansible
         inventory on the next execution of `molecule.command.create`, which
-        happens to be the `converge` playbook.
+        happens to be the ``converge`` playbook.
 
         This is an area needing improvement.  Gluing togher Ansible playbook
         return data and molecule is clunky.  Moving the playbook execution
-        from `sh` to python is less than ideal, since the playbook's return
+        from ``sh`` to python is less than ideal, since the playbook's return
         data needs handled by an internal callback plugin.
 
         Operating this far inside Ansible's internals doesn't feel right.  Nor
@@ -60,7 +60,7 @@ class Vagrant(base.Base):
 
         driver:
           name: vagrant
-        platforms
+        platforms:
           - name: instance-1
             instance_raw_config_args:
               - "vm.network 'forwarded_port', guest: 80, host: 8080"
@@ -79,11 +79,13 @@ class Vagrant(base.Base):
               gui: True
             provider_raw_config_args:
               - "customize ['modifyvm', :id, '--cpuexecutioncap', '50']"
+            provider_override_args:
+              - "vm.synced_folder './', '/vagrant', disabled: true, type: 'nfs'"
             provision: True
 
     .. code-block:: bash
 
-        $ sudo pip install python-vagrant
+        $ pip install molecule[vagrant]
 
     Change the provider passed to Vagrant.
 
@@ -108,7 +110,8 @@ class Vagrant(base.Base):
         Molecule does not merge lists, when overriding the developer must
         provide all options.
 
-    Provide the files Molecule will preserve upon each subcommand execution.
+    Provide a list of files Molecule will preserve, relative to the scenario
+    ephemeral directory, after any ``destroy`` subcommand execution.
 
     .. code-block:: yaml
 
@@ -208,3 +211,7 @@ class Vagrant(base.Base):
 
         return next(item for item in instance_config_dict
                     if item['instance'] == instance_name)
+
+    def sanity_checks(self):
+        # FIXME(decentral1se): Implement sanity checks
+        pass

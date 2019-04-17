@@ -21,7 +21,6 @@
 import click
 
 from molecule import logger
-from molecule import scenarios
 from molecule.command import base
 
 LOG = logger.get_logger(__name__)
@@ -29,28 +28,45 @@ LOG = logger.get_logger(__name__)
 
 class Converge(base.Base):
     """
-    Target the default scenario:
+    .. program:: molecule converge
 
-    $ molecule converge
+    .. option:: molecule converge
 
-    Targeting a specific scenario:
+        Target the default scenario.
 
-    $ molecule converge --scenario-name foo
+    .. program:: molecule converge --scenario-name foo
 
-    Providing additional command line arguments to the `ansible-playbook`
-    command.  Use this option with care, as there is no sanitation or
-    validation of input.  Options passed on the CLI override options
-    provided in provisioner's `options` section of `molecule.yml`.
+    .. option:: molecule converge --scenario-name foo
 
-    $ molecule converge -- -vvv -tags foo,bar
+        Targeting a specific scenario.
 
-    Executing with `debug`:
+    .. program:: molecule converge -- -vvv --tags foo,bar
 
-    $ molecule --debug converge
+    .. option:: molecule converge -- -vvv --tags foo,bar
 
-    Executing with a `base-config`:
+        Providing additional command line arguments to the `ansible-playbook`
+        command.  Use this option with care, as there is no sanitation or
+        validation of input.  Options passed on the CLI override options
+        provided in provisioner's `options` section of `molecule.yml`.
 
-    $ molecule --base-config base.yml converge
+    .. program:: molecule --debug converge
+
+    .. option:: molecule --debug converge
+
+        Executing with `debug`.
+
+    .. program:: molecule --base-config base.yml converge
+
+    .. option:: molecule --base-config base.yml converge
+
+        Executing with a `base-config`.
+
+    .. program:: molecule --env-file foo.yml converge
+
+    .. option:: molecule --env-file foo.yml converge
+
+        Load an env file to read variables from when rendering
+        molecule.yml.
     """
 
     def execute(self):
@@ -70,8 +86,9 @@ class Converge(base.Base):
 @click.option(
     '--scenario-name',
     '-s',
-    default='default',
-    help='Name of the scenario to target. (default)')
+    default=base.MOLECULE_DEFAULT_SCENARIO_NAME,
+    help='Name of the scenario to target. ({})'.format(
+        base.MOLECULE_DEFAULT_SCENARIO_NAME))
 @click.argument('ansible_args', nargs=-1, type=click.UNPROCESSED)
 def converge(ctx, scenario_name, ansible_args):  # pragma: no cover
     """
@@ -85,10 +102,4 @@ def converge(ctx, scenario_name, ansible_args):  # pragma: no cover
         'subcommand': subcommand,
     }
 
-    s = scenarios.Scenarios(
-        base.get_configs(args, command_args, ansible_args), scenario_name)
-    s.print_matrix()
-    for scenario in s:
-        for action in scenario.sequence:
-            scenario.config.action = action
-            base.execute_subcommand(scenario.config, action)
+    base.execute_cmdline_scenarios(scenario_name, args, command_args)

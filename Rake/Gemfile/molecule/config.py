@@ -21,6 +21,8 @@
 import os
 
 import anyconfig
+from ansible.module_utils.parsing.convert_bool import boolean
+import six
 
 from molecule import interpolation
 from molecule import logger
@@ -33,9 +35,11 @@ from molecule.dependency import gilt
 from molecule.dependency import shell
 from molecule.driver import azure
 from molecule.driver import delegated
+from molecule.driver import digitalocean
 from molecule.driver import docker
 from molecule.driver import ec2
 from molecule.driver import gce
+from molecule.driver import linode
 from molecule.driver import lxc
 from molecule.driver import lxd
 from molecule.driver import openstack
@@ -48,22 +52,33 @@ from molecule.verifier import inspec
 from molecule.verifier import testinfra
 
 LOG = logger.get_logger(__name__)
+MOLECULE_DEBUG = boolean(os.environ.get('MOLECULE_DEBUG', 'False'))
 MOLECULE_DIRECTORY = 'molecule'
 MOLECULE_FILE = 'molecule.yml'
 MERGE_STRATEGY = anyconfig.MS_DICTS
+MOLECULE_KEEP_STRING = 'MOLECULE_'
 
 
+# https://stackoverflow.com/questions/16017397/injecting-function-call-after-init-with-decorator  # noqa
+class NewInitCaller(type):
+    def __call__(cls, *args, **kwargs):
+        obj = type.__call__(cls, *args, **kwargs)
+        obj.after_init()
+        return obj
+
+
+@six.add_metaclass(NewInitCaller)
 class Config(object):
     """
-    Molecule searches the current directory for `molecule.yml` files by
+    Molecule searches the current directory for ``molecule.yml`` files by
     globbing `molecule/*/molecule.yml`.  The files are instantiated into
     a list of Molecule :class:`.Config` objects, and each Molecule subcommand
     operates on this list.
 
-    The directory in which the `molecule.yml` resides is the Scenario's
+    The directory in which the ``molecule.yml`` resides is the Scenario's
     directory.  Molecule performs most functions within this directory.
 
-    The :class:`.Config` object has instantiated Dependency_, Driver_,
+    The :class:`.Config` object instantiates Dependency_, Driver_,
     :ref:`root_lint`, Platforms_, Provisioner_, Verifier_,
     :ref:`root_scenario`, and State_ references.
     """
@@ -83,21 +98,27 @@ class Config(object):
         :param command_args: An optional dict of options passed to the
          subcommand from the CLI.
         :param ansible_args: An optional tuple of arguments provided to the
-         `ansible-playbook` command.
+         ``ansible-playbook`` command.
         :returns: None
         """
         self.molecule_file = molecule_file
         self.args = args
         self.command_args = command_args
         self.ansible_args = ansible_args
-        self.config = self._combine()
+        self.config = self._get_config()
         self._action = None
 
+    def after_init(self):
+        self.config = self._reget_config()
         self._validate()
 
     @property
     def debug(self):
-        return self.args.get('debug', False)
+        return self.args.get('debug', MOLECULE_DEBUG)
+
+    @property
+    def env_file(self):
+        return util.abs_path(self.args.get('env_file'))
 
     @property
     def subcommand(self):
@@ -140,12 +161,16 @@ class Config(object):
             driver = azure.Azure(self)
         elif driver_name == 'delegated':
             driver = delegated.Delegated(self)
+        elif driver_name == 'digitalocean':
+            driver = digitalocean.DigitalOcean(self)
         elif driver_name == 'docker':
             driver = docker.Docker(self)
         elif driver_name == 'ec2':
             driver = ec2.EC2(self)
         elif driver_name == 'gce':
             driver = gce.GCE(self)
+        elif driver_name == 'linode':
+            driver = linode.Linode(self)
         elif driver_name == 'lxc':
             driver = lxc.LXC(self)
         elif driver_name == 'lxd':
@@ -168,16 +193,20 @@ class Config(object):
         return {
             'MOLECULE_DEBUG': str(self.debug),
             'MOLECULE_FILE': self.molecule_file,
+            'MOLECULE_ENV_FILE': self.env_file,
             'MOLECULE_INVENTORY_FILE': self.provisioner.inventory_file,
             'MOLECULE_EPHEMERAL_DIRECTORY': self.scenario.ephemeral_directory,
             'MOLECULE_SCENARIO_DIRECTORY': self.scenario.directory,
+            'MOLECULE_PROJECT_DIRECTORY': self.project_directory,
             'MOLECULE_INSTANCE_CONFIG': self.driver.instance_config,
             'MOLECULE_DEPENDENCY_NAME': self.dependency.name,
             'MOLECULE_DRIVER_NAME': self.driver.name,
             'MOLECULE_LINT_NAME': self.lint.name,
             'MOLECULE_PROVISIONER_NAME': self.provisioner.name,
+            'MOLECULE_PROVISIONER_LINT_NAME': self.provisioner.lint.name,
             'MOLECULE_SCENARIO_NAME': self.scenario.name,
             'MOLECULE_VERIFIER_NAME': self.verifier.name,
+            'MOLECULE_VERIFIER_LINT_NAME': self.verifier.lint.name,
             'MOLECULE_VERIFIER_TEST_DIRECTORY': self.verifier.directory,
         }
 
@@ -245,7 +274,30 @@ class Config(object):
 
         return driver_name
 
-    def _combine(self):
+    def _get_config(self):
+        """
+        Perform a prioritized recursive merge of config files, and returns
+        a new dict.  Prior to merging the config files are interpolated with
+        environment variables.
+
+        :return: dict
+        """
+        return self._combine(keep_string=MOLECULE_KEEP_STRING)
+
+    def _reget_config(self):
+        """
+        Perform the same prioritized recursive merge from `get_config`, this
+        time, interpolating the ``keep_string`` left behind in the original
+        ``get_config`` call.  This is probably __very__ bad.
+
+        :return: dict
+        """
+        env = util.merge_dicts(os.environ.copy(), self.env)
+        env = set_env_from_file(env, self.env_file)
+
+        return self._combine(env=env)
+
+    def _combine(self, env=os.environ, keep_string=None):
         """
         Perform a prioritized recursive merge of config files, and returns
         a new dict.  Prior to merging the config files are interpolated with
@@ -253,39 +305,45 @@ class Config(object):
 
         1. Loads Molecule defaults.
         2. Loads a base config (if provided) and merges ontop of defaults.
-        3. Loads the scenario's `molecule file` and merges ontop of previous
+        3. Loads the scenario's ``molecule file`` and merges ontop of previous
            merge.
 
         :return: dict
         """
         defaults = self._get_defaults()
         base_config = self.args.get('base_config')
-        if base_config:
-            if os.path.exists(base_config):
-                with util.open_file(base_config) as stream:
-                    interpolated_config = self._interpolate(stream.read())
-                    defaults = util.merge_dicts(
-                        defaults, util.safe_load(interpolated_config))
+        if base_config and os.path.exists(base_config):
+            with util.open_file(base_config) as stream:
+                s = stream.read()
+                self._preflight(s)
+                interpolated_config = self._interpolate(s, env, keep_string)
+                defaults = util.merge_dicts(
+                    defaults, util.safe_load(interpolated_config))
 
         with util.open_file(self.molecule_file) as stream:
-            interpolated_config = self._interpolate(stream.read())
+            s = stream.read()
+            self._preflight(s)
+            interpolated_config = self._interpolate(s, env, keep_string)
             defaults = util.merge_dicts(defaults,
                                         util.safe_load(interpolated_config))
 
         return defaults
 
-    def _interpolate(self, stream):
-        i = interpolation.Interpolator(interpolation.TemplateWithDefaults,
-                                       os.environ)
+    def _interpolate(self, stream, env, keep_string):
+        env = set_env_from_file(env, self.env_file)
+
+        i = interpolation.Interpolator(interpolation.TemplateWithDefaults, env)
 
         try:
-            return i.interpolate(stream)
+            return i.interpolate(stream, keep_string)
         except interpolation.InvalidInterpolation as e:
             msg = ("parsing config file '{}'.\n\n"
                    '{}\n{}'.format(self.molecule_file, e.place, e.string))
             util.sysexit_with_message(msg)
 
     def _get_defaults(self):
+        scenario_name = (os.path.basename(os.path.dirname(self.molecule_file))
+                         or 'default')
         return {
             'dependency': {
                 'name': 'galaxy',
@@ -315,16 +373,19 @@ class Config(object):
             'provisioner': {
                 'name': 'ansible',
                 'config_options': {},
+                'ansible_args': [],
                 'connection_options': {},
                 'options': {},
                 'env': {},
                 'inventory': {
+                    'hosts': {},
                     'host_vars': {},
                     'group_vars': {},
                     'links': {},
                 },
                 'children': {},
                 'playbooks': {
+                    'cleanup': 'cleanup.yml',
                     'create': 'create.yml',
                     'converge': 'playbook.yml',
                     'destroy': 'destroy.yml',
@@ -341,16 +402,19 @@ class Config(object):
             },
             'scenario': {
                 'name':
-                'default',
+                scenario_name,
                 'check_sequence': [
-                    'destroy',
                     'dependency',
+                    'cleanup',
+                    'destroy',
                     'create',
                     'prepare',
                     'converge',
                     'check',
+                    'cleanup',
                     'destroy',
                 ],
+                'cleanup_sequence': ['cleanup'],
                 'converge_sequence': [
                     'dependency',
                     'create',
@@ -358,16 +422,20 @@ class Config(object):
                     'converge',
                 ],
                 'create_sequence': [
+                    'dependency',
                     'create',
                     'prepare',
                 ],
                 'destroy_sequence': [
+                    'dependency',
+                    'cleanup',
                     'destroy',
                 ],
                 'test_sequence': [
                     'lint',
-                    'destroy',
                     'dependency',
+                    'cleanup',
+                    'destroy',
                     'syntax',
                     'create',
                     'prepare',
@@ -375,6 +443,7 @@ class Config(object):
                     'idempotence',
                     'side_effect',
                     'verify',
+                    'cleanup',
                     'destroy',
                 ],
             },
@@ -394,14 +463,18 @@ class Config(object):
             },
         }
 
+    def _preflight(self, data):
+        env = os.environ.copy()
+        env = set_env_from_file(env, self.env_file)
+        errors = schema_v2.pre_validate(data, env, MOLECULE_KEEP_STRING)
+
+        if errors:
+            msg = "Failed to validate.\n\n{}".format(errors)
+            util.sysexit_with_message(msg)
+
     def _validate(self):
         msg = 'Validating schema {}.'.format(self.molecule_file)
         LOG.info(msg)
-
-        # Prior to validation, we must set values.  This allows us to perform
-        # validation in one place.  This feels gross.
-        self.config['dependency']['command'] = self.dependency.command
-        self.config['driver']['name'] = self.driver.name
 
         errors = schema_v2.validate(self.config)
         if errors:
@@ -424,9 +497,11 @@ def molecule_drivers():
     return [
         azure.Azure(None).name,
         delegated.Delegated(None).name,
+        digitalocean.DigitalOcean(None).name,
         docker.Docker(None).name,
         ec2.EC2(None).name,
         gce.GCE(None).name,
+        linode.Linode(None).name,
         lxc.LXC(None).name,
         lxd.LXD(None).name,
         openstack.Openstack(None).name,
@@ -440,3 +515,15 @@ def molecule_verifiers():
         inspec.Inspec(None).name,
         testinfra.Testinfra(None).name,
     ]
+
+
+def set_env_from_file(env, env_file):
+    if env_file and os.path.exists(env_file):
+        env = env.copy()
+        d = util.safe_load_file(env_file)
+        for k, v in d.items():
+            env[k] = v
+
+        return env
+
+    return env

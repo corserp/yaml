@@ -30,9 +30,9 @@ class LXC(base.Base):
     default driver used in Molecule.
 
     Molecule leverages Ansible's `lxc_container`_ module, by mapping variables
-    from `molecule.yml` into `create.yml` and `destroy.yml`.
+    from ``molecule.yml`` into ``create.yml`` and ``destroy.yml``.
 
-    .. _`lxc_container`: http://docs.ansible.com/ansible/latest/lxc_container_module.html
+    .. _`lxc_container`: https://docs.ansible.com/ansible/latest/lxc_container_module.html
 
     .. code-block:: yaml
 
@@ -41,9 +41,10 @@ class LXC(base.Base):
 
     .. code-block:: bash
 
-        $ sudo pip install lxc-python2
+        $ pip install molecule[lxc]
 
-    Provide the files Molecule will preserve upon each subcommand execution.
+    Provide a list of files Molecule will preserve, relative to the scenario
+    ephemeral directory, after any ``destroy`` subcommand execution.
 
     .. code-block:: yaml
 
@@ -84,3 +85,7 @@ class LXC(base.Base):
 
     def ansible_connection_options(self, instance_name):
         return {'ansible_connection': 'lxc'}
+
+    def sanity_checks(self):
+        # FIXME(decentral1se): Implement sanity checks
+        pass

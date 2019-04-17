@@ -21,7 +21,6 @@
 import click
 
 from molecule import logger
-from molecule import scenarios
 from molecule.command import base
 
 LOG = logger.get_logger(__name__)
@@ -29,21 +28,36 @@ LOG = logger.get_logger(__name__)
 
 class Check(base.Base):
     """
-    Target the default scenario:
+    .. program:: molecule check
 
-    $ molecule check
+    .. option:: molecule check
 
-    Targeting a specific scenario:
+        Target the default scenario.
 
-    $ molecule check --scenario-name foo
+    .. program:: molecule check --scenario-name foo
 
-    Executing with `debug`:
+    .. option:: molecule check --scenario-name foo
 
-    $ molecule --debug check
+        Targeting a specific scenario.
 
-    Executing with a `base-config`:
+    .. program:: molecule --debug check
 
-    $ molecule --base-config base.yml check
+    .. option:: molecule --debug check
+
+        Executing with `debug`.
+
+    .. program:: molecule --base-config base.yml check
+
+    .. option:: molecule --base-config base.yml check
+
+        Executing with a `base-config`.
+
+    .. program:: molecule --env-file foo.yml check
+
+    .. option:: molecule --env-file foo.yml check
+
+        Load an env file to read variables from when rendering
+        molecule.yml.
     """
 
     def execute(self):
@@ -62,8 +76,9 @@ class Check(base.Base):
 @click.option(
     '--scenario-name',
     '-s',
-    default='default',
-    help='Name of the scenario to target. (default)')
+    default=base.MOLECULE_DEFAULT_SCENARIO_NAME,
+    help='Name of the scenario to target. ({})'.format(
+        base.MOLECULE_DEFAULT_SCENARIO_NAME))
 def check(ctx, scenario_name):  # pragma: no cover
     """
     Use the provisioner to perform a Dry-Run (destroy, dependency, create,
@@ -75,10 +90,4 @@ def check(ctx, scenario_name):  # pragma: no cover
         'subcommand': subcommand,
     }
 
-    s = scenarios.Scenarios(
-        base.get_configs(args, command_args), scenario_name)
-    s.print_matrix()
-    for scenario in s:
-        for action in scenario.sequence:
-            scenario.config.action = action
-            base.execute_subcommand(scenario.config, action)
+    base.execute_cmdline_scenarios(scenario_name, args, command_args)

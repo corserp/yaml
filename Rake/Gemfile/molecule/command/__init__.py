@@ -23,6 +23,7 @@
 # or builtins.
 
 from molecule.command import base  # noqa
+from molecule.command import cleanup  # noqa
 from molecule.command import check  # noqa
 from molecule.command import converge  # noqa
 from molecule.command import create  # noqa
@@ -32,6 +33,7 @@ from molecule.command import idempotence  # noqa
 from molecule.command import lint  # noqa
 from molecule.command import list  # noqa
 from molecule.command import login  # noqa
+from molecule.command import matrix  # noqa
 from molecule.command import prepare  # noqa
 from molecule.command import side_effect  # noqa
 from molecule.command import syntax  # noqa

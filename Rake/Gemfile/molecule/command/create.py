@@ -22,7 +22,6 @@ import click
 
 from molecule import config
 from molecule import logger
-from molecule import scenarios
 from molecule.command import base
 
 LOG = logger.get_logger(__name__)
@@ -30,25 +29,42 @@ LOG = logger.get_logger(__name__)
 
 class Create(base.Base):
     """
-    Target the default scenario:
+    .. program:: molecule create
 
-    $ molecule create
+    .. option:: molecule create
 
-    Targeting a specific scenario:
+        Target the default scenario.
 
-    $ molecule create --scenario-name foo
+    .. program:: molecule create --scenario-name foo
 
-    Targeting a specific driver:
+    .. option:: molecule create --scenario-name foo
 
-    $ molecule converge --driver-name foo
+        Targeting a specific scenario.
 
-    Executing with `debug`:
+    .. program:: molecule create --driver-name foo
 
-    $ molecule --debug create
+    .. option:: molecule create --driver-name foo
 
-    Executing with a `base-config`:
+        Targeting a specific driver.
 
-    $ molecule --base-config base.yml create
+    .. program:: molecule --debug create
+
+    .. option:: molecule --debug create
+
+        Executing with `debug`.
+
+    .. program:: molecule --base-config base.yml create
+
+    .. option:: molecule --base-config base.yml create
+
+        Executing with a `base-config`.
+
+    .. program:: molecule --env-file foo.yml create
+
+    .. option:: molecule --env-file foo.yml create
+
+        Load an env file to read variables from when rendering
+        molecule.yml.
     """
 
     def execute(self):
@@ -81,8 +97,9 @@ class Create(base.Base):
 @click.option(
     '--scenario-name',
     '-s',
-    default='default',
-    help='Name of the scenario to target. (default)')
+    default=base.MOLECULE_DEFAULT_SCENARIO_NAME,
+    help='Name of the scenario to target. ({})'.format(
+        base.MOLECULE_DEFAULT_SCENARIO_NAME))
 @click.option(
     '--driver-name',
     '-d',
@@ -97,10 +114,4 @@ def create(ctx, scenario_name, driver_name):  # pragma: no cover
         'driver_name': driver_name,
     }
 
-    s = scenarios.Scenarios(
-        base.get_configs(args, command_args), scenario_name)
-    s.print_matrix()
-    for scenario in s:
-        for action in scenario.sequence:
-            scenario.config.action = action
-            base.execute_subcommand(scenario.config, action)
+    base.execute_cmdline_scenarios(scenario_name, args, command_args)

@@ -24,6 +24,7 @@
 import contextlib
 import datetime
 import os
+import subprocess
 import sys
 
 import molecule
@@ -332,11 +333,8 @@ Vagrant.configure('2') do |config|
 
       if instance['interfaces']
         instance['interfaces'].each { |interface|
-          if interface['type'] == 'static'
-            c.vm.network "#{interface['network_name']}", type: "#{interface['type']}", auto_config: "#{interface['auto_config']}", ip: "#{interface['ip']}"
-          else
-            c.vm.network "#{interface['network_name']}", type: "#{interface['type']}", auto_config: "#{interface['auto_config']}"
-          end
+          c.vm.network "#{interface['network_name']}",
+                       Hash[interface.select{|k| k != 'network_name'}.map{|k,v| [k.to_sym, v]}]
         }
       end
 
@@ -503,8 +501,7 @@ class VagrantClient(object):
                 self._module.params['instance_raw_config_args'],
             },
             'provider': {
-                'name':
-                self._module.params['provider_name'],
+                'name': self._module.params['provider_name'],
                 # NOTE(retr0h): Options provided here will be passed to
                 # Vagrant as "$provider_name.#{key} = #{value}".
                 'options': {
@@ -513,8 +510,7 @@ class VagrantClient(object):
                 },
                 'raw_config_args':
                 self._module.params['provider_raw_config_args'],
-                'override_args':
-                self._module.params['provider_override_args'],
+                'override_args': self._module.params['provider_override_args'],
             }
         }
 

@@ -1,7 +1,0 @@
-[style]
-based_on_style = pep8
-<<<<<<< HEAD
-column_limit = 79
-=======
-column_limit = 120
->>>>>>> initial commit

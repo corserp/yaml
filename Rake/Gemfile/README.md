@@ -1,11 +1,13 @@
-# Gemfile
-THIS IS MY GEM AND THE LINE TODO IS REPLACED
+# yaml 
+
+This is a test Gem for YAML
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'Gemfile'
+gem 'yaml'
 ```
 
 And then execute:
@@ -14,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install Gemfile
+    $ gem install yaml
 
 ## Usage
 
@@ -28,8 +30,18 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/Gemfile.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/psych.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+=======
+
+# yaml
+>>>>>>> abeb3f030da8c968ccc42c587512c2741151b8e4
+>>>>>>> origin/yaml
+=======
+>>>>>>> yaml
+>>>>>>> 545e91af3f9db9eb5caeecb6e644dab1a15d4349
+# yaml
+

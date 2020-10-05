@@ -1,5 +1,5 @@
 # yaml-app
 @github.io/gitdb/corserp
 
-## release_notes
-#issue.rbst/v1.0.2
+## ver_notes
+#CORSERP.rbst/v1.0.2

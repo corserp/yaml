@@ -1,3 +1,3 @@
-# yaml > yea.md5
+# yaml > INDEX.md5
 # 🔥yeah ##back
 yaml@corserp.git

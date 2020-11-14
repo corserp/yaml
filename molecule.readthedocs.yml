@@ -3,12 +3,12 @@ version: 2
 formats: all
 
 build:
-  image: latest
+  image: template-sphinx
 
 python:
   version: 3.7
   install:
   - method: pip
-    path: .
+    path: ../
     extra_requirements:
     - docs
